@@ -2,7 +2,6 @@
 
 namespace App\Helpers;
 use Illuminate\Support\Str;
-use App\Models;
 
 class GlobalHelpers
 {
