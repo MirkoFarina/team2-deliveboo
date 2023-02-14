@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('phone_number', 10);
             $table->string('email');
             $table->string('cover_image')->nullable();
-            $table->string('original_name');
+            $table->string('original_name')->nullable();
             $table->timestamps();
         });
     }

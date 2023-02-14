@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 75);
             $table->decimal('price', 5, 2);
-            $table->string('cover_image');
-            $table->string('original_name');
+            $table->string('cover_image')->nullable();
+            $table->string('original_name')->nullable();
             $table->text('ingredients');
             $table->boolean('is_available');
             $table->timestamps();
