@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             /* user_id (FK) */
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
             $table->string('name_of_restaurant', 75);
             $table->string('slug', 85);
             $table->string('p_iva', 11);

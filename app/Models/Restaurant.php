@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Restaurant extends Model
 {
@@ -20,5 +21,13 @@ class Restaurant extends Model
         'cover_image',
         'original_name',
     ];
+
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function user():HasOne{
+        return $this->hasOne(User::class);
+    }
 
 }
