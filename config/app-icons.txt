@@ -1,0 +1,31 @@
+IonIcons: <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+    Home: <ion-icon name="home-outline"></ion-icon>
+    Profile: <ion-icon name="person-circle-outline"></ion-icon>
+    Language: <ion-icon name="earth-outline"></ion-icon>
+    Restaurants: <ion-icon name="restaurant-outline"></ion-icon>
+
+    LOGOS:
+
+    Facebook: <ion-icon name="logo-facebook"></ion-icon>
+    Youtube: <ion-icon name="logo-youtube"></ion-icon>
+    LinkedIn: <ion-icon name="logo-linkedin"></ion-icon>
+    Discord: <ion-icon name="logo-linkedin"></ion-icon>
+    Laravel: <ion-icon name="logo-laravel"></ion-icon>
+    Vue: <ion-icon name="logo-laravel"></ion-icon>
+    
+    OTHERS:
+
+    Food Hamburger: <ion-icon name="fast-food-outline"></ion-icon>
+    Food Pizza: <ion-icon name="pizza-outline"></ion-icon>
+    Orders: <ion-icon name="receipt-outline"></ion-icon>
+    Statistics: <ion-icon name="stats-chart-outline"></ion-icon>
+    Log-out: <ion-icon name="exit-outline"></ion-icon>
+    Search: <ion-icon name="search-outline"></ion-icon>
+    Check: <ion-icon name="checkmark-circle-outline"></ion-icon>
+    Position: <ion-icon name="navigate-circle-outline"></ion-icon>
+
+    CRUD:
+    Show: <ion-icon name="eye-outline"></ion-icon>
+    Edit: <ion-icon name="create-outline"></ion-icon>
+    Delete: <ion-icon name="trash-outline"></ion-icon>
