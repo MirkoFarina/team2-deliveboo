@@ -11,6 +11,7 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name_of_restaurant',
         'slug',
         'p_iva',
