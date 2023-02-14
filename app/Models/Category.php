@@ -17,5 +17,4 @@ class Category extends Model
     public function restaurants(){
         return $this->belongsToMany(Category::class);
     }
-
 }
