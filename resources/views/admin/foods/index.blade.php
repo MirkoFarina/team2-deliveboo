@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container py-5">
+        <h1>
+            TABELLA CIBI
+            <a class="btn btn-success" href="{{route('admin.food.create')}}">AGGIUNGI UN NUOVO PIATTO</a>
+        </h1>
         <table class="table">
             <thead>
             <tr>
