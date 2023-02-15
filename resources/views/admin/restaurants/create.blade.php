@@ -14,7 +14,7 @@
                     <input type="text" name="name_of_restaurant"
                         class="form-control  @error('name_of_restaurant')
                     is-invalid  @enderror"
-                        id="name_of_restaurant" placeholder="inserire il nome del ristorante" value=" {{ old('name_of_restaurant') }} ">
+                        id="name_of_restaurant" placeholder="inserire il nome del ristorante" value="{{ old('name_of_restaurant') }}">
                     <div class="invalid-feedback">
                         @error('name_of_restaurant')
                             {{ $message }}
@@ -28,7 +28,7 @@
                     <input type="number" name="p_iva"
                         class="form-control @error('p_iva')
                     is-invalid  @enderror"
-                        id="p_iva" placeholder="inserire la partita IVA" value=" {{ old('p_iva') }} ">
+                        id="p_iva" placeholder="inserire la partita IVA" value="{{ old('p_iva') }}">
                     <div class="invalid-feedback">
                         @error('p_iva')
                             {{ $message }}
@@ -42,7 +42,7 @@
                     <input type="text" name="website"
                         class="form-control @error('website')
                     is-invalid  @enderror"
-                        id="website" placeholder="link del tuo sito web" value=" {{ old('website') }} ">
+                        id="website" placeholder="link del tuo sito web" value="{{ old('website') }}">
                     <div class="invalid-feedback">
                         @error('website')
                             {{ $message }}
@@ -56,7 +56,7 @@
                     <input type="text" name="address"
                         class="form-control @error('address')
                     is-invalid  @enderror"
-                        id="address" placeholder="Inserisci l'indirizzo della tua attività" value=" {{ old('address') }} ">
+                        id="address" placeholder="Inserisci l'indirizzo della tua attività" value="{{ old('address') }}">
                     <div class="invalid-feedback">
                         @error('address')
                             {{ $message }}
@@ -70,7 +70,7 @@
                     <input type="text" name="phone_number"
                         class="form-control @error('phone_number')
                     is-invalid  @enderror"
-                        id="phone_number" placeholder="Inserisci il numero di telefono della tua attività" value=" {{ old('phone_number') }} ">
+                        id="phone_number" placeholder="Inserisci il numero di telefono della tua attività" value="{{ old('phone_number') }}">
                     <div class="invalid-feedback">
                         @error('phone_number')
                             {{ $message }}
@@ -84,7 +84,7 @@
                     <input type="text" name="email"
                         class="form-control @error('email')
                     is-invalid  @enderror"
-                        id="email" placeholder="Inserisci l'email " value=" {{ old('email') }} ">
+                        id="email" placeholder="Inserisci l'email " value="{{ old('email') }}">
                     <div class="invalid-feedback">
                         @error('email')
                             {{ $message }}

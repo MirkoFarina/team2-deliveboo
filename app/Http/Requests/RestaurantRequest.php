@@ -27,7 +27,7 @@ class RestaurantRequest extends FormRequest
             'name_of_restaurant' => 'required|max:75',
             'p_iva' => 'required|max:11',
             'address' => 'required',
-            'phone_number' => 'required|max:12|numeric',
+            'phone_number' => 'required|max:12',
             'email' => 'required',
         ];
     }

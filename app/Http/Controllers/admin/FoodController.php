@@ -86,6 +86,7 @@ class FoodController extends Controller
     public function update(FoodRequest $request, Food $food)
     {
         $form_data = $request->all();
+        //GESTISTO LE IMMAGINI
         if(array_key_exists('cover_image', $form_data)){
             if($food->cover_image) {
                 Storage::disk('public')->delete($food->cover_image);
@@ -94,6 +95,7 @@ class FoodController extends Controller
             $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
         }
 
+        // ASSEGNO L'ID RESTAURANT
         $form_data['restaurant_id'] = Auth::id();
 
         $food->update($form_data);
@@ -108,6 +110,10 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
+        if($food->cover_image) {
+            Storage::disk('public')->delete($food->cover_image);
+        }
+
         $food->delete();
         return redirect()->route('admin.food.index')->with('delete', 'Il tuo piatto è stato eliminato correttamente');
     }
