@@ -9,5 +9,8 @@
                 <i class="fa-solid fa-chart-simple"></i> DASHBOARD
             </a>
         </li>
+        <li class="ps-3">
+            <a href=" {{route('admin.food.index' )}} "> FOODS</a>
+        </li>
     </ul>
 </div>
