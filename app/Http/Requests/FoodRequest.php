@@ -25,7 +25,7 @@ class FoodRequest extends FormRequest
     {
         return [
             'name'        =>  'required|max:75',
-            'price'       =>  'required|max:5|numeric',
+            'price'       =>  'required|numeric',
             'cover_image' =>  'required|max:5120',
             'ingredients' =>  'required'
         ];
