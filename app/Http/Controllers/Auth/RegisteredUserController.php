@@ -57,13 +57,13 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function show($id){
-        /* implementare un admin */
+    /* public function show($id){
+        //implementare un admin
         if(Auth::id() !== $id){
             return redirect()->route('')->with('denied', 'Accesso negato');
         }
 
-        /* eliminare il passaggio di password e altri campi superflui */
+        // eliminare il passaggio di password e altri campi superflui
         $user = User::find($id);
         return view('', compact('user'));
     }
@@ -77,6 +77,6 @@ class RegisteredUserController extends Controller
 
     public function update(ProfileUpdateRequest $request,  User $user){
 
-    }
+    } */
 
 }
