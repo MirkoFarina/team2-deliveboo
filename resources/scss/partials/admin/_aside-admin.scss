@@ -1,0 +1,15 @@
+@use '../variables' as *;
+
+#nav-aside {
+    height: calc(100vh - 70px);
+    background-color: $primary-color;
+    color: $secondary-color;
+    ul {
+        li {
+            margin-bottom: 10px;
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}

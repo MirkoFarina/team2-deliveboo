@@ -1,1 +1,13 @@
-@import '~bootstrap/scss/bootstrap'
+//*************************** ADMIN ***********************
+
+// GENERAL-ADMIN
+@use "./partials/admin/general-admin";
+
+// HEADER
+@use "./partials/admin/header-admin";
+
+// ASIDE
+@use "./partials/admin/aside-admin";
+
+//*************************** ADMIN ***********************
+@import '~bootstrap/scss/bootstrap';
