@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -55,4 +56,27 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function show($id){
+        /* implementare un admin */
+        if(Auth::id() !== $id){
+            return redirect()->route('')->with('denied', 'Accesso negato');
+        }
+
+        /* eliminare il passaggio di password e altri campi superflui */
+        $user = User::find($id);
+        return view('', compact('user'));
+    }
+    public function edit(User $user){
+        if(Auth::id() !== $user->id){
+            return redirect()->route('')->with('denied', 'Accesso negato');
+        }
+
+        return view('', compact('user'));
+    }
+
+    public function update(ProfileUpdateRequest $request,  User $user){
+
+    }
+
 }
