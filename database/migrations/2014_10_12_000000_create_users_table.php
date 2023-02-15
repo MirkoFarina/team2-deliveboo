@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 45);
             $table->string('surname', 45);
-            $table->string('address', 45);
+            $table->string('address');
             $table->string('phone_number', 10);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

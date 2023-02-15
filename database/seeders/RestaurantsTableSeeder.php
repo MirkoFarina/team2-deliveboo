@@ -24,7 +24,7 @@ class RestaurantsTableSeeder extends Seeder
         foreach ($res_arr as $res) {
             $new_res = new Restaurant();
 
-            $new_res->user_id = User::first()->id;
+            $new_res->user_id = User::inRandomOrder()->first()->id;
             $new_res->name_of_restaurant = $res['name_of_restaurant'];
             $new_res->slug = GlobalHelpers::generateSlug($new_res->name_of_restaurant, $new_res);
             $new_res->p_iva = $faker->bothify('###########');
