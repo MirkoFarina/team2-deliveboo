@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Helpers\GlobalHelpers;
 use App\Models\Restaurant;
 use App\Models\Food;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -23,7 +24,7 @@ class RestaurantsTableSeeder extends Seeder
         foreach ($res_arr as $res) {
             $new_res = new Restaurant();
 
-            $new_res->user_id = 1;
+            $new_res->user_id = User::first()->id;
             $new_res->name_of_restaurant = $res['name_of_restaurant'];
             $new_res->slug = GlobalHelpers::generateSlug($new_res->name_of_restaurant, $new_res);
             $new_res->p_iva = $faker->bothify('###########');
@@ -32,18 +33,19 @@ class RestaurantsTableSeeder extends Seeder
             $new_res->phone_number = $res['phone_number'];
             $new_res->email = $res['email'];
 
+            $new_res->save();
+
             foreach ($res['foods'] as $food) {
                 $new_food = new Food();
 
                 $new_food->restaurant_id = $res['id'];
                 $new_food->name = $food['name'];
                 $new_food->price = $food['price'];
-                $new_food->ingredients = $food['ingredients'];
+                $new_food->ingredients = $food['ingredient'];
                 $new_food->is_available = $food['is_available'];
 
                 $new_food->save();
             }
         }
-        $new_res->save();
     }
 }
