@@ -12,5 +12,8 @@
         <li class="ps-3">
             <a href=" {{route('admin.food.index' )}} "> FOODS</a>
         </li>
+        <li class="ps-3">
+            <a href=" {{route('admin.restaurants.index' )}} "> Restaurant</a>
+        </li>
     </ul>
 </div>

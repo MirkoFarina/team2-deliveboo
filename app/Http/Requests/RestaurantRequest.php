@@ -27,7 +27,7 @@ class RestaurantRequest extends FormRequest
             'name_of_restaurant' => 'required|max:75',
             'p_iva' => 'required|max:11',
             'address' => 'required',
-            'phone_number' => 'required|max:12',
+            'phone_number' => 'required|max:12|numeric',
             'email' => 'required',
         ];
     }
@@ -40,6 +40,7 @@ class RestaurantRequest extends FormRequest
 
             'p_iva.required' => 'La partita IVA è un campo obbligatorio',
             'p_iva.max' => 'La partita IVA può contenere al massimo :max caratteri',
+            'p_iva.numeric' => 'La formattazione della partita IVA è errata (inserire soltanto cifre)',
 
             'address.required' => 'l\'indirizzo è un campo obbligatorio',
 

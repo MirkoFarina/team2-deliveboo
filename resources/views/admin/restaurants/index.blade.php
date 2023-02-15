@@ -25,9 +25,22 @@
                 <div>
                     <h4>Email: {{ $restaurant->email }} </h4>
                 </div>
+
+                <a class="btn btn-warning" href=" {{route('admin.restaurants.edit', $restaurant) }} ">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                @include('admin.partials.form-delete', [
+                    'title'   => $restaurant->name_of_restaurant,
+                    'route'   => 'admin.restaurants.destroy',
+                    'element' => $restaurant
+                ])
             @else
                 <h4>Registra la tua attività con un click</h4>
+
+                <a class="btn btn-primary" href=" {{route('admin.restaurants.create') }} ">Registra il tuo ristorante</a>
             @endif
+
+
 
 
 
