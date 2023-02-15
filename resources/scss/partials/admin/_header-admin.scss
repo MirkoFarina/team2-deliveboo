@@ -1,0 +1,8 @@
+@use "../variables" as *;
+
+#admin-header {
+    height: 70px;
+    nav {
+        background-color: $primary-color;
+    }
+}
