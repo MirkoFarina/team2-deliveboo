@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FoodRequest;
 use App\Models\Food;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::all();
+        $res_id = Restaurant::where('user_id', Auth::id())->first()->id;
+        $foods = Food::where('restaurant_id', $res_id)->get();
 
         return view('admin.foods.index', compact('foods'));
     }
