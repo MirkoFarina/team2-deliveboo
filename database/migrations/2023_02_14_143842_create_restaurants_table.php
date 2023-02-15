@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('p_iva', 11);
             $table->string('website')->nullable();
             $table->string('address', 75);
-            $table->string('phone_number', 10);
+            $table->string('phone_number', 12);
             $table->string('email');
             $table->string('cover_image')->nullable();
             $table->string('original_name')->nullable();

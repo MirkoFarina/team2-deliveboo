@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     use HasFactory;
-
+    protected $table = 'foods';
     protected $fillable = [
         'name',
+        'restaurant_id',
         'price',
         'cover_image',
         'orginal_name',
@@ -18,11 +19,14 @@ class Food extends Model
         'is_available'
     ];
 
-    public function orders(){
+    public function orders()
+    {
         return $this->belongsToMany(Order::class);
     }
 
-    public function restaurant(){
+    public function restaurant()
+    {
         return $this->belongsTo(Restaurant::class);
     }
+
 }

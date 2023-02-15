@@ -10,33 +10,31 @@ return [
         "foods" =>[
             [
             "name"=>"Margherita",
-            "price" =>"5,00",
-            "is_available" =>"true",
+            "price" => 5.00,
+            "is_available" => true,
             "ingredient"  => "Mozzarella, Pomodoro"
             ],
             [
                 "name"=>"Marinara",
-                "price" =>"4,50",
-                "is_available" =>"true",
+                "price" =>4.50,
+                "is_available" =>true,
                 "ingredient"  => "Pomodoro, Acciughe"
             ],
             [
                 "name"=>"Salsiccia e patate",
-                "price" =>"8,00",
-                "is_available" =>"false",
+                "price" =>8.00,
+                "is_available" =>false,
                 "ingredient"  => "Mozzarella, Patate, Salsiccia"
             ],
             [
                 "name"=>"Diavola",
-                "price" =>"5,50",
-                "is_available" =>"true",
+                "price" =>5.50,
+                "is_available" =>true,
                 "ingredient"  => "Mozzarella, Pomodoro, Salame Piccante"
             ],
-
         ]
-
-        ],
-        [
+    ],
+    [
             "id" => "2",
             "email"=>"#",
             "address"=> "Vico S.Giuseppe Cristofaro 4",
@@ -46,29 +44,31 @@ return [
             "foods" =>[
                 [
                 "name"=>"Carbonara",
-                "price" =>"5,00",
-                "is_available" =>"true",
+                "price" =>5.00,
+                "is_available" =>true,
                 "ingredient"  => "Uovo, Pecorino, Rigatoni"
                 ],
                 [
                     "name"=>"Genovese",
-                    "price" =>"8,50",
-                    "is_available" =>"true",
+                    "price" =>8.5,
+                    "is_available" =>true,
                     "ingredient"  => "Cipolle, Spaghetti"
                 ],
                 [
                     "name"=>"Nerano",
-                    "price" =>"7,00",
-                    "is_available" =>"true",
+                    "price" =>7,
+                    "is_available" =>true,
                     "ingredient"  => "Pomodoro"
                 ],
                 [
                     "name"=>"Bolognese",
-                    "price" =>"5,50",
-                    "is_available" =>"false",
+                    "price" =>5.5,
+                    "is_available" =>false,
                     "ingredient"  => "Carne"
                 ],
             ],
+        ],
+
             [
                 "id" => "3",
                 "email"=>"#",
@@ -79,45 +79,41 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Spaghetti alle vongole",
-                    "price" =>"20,00",
-                    "is_available" =>"true",
+                    "price" =>20,
+                    "is_available" =>true,
                     "ingredient"  => "Spaghetti, Vongole, Aglio, Limone"
                     ],
                     [
                         "name"=>"Risotto alla pescatora",
-                        "price" =>"18,00",
-                        "is_available" =>"true",
+                        "price" =>18,
+                        "is_available" =>true,
                         "ingredient"  => "Risotto, Calamari, Vongole"
                     ],
                     [
                         "name"=>"Spaghetti con riccio",
-                        "price" =>"25,00",
-                        "is_available" =>"false",
+                        "price" =>25,
+                        "is_available" =>false,
                         "ingredient"  => "Spaghetti, Riccio"
                     ],
                     [
                         "name"=>"Genovese di mare",
-                        "price" =>"20,00",
-                        "is_available" =>"true",
+                        "price" =>20,
+                        "is_available" =>true,
                         "ingredient"  => "Cipolle, Tonno, Spaghetti"
                     ],
                     [
                         "name"=>"Pesce spada",
-                        "price" =>"15,00",
-                        "is_available" =>"true",
+                        "price" =>15,
+                        "is_available" =>true,
                         "ingredient"  => "Pesce Spada"
                     ],
                     [
                         "name"=>"Frittura di mare",
-                        "price" =>"15,00",
-                        "is_available" =>"true",
+                        "price" =>15,
+                        "is_available" =>true,
                         "ingredient"  => "Calamari, Pastella"
                     ],
-
-
                 ],
-
-            ]
 
             ],
             [
@@ -129,27 +125,27 @@ return [
                 "website"=> "http://www.otalebano.it/",
                 "foods" =>[
                     [
-                    "name"=>"Pita Pig",
-                    "price" =>"6,00",
-                    "is_available" =>"true",
-                    "ingredient"  => "Maiale, Pita"
+                        "name"=>"Pita Pig",
+                        "price" => 6,
+                        "is_available" =>true,
+                        "ingredient"  => "Maiale, Pita"
                     ],
                     [
                         "name"=>"Pita Peppers",
-                        "price" =>"4,50",
-                        "is_available" =>"true",
+                        "price" =>4.5,
+                        "is_available" =>true,
                         "ingredient"  => "Peperone, Pita"
                     ],
                     [
                         "name"=>"Pita Classica",
-                        "price" =>"4,00",
-                        "is_available" =>"false",
+                        "price" =>4,
+                        "is_available" =>false,
                         "ingredient"  => "Pita, Kebab"
                     ],
                     [
                         "name"=>"Pita Pastrami",
-                        "price" =>"5,50",
-                        "is_available" =>"true",
+                        "price" =>5.5,
+                        "is_available" =>true,
                         "ingredient"  => "Pita, Pasta"
                     ],
 
@@ -166,26 +162,26 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Genovese",
-                    "price" =>"5,00",
-                    "is_available" =>"true",
+                    "price" =>5,
+                    "is_available" =>true,
                     "ingredient"  => "Cipolle, Pasta"
                     ],
                     [
                         "name"=>"Pasta Patate e provola",
-                        "price" =>"5,50",
-                        "is_available" =>"true",
+                        "price" =>5.5,
+                        "is_available" =>true,
                         "ingredient"  => "Patate, Provola, Tubetti"
                     ],
                     [
                         "name"=>"Ragù",
-                        "price" =>"8,00",
-                        "is_available" =>"false",
+                        "price" =>8,
+                        "is_available" =>false,
                         "ingredient"  => "Carne, Pasta, Sugo"
                     ],
                     [
                         "name"=>"Pasta e fagioli",
-                        "price" =>"4,50",
-                        "is_available" =>"true",
+                        "price" =>4.5,
+                        "is_available" =>true,
                         "ingredient"  => "Pasta, Fagioli"
                     ],
 
@@ -202,26 +198,26 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Genovese",
-                    "price" =>"8,00",
-                    "is_available" =>"true",
+                    "price" =>8,
+                    "is_available" =>true,
                     "ingredient"  => "Cipolla, Pasta"
                     ],
                     [
                         "name"=>"Ziti al ragù",
-                        "price" =>"5,50",
-                        "is_available" =>"true",
+                        "price" =>5.5,
+                        "is_available" =>true,
                         "ingredient"  => "Carne, Pasta"
                     ],
                     [
                         "name"=>"Polpette al sugo",
-                        "price" =>"8,00",
-                        "is_available" =>"true",
+                        "price" =>8,
+                        "is_available" =>true,
                         "ingredient"  => "Polpette, Sugo"
                     ],
                     [
                         "name"=>"Gnocchi con ragù e provola",
-                        "price" =>"7,50",
-                        "is_available" =>"true",
+                        "price" =>7.5,
+                        "is_available" =>true,
                         "ingredient"  => "Ragu, Provola"
                     ],
 
@@ -238,26 +234,26 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Tartelle al salmone",
-                    "price" =>"8,00",
-                    "is_available" =>"true",
+                    "price" =>8,
+                    "is_available" =>true,
                     "ingredient"  => "Salmone, Tartelle"
                     ],
                     [
                         "name"=>"Tempura di gamberi",
-                        "price" =>"10,00",
-                        "is_available" =>"true",
+                        "price" =>10,
+                        "is_available" =>true,
                         "ingredient"  => "Pastella, Gamberi"
                     ],
                     [
                         "name"=>"Ceviche peruviana",
-                        "price" =>"12,00",
-                        "is_available" =>"true",
+                        "price" =>12,
+                        "is_available" =>true,
                         "ingredient"  => "Peperone, Pita"
                     ],
                     [
                         "name"=>"Bao buns",
-                        "price" =>"5,50",
-                        "is_available" =>"true",
+                        "price" =>5.5,
+                        "is_available" =>true,
                         "ingredient"  => "Peperone, Pita"
                     ],
 
@@ -274,26 +270,26 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Cuzzutiello con polpette al ragù e provola",
-                    "price" =>"8,00",
-                    "is_available" =>"true",
+                    "price" =>8,
+                    "is_available" =>true,
                     "ingredient"  => "Pane, Polpette, Provola"
                     ],
                     [
                         "name"=>"Cuzzutiello con salsiccia provola e patate",
-                        "price" =>"8,00",
-                        "is_available" =>"true",
+                        "price" =>8,
+                        "is_available" =>true,
                         "ingredient"  => "Salsiccia, Provola, Patate"
                     ],
                     [
                         "name"=>"Cuzzutiello con genovese",
-                        "price" =>"8,00",
-                        "is_available" =>"true",
+                        "price" =>8,
+                        "is_available" =>true,
                         "ingredient"  => "Cipolla, Pane"
                     ],
                     [
                         "name"=>"Cuzzutiello con polpette",
-                        "price" =>"8,00",
-                        "is_available" =>"true",
+                        "price" =>8,
+                        "is_available" =>true,
                         "ingredient"  => "Polpette, Pane"
                     ],
 
@@ -310,26 +306,26 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Corean Bowl",
-                    "price" =>"6,00",
-                    "is_available" =>"true",
+                    "price" =>6,
+                    "is_available" =>true,
                     "ingredient"  => "Peperone, Pita"
                     ],
                     [
                         "name"=>"Pollo Croccante",
-                        "price" =>"4,50",
-                        "is_available" =>"true",
+                        "price" =>4.5,
+                        "is_available" =>true,
                         "ingredient"  => "Pollo, Cereali"
                     ],
                     [
                         "name"=>"Salmon Bowl",
-                        "price" =>"8,00",
-                        "is_available" =>"true",
+                        "price" =>8,
+                        "is_available" =>true,
                         "ingredient"  => "Salmone, Pesce"
                     ],
                     [
                         "name"=>"Avocado Toast",
-                        "price" =>"5,50",
-                        "is_available" =>"true",
+                        "price" =>5.5,
+                        "is_available" =>true,
                         "ingredient"  => "Avocado, Pane"
                     ],
 
@@ -346,14 +342,14 @@ return [
                 "foods" =>[
                     [
                     "name"=>"Margherita",
-                    "price" =>"5,00",
-                    "is_available" =>"true",
+                    "price" =>5,
+                    "is_available" =>true,
                     "ingredient"  => "Pomodoro, Mozzarella"
                     ],
                     [
                         "name"=>"Marinara",
-                        "price" =>"4,50",
-                        "is_available" =>"true",
+                        "price" =>4.5,
+                        "is_available" =>true,
                         "ingredient"  => "Pomodoro, Acciughe"
                     ],
 
