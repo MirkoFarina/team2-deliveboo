@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')
+                    ->references('id')
+                    ->on('restaurants')
+                    ->cascadeOnDelete();
+
             $table->string('name', 75);
             $table->decimal('price', 5, 2);
             $table->string('cover_image')->nullable();
