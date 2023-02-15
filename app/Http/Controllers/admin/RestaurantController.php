@@ -73,31 +73,38 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->all();
+
+        if($data['name_of_restaurant'] != $restaurant->name_of_restaurant)
+            $data['slug'] = GlobalHelpers::generateSlug($data['name_of_restaurant'], $restaurant);
+
+        $restaurant->update($data);
+        return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant '. $restaurant->name_of_restaurant  . ' updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return redirect()->route('admin.restaurants.index')->with('success', 'Hai eliminato correttamente il tuo ristorante');
     }
 }

@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])
         ->name('admin.')
         ->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-            Route::resource('restaurants', RestaurantController::class);
+            Route::resource('restaurants', RestaurantController::class)->except(['show']);
             Route::resource('food', FoodController::class);
 });
 
