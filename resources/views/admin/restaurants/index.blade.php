@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="bg-dark py-5 h-100 ">
+    <div class="bg-dark py-5 ">
         <div class="container text-light ">
 
             @if (session('success'))
@@ -21,6 +21,13 @@
                 <div>
                     <h4>Nome ristorante: {{ $restaurant->name_of_restaurant }} </h4>
                 </div>
+
+                <div class="mb-3">
+                    @foreach ($categories as $cat)
+                        <span class="badge text-bg-danger"> {{$cat->name}} </span>
+                    @endforeach
+                </div>
+
                 <div>
                     <h4>Partita IVA: {{ $restaurant->p_iva }} </h4>
                 </div>
@@ -36,6 +43,8 @@
                 <div>
                     <h4>Email: {{ $restaurant->email }} </h4>
                 </div>
+
+
 
                 <a class="btn btn-warning" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
                     <i class="fa-solid fa-pencil"></i>

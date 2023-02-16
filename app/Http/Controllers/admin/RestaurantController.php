@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Helpers\GlobalHelpers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestaurantRequest;
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,11 +21,9 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $categories = $restaurant->categories()->get();
 
-
-
-        return view('admin.restaurants.index', compact('restaurant'));
-
+        return view('admin.restaurants.index', compact('restaurant', 'categories'));
     }
 
     /**
@@ -37,8 +36,10 @@ class RestaurantController extends Controller
         $res = Restaurant::where('user_id', Auth::user()->id)->get();
         if (!empty($res->all()))
             dump(Auth::user()->name, 'Hai già un ristorante');
-        else
-            return view('admin.restaurants.create');
+        else{
+            $categories = Category::all();
+            return view('admin.restaurants.create', compact('categories'));
+        }
     }
 
     /**
@@ -55,7 +56,9 @@ class RestaurantController extends Controller
         $data['user_id'] = Auth::user()->id;
         $data['original_name'] = $request->file('cover_image')->getClientOriginalName();
         $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
-        Restaurant::create($data);
+        $new_res = Restaurant::create($data);
+        if (array_key_exists('categories', $data))
+            $new_res->categories()->attach($data['categories']);
 
         return redirect()->route('admin.restaurants.index');
     }
@@ -105,6 +108,11 @@ class RestaurantController extends Controller
             $data['original_name'] = $request->file('cover_image')->getClientOriginalName();
             $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
         }
+
+        if (array_key_exists('categories', $data))
+            $restaurant->categories()->sync($data['categories']);
+        else
+            $restaurant->categories()->detach();
 
         $restaurant->update($data);
         return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant ' . $restaurant->name_of_restaurant . ' updated successfully');

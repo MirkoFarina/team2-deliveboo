@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="bg-dark py-5 h-100 ">
+    <div class="bg-dark py-5 ">
         <div class="container text-light ">
 
             <h1 class="mb-3">Registrazione del tuo ristorante</h1>
@@ -111,6 +111,16 @@
                     <div>
                         <img width="300" id="preview_image" src="  " alt="" class="my-2">
                     </div>
+                </div>
+
+                {{-- ? categories --}}
+                <div class="mb-3">
+                    <label for="categories" class="d-block mb-3">Categorie</label>
+                    @foreach ($categories as $cat)
+                        <input id="categories{{ $loop->iteration }}" type="checkbox" name="categories[]" value=" {{ $cat->id }} "
+                            @if (in_array($cat->id, old('categories', []))) checked @endif>
+                        <label class="me-3" for="technologies{{ $loop->iteration }}"> {{ $cat->name }} </label>
+                    @endforeach
                 </div>
 
                 <button class="btn btn-primary" type="submit">Registra</button>
