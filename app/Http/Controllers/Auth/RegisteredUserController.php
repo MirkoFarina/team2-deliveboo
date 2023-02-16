@@ -18,14 +18,7 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    public function index(){
-        $user = User::find(Auth::id());
-        if(GlobalHelpers::checkRestaurant())
-            $res = Restaurant::where('user_id', Auth::id())->first();
-        else $res = null;
 
-        return view('admin.users.index', compact('user','res'));
-    }
 
     /**
      * Display the registration view.

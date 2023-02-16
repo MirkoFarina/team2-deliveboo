@@ -8,7 +8,7 @@
     <h1 class="mb-3">Modifica il tuo profilo
 
     </h1>
-    <form action=" {{ route('admin.profile.update', $user->id ) }} " method="POST" enctype="multipart/form-data">
+    <form action=" {{ route('admin.users.update', Auth::user() ) }} " method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
