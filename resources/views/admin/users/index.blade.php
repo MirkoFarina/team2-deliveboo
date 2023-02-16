@@ -51,6 +51,7 @@
                 <a href="#" class="btn btn-danger">Elimina</a>
             </div>
 
+
             @if (!is_null($res))
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
