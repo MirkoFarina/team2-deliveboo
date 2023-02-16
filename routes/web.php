@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\RestaurantController;
-
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Guest\PageController;
@@ -30,6 +30,8 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class)->except(['show']);
         Route::resource('food', FoodController::class);
+        Route::resource('order', OrderController::class)->except(['edit','update','store','destroy','create']);
+        /* Profile */
         Route::resource('users', UserController::class);
     });
 

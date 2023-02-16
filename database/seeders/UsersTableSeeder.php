@@ -21,12 +21,12 @@ class UsersTableSeeder extends Seeder
     {
         for ($i = 0; $i < 5; $i++) {
             User::create([
-                'name' => $faker->name(),
-                'surname' => $faker->lastName(),
-                'address' => $faker->address(),
-                'phone_number' => $faker->bothify('#########'),
-                'email' => $faker->email(),
-                'password' => bcrypt('prova'),
+                'name'          => $faker->name(),
+                'surname'       => $faker->lastName(),
+                'address'       => $faker->address(),
+                'phone_number'  => $faker->bothify('#########'),
+                'email'         => $faker->email(),
+                'password'      => bcrypt('prova'),
             ]);
         }
     }
