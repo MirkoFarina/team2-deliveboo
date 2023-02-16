@@ -28,7 +28,7 @@
                 @endauth
 
                 <div @auth class="col-11 p-0" @endauth>
-                    <main id="main-admin">
+                    <main class="bg-dark" id="main-admin">
                         @yield('content')
                     </main>
                 </div>
