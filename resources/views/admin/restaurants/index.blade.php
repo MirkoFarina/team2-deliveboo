@@ -2,6 +2,17 @@
 
 @section('content')
     <div class="bg-dark py-5 h-100 ">
+
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {!! session('success') !!}
+            </div>
+        @elseif (session('denied'))
+            <div class="alert alert-danger" role="alert">
+                {!! session('denied') !!}
+            </div>
+        @endif
+
         <div class="container text-light ">
 
             @if ($restaurant)
@@ -26,24 +37,25 @@
                     <h4>Email: {{ $restaurant->email }} </h4>
                 </div>
 
-                <a class="btn btn-warning" href=" {{route('admin.restaurants.edit', $restaurant) }} ">
+                <a class="btn btn-warning" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
                 @include('admin.partials.form-delete', [
-                    'title'   => $restaurant->name_of_restaurant,
-                    'route'   => 'admin.restaurants.destroy',
-                    'element' => $restaurant
+                    'title' => $restaurant->name_of_restaurant,
+                    'route' => 'admin.restaurants.destroy',
+                    'element' => $restaurant,
                 ])
             @else
                 <h4>Registra la tua attività con un click</h4>
 
-                <a class="btn btn-primary" href=" {{route('admin.restaurants.create') }} ">Registra il tuo ristorante</a>
+                <a class="btn btn-primary" href=" {{ route('admin.restaurants.create') }} ">Registra il tuo ristorante</a>
             @endif
 
-
-
-
-
+            @if (isset($restaurant->cover_image))
+            <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
+                alt="{{ $restaurant->name_of_restaurant }}">
+            @endif
         </div>
+    </div>
     </div>
 @endsection
