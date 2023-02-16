@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\RestaurantController;
-
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
@@ -32,18 +32,18 @@ Route::middleware(['auth', 'verified'])
         Route::resource('food', FoodController::class);
         Route::resource('order', OrderController::class)->except(['edit','update','store','destroy','create']);
         /* Profile */
-
+        Route::resource('users', UserController::class);
     });
 
-Route::middleware('auth')
+/* Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
         Route::get('/users', [RegisteredUserController::class, 'index'])->name('profile.index');
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    });
+    }); */
 
 require __DIR__ . '/auth.php';
 

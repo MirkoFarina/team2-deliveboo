@@ -47,8 +47,12 @@
 
             </div>
             <div class="btns">
-                <a href="#" class="btn btn-warning text-light">Modifica</a>
-                <a href="#" class="btn btn-danger">Elimina</a>
+                <a href=" {{route('admin.users.edit', $user)}} " class="btn btn-warning text-light">Modifica</a>
+                @include('admin.partials.form-delete', [
+                            'title'   => $user->name,
+                            'route'   => 'admin.users.destroy',
+                            'element' => $user
+                        ])
             </div>
 
 

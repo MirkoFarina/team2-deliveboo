@@ -4,7 +4,7 @@
 <div class="pt-5" id="nav-aside">
     <ul class="m-0 list-unstyled">
         <li class="ps-3">
-            <a href=" {{ route('admin.profile.index') }} "
+            <a href=" {{ route('admin.users.index') }} "
                 class=" {{ (Route::CurrentRouteName() === 'admin.profile.index') |  (Route::CurrentRouteName() === 'admin.profile.edit')  ? 'active' : '' }} ">
                 <i class="fa-solid fa-user"></i> Profile</a>
         </li>
