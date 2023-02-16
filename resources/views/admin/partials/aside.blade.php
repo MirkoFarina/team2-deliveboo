@@ -3,12 +3,17 @@
         <li class="ps-3">
                USER: {{ Auth::user()->name }}
         </li>
-        <li class="ps-3">
-            <a href=" {{ route('admin.dashboard') }} "
-                class=" {{ Route::CurrentRouteName() === 'admin.dashboard' ? 'active' : '' }} ">
-                <i class="fa-solid fa-chart-simple"></i> DASHBOARD
-            </a>
-        </li>
+        {{-- SE L'UTENTE NON HA UN RISTORANTE REGISTRATO NON PUO' ACCEDERE A QUESTA FUNZIONE --}}
+        @if (Auth::getIdRestaurant())
+            <li class="ps-3">
+                <a href=" {{ route('admin.dashboard') }} "
+                    class=" {{ Route::CurrentRouteName() === 'admin.dashboard' ? 'active' : '' }} ">
+                    <i class="fa-solid fa-chart-simple"></i> DASHBOARD
+                </a>
+            </li>
+        @endif
+
+        {{-- SE L'UTENTE NON HA UN RISTORANTE REGISTRATO NON PUO' ACCEDERE A QUESTA FUNZIONE --}}
         @if (Auth::getIdRestaurant())
             <li class="ps-3">
                 <a href=" {{route('admin.food.index' )}} " class=" {{ Route::CurrentRouteName() === 'admin.food.index' | Route::CurrentRouteName() === 'admin.food.show' | Route::CurrentRouteName() === 'admin.food.edit' | Route::CurrentRouteName() === 'admin.food.create' ? 'active' : '' }} ">
