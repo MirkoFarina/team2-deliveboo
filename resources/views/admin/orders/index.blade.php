@@ -15,6 +15,15 @@
                 <th scope="col">Azioni</th>
             </tr>
             </thead>
+            <tbody>
+                @forelse ($orders as $order)
+                    <td>
+
+                    </td>
+                @empty
+
+                @endforelse
+            </tbody>
 
         </table>
     </div>
