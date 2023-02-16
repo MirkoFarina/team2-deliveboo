@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\RestaurantController;
 
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,23 +23,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])
-        ->prefix('admin')
-        ->name('admin.')
-        ->group(function () {
-            Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-            Route::resource('restaurants', RestaurantController::class)->except(['show']);
-            Route::resource('food', FoodController::class);
-});
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('restaurants', RestaurantController::class)->except(['show']);
+        Route::resource('food', FoodController::class);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+        /* Profile */
 
-require __DIR__.'/auth.php';
+    });
+
+Route::middleware('auth')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/users', [RegisteredUserController::class, 'index'])->name('profile.index');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+require __DIR__ . '/auth.php';
 
 
-Route::get('{any?}',function(){
+Route::get('{any?}', function () {
     return view('guest.home');
-})->where('any','.*')->name('home');
+})->where('any', '.*')->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Restaurant;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -16,6 +17,15 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    public function index(){
+        $user = User::find(Auth::id());
+        if(Auth::getIdRestaurant())
+            $res = Restaurant::where('user_id', Auth::id())->first();
+        else $res = null;
+
+        return view('admin.users.index', compact('user','res'));
+    }
+
     /**
      * Display the registration view.
      */
