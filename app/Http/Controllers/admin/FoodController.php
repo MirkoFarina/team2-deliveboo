@@ -49,7 +49,7 @@ class FoodController extends Controller
         $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
 
         // ASSEGNO L'ID DELL'UTENTE LOGGATO AL PIATTO
-        $form_data['restaurant_id'] = Auth::id();
+        $form_data['restaurant_id'] = Restaurant::where('user_id', Auth::id())->first()->id;
 
         $new_food = Food::create($form_data);
 
@@ -98,7 +98,7 @@ class FoodController extends Controller
         }
 
         // ASSEGNO L'ID RESTAURANT
-        $form_data['restaurant_id'] = Auth::id();
+        $form_data['restaurant_id'] = Restaurant::where('user_id', Auth::id())->first()->id;
 
         $food->update($form_data);
         return redirect()->route('admin.food.edit', compact('food'))->with('edit', "$food->name è stato modificato corretamente");
