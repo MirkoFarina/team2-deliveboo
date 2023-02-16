@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Helpers;
+
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class GlobalHelpers
@@ -20,5 +23,14 @@ class GlobalHelpers
         return $slug;
     }
 
+    public static function checkRestaurant()
+    {
+        $is_check = Restaurant::where('user_id', Auth::id())->first();
+        if($is_check) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\GlobalHelpers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Restaurant;
@@ -19,7 +20,7 @@ class RegisteredUserController extends Controller
 {
     public function index(){
         $user = User::find(Auth::id());
-        if(Auth::getIdRestaurant())
+        if(GlobalHelpers::checkRestaurant())
             $res = Restaurant::where('user_id', Auth::id())->first();
         else $res = null;
 
