@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container py-5">
+
+    <div class="container py-5 text-light">
+        <h1>
+            CREA UN NUOVO CIBO
+        </h1>
         <form action="{{route('admin.food.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -15,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prezzo</label>
-                <input type="number" value="{{ old('price') }}" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Inserisci il prezzo ...">
+                <input type="number" step="any" value="{{ old('price') }}" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Inserisci il prezzo ...">
                 @error('price')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -49,8 +53,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="show-img">
-                    <img id="image_thumb_up" src="" alt="">
+                <div class="show-img text-center mt-5">
+                    <img class="w-50" id="image_thumb_up" src="" alt="">
                 </div>
             </div>
             <div class="mb-3 text-center">
@@ -58,6 +62,7 @@
             </div>
         </form>
     </div>
+
 
 
 
