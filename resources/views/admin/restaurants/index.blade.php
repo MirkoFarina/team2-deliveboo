@@ -2,18 +2,18 @@
 
 @section('content')
     <div class="bg-dark py-5 h-100 ">
-
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {!! session('success') !!}
-            </div>
-        @elseif (session('denied'))
-            <div class="alert alert-danger" role="alert">
-                {!! session('denied') !!}
-            </div>
-        @endif
-
         <div class="container text-light ">
+
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {!! session('success') !!}
+                </div>
+            @elseif (session('denied'))
+                <div class="alert alert-danger" role="alert">
+                    {!! session('denied') !!}
+                </div>
+            @endif
+
 
             @if ($restaurant)
                 <h1 class="mb-3">Il tuo ristorante</h1>
@@ -52,8 +52,8 @@
             @endif
 
             @if (isset($restaurant->cover_image))
-            <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
-                alt="{{ $restaurant->name_of_restaurant }}">
+                <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
+                    alt="{{ $restaurant->name_of_restaurant }}">
             @endif
         </div>
     </div>

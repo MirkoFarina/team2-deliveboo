@@ -97,7 +97,7 @@
                 {{-- caricamento immagine --}}
 
                 {{-- ? cover_image --}}
-                <div class="mb-3">
+                <div class="mb-3 w-50">
                     <label for="cover_image" class="form-label">Image</label>
                     <input onchange="showImage(event)" type="file" name="cover_image"
                         class="form-control bg-dark text-light @error('cover_image')
