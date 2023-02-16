@@ -1,70 +1,66 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="bg-dark py-5 ">
-        <div class="container text-light ">
 
-            @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {!! session('success') !!}
-                </div>
-            @elseif (session('denied'))
-                <div class="alert alert-danger" role="alert">
-                    {!! session('denied') !!}
-                </div>
-            @endif
+    <div class="container text-light py-5">
 
-
-            @if ($restaurant)
-                <h1 class="mb-3">Il tuo ristorante</h1>
-
-                <div>
-                    <h4>Nome ristorante: {{ $restaurant->name_of_restaurant }} </h4>
-                </div>
-
-                <div class="mb-3">
-                    @foreach ($categories as $cat)
-                        <span class="badge text-bg-danger"> {{$cat->name}} </span>
-                    @endforeach
-                </div>
-
-                <div>
-                    <h4>Partita IVA: {{ $restaurant->p_iva }} </h4>
-                </div>
-                <div>
-                    <h4>Sito Web: {{ $restaurant->website }} </h4>
-                </div>
-                <div>
-                    <h4>Indirizzo: {{ $restaurant->address }} </h4>
-                </div>
-                <div>
-                    <h4>Numero di telefono: {{ $restaurant->phone_number }} </h4>
-                </div>
-                <div>
-                    <h4>Email: {{ $restaurant->email }} </h4>
-                </div>
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {!! session('success') !!}
+            </div>
+        @elseif (session('denied'))
+            <div class="alert alert-danger" role="alert">
+                {!! session('denied') !!}
+            </div>
+        @endif
 
 
-
-                <a class="btn btn-warning" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
-                    <i class="fa-solid fa-pencil"></i>
+        @if ($restaurant)
+            <h1 class="mb-3">Il tuo ristorante</h1>
+            <div class="card">
+                @if (isset($restaurant->cover_image))
+                    <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
+                        alt="{{ $restaurant->name_of_restaurant }}">
+                @endif
+                <div class="card-body text-dark">
+                    <h5 class="card-title text-uppercase">{{ $restaurant->name_of_restaurant }}</h5>
+                    <p class="card-text">
+                        @if (!is_null($categories))
+                            @foreach ($categories as $cat)
+                                <span class="badge text-bg-danger"> {{ $cat->name }} </span>
+                            @endforeach
+                        @endif
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Partita IVA: {{ $restaurant->p_iva }}</li>
+                    <li class="list-group-item">Sito Web: {{ $restaurant->website }}</li>
+                    <li class="list-group-item">Indirizzo: {{ $restaurant->address }}</li>
+                    <li class="list-group-item">Numero di telefono: {{ $restaurant->phone_number }}</li>
+                    <li class="list-group-item">Email: {{ $restaurant->email }}</li>
+                </ul>
+                <div class="card-body text-center">
+                    <a class="btn btn-warning" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    @include('admin.partials.form-delete', [
+                        'title' => $restaurant->name_of_restaurant,
+                        'route' => 'admin.restaurants.destroy',
+                        'element' => $restaurant,
+                    ])
+                </div>
+            </div>
+        @else
+            <h1 class="text-center mb-5">
+                REGISTRA LA TUA ATTIVIT&Agrave; CON UN SEMPLICE CLICK!
+            </h1>
+            <div class="text-center">
+                <a class="btn btn-success" href=" {{ route('admin.restaurants.create') }} "> REGISTRA QUI IL TUO RISTORANTE
                 </a>
-                @include('admin.partials.form-delete', [
-                    'title' => $restaurant->name_of_restaurant,
-                    'route' => 'admin.restaurants.destroy',
-                    'element' => $restaurant,
-                ])
-            @else
-                <h4>Registra la tua attività con un click</h4>
+            </div>
+        @endif
 
-                <a class="btn btn-primary" href=" {{ route('admin.restaurants.create') }} ">Registra il tuo ristorante</a>
-            @endif
 
-            @if (isset($restaurant->cover_image))
-                <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
-                    alt="{{ $restaurant->name_of_restaurant }}">
-            @endif
-        </div>
     </div>
-    </div>
+
 @endsection

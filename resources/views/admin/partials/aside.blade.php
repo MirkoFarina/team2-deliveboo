@@ -11,11 +11,16 @@
         </li>
         @if (Auth::getIdRestaurant())
             <li class="ps-3">
-                <a href=" {{route('admin.food.index' )}} "> FOODS</a>
+                <a href=" {{route('admin.food.index' )}} " class=" {{ Route::CurrentRouteName() === 'admin.food.index' | Route::CurrentRouteName() === 'admin.food.show' | Route::CurrentRouteName() === 'admin.food.edit' | Route::CurrentRouteName() === 'admin.food.create' ? 'active' : '' }} ">
+                    <i class="fa-solid fa-utensils"></i>
+                    FOODS</a>
             </li>
         @endif
         <li class="ps-3">
-            <a href=" {{route('admin.restaurants.index' )}} "> Restaurant</a>
+            <a href=" {{route('admin.restaurants.index' )}} " class=" {{ Route::CurrentRouteName() === 'admin.restaurants.index' | Route::CurrentRouteName() === 'admin.restaurants.show' | Route::CurrentRouteName() === 'admin.restaurants.edit' | Route::CurrentRouteName() === 'admin.restaurants.create' ? 'active' : '' }} ">
+                <i class="fa-solid fa-building-user"></i>
+                 Restaurant
+                </a>
         </li>
     </ul>
 </div>
