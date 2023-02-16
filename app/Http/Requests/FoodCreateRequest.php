@@ -25,7 +25,7 @@ class FoodCreateRequest extends FormRequest
     {
         return [
             'name'        =>  'required|max:75',
-            'price'       =>  'required|numeric|size:999.99',
+            'price'       =>  'required|numeric|between:0,999.99',
             'cover_image' =>  'required|max:5120',
             'ingredients' =>  'required'
         ];
@@ -35,13 +35,15 @@ class FoodCreateRequest extends FormRequest
     {
         return [
             'name.required'         => 'Il nome è un campo obbligatorio',
-            'name.max'              => 'Inserisci un nome più corto',
+            'name.max'              => 'Inserisci un nome che non superi :max caratteri',
+
             'price.required'        => 'Il prezzo è un campo obbligatorio',
-            'price.max'             => 'Inserisci un prezzo più piccolo',
             'price.numeric'         => 'Inserisci un numero',
-            'price.size'            => 'Inserisci un numero compreso tra 0 e 999.99',
+            'price.between'         => 'Inserisci un numero compreso tra :min e :max',
+
             'cover_image.required'  => 'L\'immagine è un campo obbligatorio',
             'cover_image.max'       => 'Scegli un immagine più piccola',
+
             'ingredients.required'  => 'Gli ingredienti sono un campo obbligatorio'
         ];
     }
