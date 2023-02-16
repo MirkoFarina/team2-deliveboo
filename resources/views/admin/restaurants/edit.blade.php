@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="bg-dark py-5 h-100 ">
+    <div class="bg-dark py-5 ">
         <div class="container text-light ">
 
             <h1 class="mb-3">Registrazione del tuo ristorante</h1>
@@ -93,7 +93,40 @@
                     </div>
                 </div>
 
-                {{-- caricamento immagine --}}
+                {{-- ? cover_image --}}
+                <div class="mb-3">
+                    <label for="cover_image" class="form-label">Image</label>
+                    <input type="file" name="cover_image" onchange="showImage(event)"
+                        class="form-control bg-dark text-light @error('cover_image')
+                    is-invalid  @enderror"
+                        id="cover_image" placeholder="inserire l'url dell'immagine"
+                        value=" {{ old('cover_image', $restaurant->cover_image) }} ">
+                    <div class="invalid-feedback">
+                        @error('cover_image')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                    <div>
+                        <img width="300" class="my-3" id="preview_image"
+                            src="{{ asset('storage/' . $restaurant->cover_image) }}"
+                            alt="{{ $restaurant->name_of_restaurant }}">
+                    </div>
+                </div>
+
+                {{-- ? categories --}}
+                <div class="mb-3">
+                    <label for="categories" class="d-block mb-3">Categorie</label>
+                    @foreach ($categories as $cat)
+                        <input id="categories{{ $loop->iteration }}" type="checkbox" name="categories[]"
+                            value=" {{ $cat->id }} "
+                            @if (!$errors->all() && $restaurant->categories->contains($cat))
+                                checked
+                            @elseif ($errors->all() && in_array($cat->id, old('categories', [])))
+                                checked
+                            @endif>
+                        <label class="me-3" for="categories{{ $loop->iteration }}"> {{ $cat->name }} </label>
+                    @endforeach
+                </div>
 
                 <button class="btn btn-primary" type="submit">Modifica</button>
 
@@ -102,5 +135,11 @@
         </div>
     </div>
 
+    <script>
+        function showImage(event) {
+            const tagImage = document.getElementById('preview_image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 
 @endsection
