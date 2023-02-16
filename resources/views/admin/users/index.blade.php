@@ -30,13 +30,13 @@
                         <span class="font-monospace">Cognome:</span> {{ $user->surname }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">Indirizzo:</span>{{ $user->address }}
+                        <span class="font-monospace">Indirizzo:</span> {{ $user->address }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">Cellulare</span>{{ $user->phone_number }}
+                        <span class="font-monospace">Cellulare:</span> {{ $user->phone_number }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">E-mail:</span>{{ $user->email }}
+                        <span class="font-monospace">E-mail:</span> {{ $user->email }}
                     </h6>
                     </p>
 
@@ -44,12 +44,18 @@
                 <div class="card-footer text-muted">
                     Iscritto il {{ $user->created_at }}
                 </div>
+
+            </div>
+            <div class="btns">
+                <a href="#" class="btn btn-warning text-light">Modifica</a>
+                <a href="#" class="btn btn-danger">Elimina</a>
             </div>
 
             @if (!is_null($res))
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
                     <div class="card text-dark" style="width: 24rem;" >
+                        <img src=" {{ asset('storage/' . $res->cover_image) ?? null }} " class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$res->name_of_restaurant}}

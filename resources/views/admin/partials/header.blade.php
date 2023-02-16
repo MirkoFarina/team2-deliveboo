@@ -3,7 +3,7 @@
 
         <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
             <div class="logo_laravel">
-                LOGO
+                DeliveBoo
             </div>
         </a>
         <ul class="navbar-nav me-auto">
@@ -31,7 +31,7 @@
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                            LOGOUT
+                            LOGOUT <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
