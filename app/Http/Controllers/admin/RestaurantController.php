@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
+
 class RestaurantController extends Controller
 {
     /**
@@ -21,7 +24,13 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        $categories = $restaurant->categories()->get();
+
+        // SE IL RISTORANTE NON ESISTE CATEGORIES DIVENTA NULL E NON ESEGUE IL CONTROLLO
+        if(is_null($restaurant)) {
+            $categories = null;
+        }else {
+            $categories = $restaurant->categories()->get();
+        }
 
         return view('admin.restaurants.index', compact('restaurant', 'categories'));
     }
@@ -60,7 +69,7 @@ class RestaurantController extends Controller
         if (array_key_exists('categories', $data))
             $new_res->categories()->attach($data['categories']);
 
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.restaurants.index')->with('success', 'Il tuo ristorante è stato creato con successo');
     }
 
     /**
@@ -116,7 +125,7 @@ class RestaurantController extends Controller
             $restaurant->categories()->detach();
 
         $restaurant->update($data);
-        return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant ' . $restaurant->name_of_restaurant . ' updated successfully');
+        return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant ' . $restaurant->name_of_restaurant . ' modificato con successo');
     }
 
     /**
