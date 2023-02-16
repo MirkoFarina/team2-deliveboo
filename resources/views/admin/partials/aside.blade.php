@@ -9,9 +9,11 @@
                 <i class="fa-solid fa-chart-simple"></i> DASHBOARD
             </a>
         </li>
-        <li class="ps-3">
-            <a href=" {{route('admin.food.index' )}} "> FOODS</a>
-        </li>
+        @if (Auth::getIdRestaurant())
+            <li class="ps-3">
+                <a href=" {{route('admin.food.index' )}} "> FOODS</a>
+            </li>
+        @endif
         <li class="ps-3">
             <a href=" {{route('admin.restaurants.index' )}} "> Restaurant</a>
         </li>
