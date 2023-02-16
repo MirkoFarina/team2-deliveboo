@@ -18,9 +18,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $res_id = Restaurant::where('user_id', Auth::id())->first()->id;
-        $foods = Food::where('restaurant_id', $res_id)->get();
-        return view();
+        $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
+        $orders = [];
+        foreach ($foods as $food)
+            array_push($orders, $food->orders);
+
+        dd($orders);
     }
 
     /**

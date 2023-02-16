@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RestaurantsTableSeeder::class,
             CategoryTableSeeder::class,
-            OrderTableSeeder::class
+            OrderTableSeeder::class,
+            OrderFoodTableSeeder::class,
         ]);
     }
 }
