@@ -25,10 +25,11 @@ class RestaurantRequest extends FormRequest
     {
         return [
             'name_of_restaurant' => 'required|max:75',
-            'p_iva' => 'required|max:11',
+            'p_iva' => 'required|size:11',
             'address' => 'required',
             'phone_number' => 'required|max:12',
-            'email' => 'required',
+            'email' => 'required|email',
+            'cover_image' => 'required'
         ];
     }
 
@@ -39,8 +40,7 @@ class RestaurantRequest extends FormRequest
             'name_of_restaurant.max' => 'Il nome del ristorante può contenere al massimo :max caratteri',
 
             'p_iva.required' => 'La partita IVA è un campo obbligatorio',
-            'p_iva.max' => 'La partita IVA può contenere al massimo :max caratteri',
-            'p_iva.numeric' => 'La formattazione della partita IVA è errata (inserire soltanto cifre)',
+            'p_iva.size' => 'La formattazione della partita IVA è errata (inserire soltanto le :size cifre che la compongono)',
 
             'address.required' => 'l\'indirizzo è un campo obbligatorio',
 
@@ -48,6 +48,9 @@ class RestaurantRequest extends FormRequest
             'phone_number.max' => 'Il numero di telefono può contenere al massimo :max caratteri',
 
             'email.required' => 'l\'email è un campo obbligatorio',
+            'email.email' => 'errore di formattazione, controllare l\'email',
+
+            'cover_image.required' => 'l\'immagine è un campo obbligatorio',
         ];
     }
 }
