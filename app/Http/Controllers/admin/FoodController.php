@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FoodCreateRequest;
 use App\Http\Requests\FoodRequest;
 use App\Models\Food;
 use App\Models\Restaurant;
@@ -41,7 +42,7 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FoodRequest $request)
+    public function store(FoodCreateRequest $request)
     {
         $form_data = $request->all();
         // GESTIONE IMAGGINI
@@ -101,7 +102,7 @@ class FoodController extends Controller
         $form_data['restaurant_id'] = Restaurant::where('user_id', Auth::id())->first()->id;
 
         $food->update($form_data);
-        return redirect()->route('admin.food.edit', compact('food'))->with('edit', "$food->name è stato modificato corretamente");
+        return redirect()->route('admin.food.show', compact('food'))->with('edit', "$food->name è stato modificato corretamente");
     }
 
     /**

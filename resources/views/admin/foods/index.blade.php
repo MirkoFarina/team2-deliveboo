@@ -1,12 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container py-5">
+
+    <div class="container text-light py-5">
         <h1>
             TABELLA CIBI
             <a class="btn btn-success" href="{{route('admin.food.create')}}">AGGIUNGI UN NUOVO PIATTO</a>
         </h1>
-        <table class="table">
+        @if (session('delete'))
+            <div class="alert alert-success" role="alert">
+                {{ session('delete') }}
+            </div>
+        @endif
+        <table class="table text-light">
             <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -45,4 +51,5 @@
             </tbody>
         </table>
     </div>
+
 @endsection
