@@ -2,9 +2,7 @@
 import team  from '../data/team'
 export default {
   name: "ChiSiamo",
-  props: {
-    team: Array,
-  },
+
   data() {
     return {
         team
@@ -17,7 +15,7 @@ export default {
   <h1>Il nostro team</h1>
   <div class="container d-flex w-80 flex-wrap">
     <div class="card" style="width: 18rem" v-for="(profile, index) in team" :key="index">
-      <img class="card-img" :src= "profile.img" alt="Card image " />
+      <img class="card-img" :src="profile.img" alt="Card image " />
       <div class="card-body">
         <h5 class="card-title">{{ profile.name }}</h5>
         <h5 class="card-title">{{ profile.usrname }}</h5>
