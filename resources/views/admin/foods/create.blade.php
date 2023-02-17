@@ -9,8 +9,8 @@
         <form action="{{route('admin.food.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nome</label>
-                <input type="text" value="{{ old('name') }}" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome ...">
+                <label for="name" class="form-label">Nome*</label>
+                <input type="text" maxlength="75" required value="{{ old('name') }}"  class="form-control  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome ...">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prezzo</label>
-                <input type="number" step="any" value="{{ old('price') }}" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Inserisci il prezzo ...">
+                <input required min="0" max="999.99" type="number" step="any" value="{{ old('price') }}" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Inserisci il prezzo ...">
                 @error('price')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
                 <label for="ingredients" class="form-label">Ingredienti</label>
-                <input type="text" value="{{ old('ingredients') }}" class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" placeholder="Inserisci gli ingredienti ...">
+                <input required type="text" value="{{ old('ingredients') }}" class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" placeholder="Inserisci gli ingredienti ...">
                 @error('ingredients')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -45,7 +45,7 @@
             <div class="mb-3">
                 <label for="cover_image" class="form-label @error('cover_image') text-danger @enderror">UPLOAD image
                 </label>
-                <input onchange="showImg(event)" type="file"
+                <input required onchange="showImg(event)" type="file"
                     class="form-control mb-2 @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image"
                     placeholder="IMAGE ... ">
                 @error('cover_image')
