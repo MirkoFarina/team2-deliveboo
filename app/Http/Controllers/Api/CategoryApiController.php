@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -28,13 +29,13 @@ class CategoryApiController extends Controller
      */
     public function show($id)
     {
-        /* ! rivedere  */
-        $category = Category::with(['restaurants'])
-            ->whereHas('restaurants', function (Builder $query) use($id){
-                $query->where('restaurant_id', $id);
-            });
 
-        return response()->json(compact('category'));
+        $restaurants = Restaurant::with(['categories','foods'])
+            ->whereHas('categories', function (Builder $query) use($id){
+                $query->where('category_id', $id);
+            })->get();
+
+        return response()->json(compact('restaurants'));
     }
 
 
