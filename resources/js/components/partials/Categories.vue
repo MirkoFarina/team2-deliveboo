@@ -1,6 +1,13 @@
 <script>
+import { store } from '../../data/store';
+
 export default {
-  name: 'Categories'
+  name: 'Categories',
+  data(){
+    return{
+        store
+    }
+  }
 }
 </script>
 
@@ -8,54 +15,13 @@ export default {
   <div class="container-fluid mt-5">
       <div class="boxes">
 
-       <router-link :to="{name: 'italiano'}">
+       <router-link :to="{name: 'italiano'}" v-for="category in store.categories" :key="category.slug">
           <div class="box italiano">
-              <img src="../../assets/img/pasta.jpg" alt="">
-              <p>Italiano</p>
+              <img :src="category.cover_image" :alt="category.slug">
+              <p>{{category.name}}</p>
           </div>
         </router-link>
 
-        <router-link :to="{name: 'giapponese'}">
-          <div class="box giapponese">
-            <img src="../../assets/img/giapponese.webp" alt="">
-            <p>Giapponese</p>
-          </div>
-        </router-link>
-
-        <router-link :to="{name: 'hamburger'}">
-          <div class="box pub">
-            <img src="../../assets/img/hamburger.webp" alt="">
-            <p>Hamburger</p>
-          </div>
-        </router-link>
-
-        <router-link :to="{name: 'panini'}">
-          <div class="box panini">
-            <img src="../../assets/img/panini.webp" alt="">
-            <p>Panini</p>
-          </div>
-        </router-link>
-
-        <router-link :to="{name: 'pizza'}">
-          <div class="box pizza">
-            <img src="../../assets/img/pizza.webp" alt="">
-            <p>Pizza</p>
-          </div>
-        </router-link>
-
-        <router-link :to="{name: 'hawaiano'}">
-          <div class="box hawaiano">
-            <img src="../../assets/img/poke.webp" alt="">
-            <p>Hawaiano</p>
-          </div>
-        </router-link>
-
-        <router-link :to="{name: 'kebab'}">
-          <div class="box kebab">
-            <img src="../../assets/img/kebabtalebano.webp" alt="">
-            <p>Kebab</p>
-          </div>
-        </router-link>
 
      </div>
   </div>
