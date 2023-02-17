@@ -54,7 +54,6 @@ export default {
         <p>Ristorante</p>
       </div>
     </div>
-    <button class="btn btn-outline-info float-end"><router-link :to="{ name: 'home' }">Home</router-link></button>
   </div>
 </template>
 
