@@ -21,6 +21,11 @@ export default {
                 .then(result => {
                     store.restaurants = result.data.restaurants;
                 });
+            axios.get(BASE_URL + 'categories')
+                .then(result => {
+                    store.categories = result.data.categories;
+                    console.log(store.categories);
+                });
         }
     },
     mounted() {
