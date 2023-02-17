@@ -356,5 +356,29 @@ return [
                 ],
 
             ],
+            [
+                "id" => "11",
+                "email"=>"#",
+                "address"=> "Via Roma",
+                "name_of_restaurant"=>"Gigione",
+                "phone_number"=> "081 884 4599",
+                "website"=> "",
+                "foods" =>[
+                    [
+                    "name"=>"Hamburger",
+                    "price" =>10,
+                    "is_available" =>true,
+                    "ingredient"  => "patate, Hamburger, provola, bacon"
+                    ],
+                    [
+                        "name"=>"Marinara",
+                        "price" =>4.5,
+                        "is_available" =>true,
+                        "ingredient"  => "Pomodoro, Acciughe"
+                    ],
+
+                ],
+
+            ],
 
         ];
