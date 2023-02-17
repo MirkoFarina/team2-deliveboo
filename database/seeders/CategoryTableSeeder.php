@@ -19,52 +19,44 @@ class CategoryTableSeeder extends Seeder
         $categories =
         [
             [
-                "name"        => 'ITALIANO',
-                "description" => 'Lorem ipsum deciv voce'
-            ],
-            [
-                "name"        => 'CINESE',
-                "description" => 'Lorem ipsum deciv voce'
-            ],
-            [
                 "name"        => 'PIZZA',
-                "description" => 'Lorem ipsum deciv coeve'
-            ],
-            [
-                "name"        => 'GIAPPONESE',
-                "description" => 'Lorem ipsum deciv coeve'
-            ],
-            [
-                "name"        => 'ARGENTINO',
-                "description" => 'Lorem ipsum deciv coeve'
-            ],
-            [
-                "name"        => 'KEBAB',
-                "description" => 'Lorem ipsum deciv coeve'
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/pizza'
             ],
             [
                 "name"        => 'HAMBURGER',
-                "description" => 'Lorem ipsum deciv coeve'
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/hamburger'
+            ],
+            [
+                "name"        => 'PANINI',
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/panini'
             ],
             [
                 "name"        => 'PASTA',
-                "description" => 'Lorem ipsum deciv coeve'
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/italiano'
             ],
             [
-                "name"        => 'POLLO',
-                "description" => 'Lorem ipsum deciv coeve'
+                "name"        => 'GIAPPONESE',
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/sushi'
             ],
             [
-                "name"        => 'PERSIANO',
-                "description" => 'Lorem ipsum deciv coeve'
+                "name"        => 'HAWAIANO',
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/poke'
             ],
+            [
+                "name"        => 'KEBABTALEBANO',
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/messicano'
+            ],
+            [
+                "name"        => 'AMERICANO',
+                "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/americano'
+            ]
         ];
 
         foreach ($categories as $category) {
             $new_category              = new Category();
             $new_category->name        = $category['name'];
             $new_category->slug        = GlobalHelpers::generateSlug($new_category->name, $new_category);
-            $new_category->description = $category['description'];
+            $new_category->cover_image = $category['cover_image'];
             $new_category->save();
         }
     }
