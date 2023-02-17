@@ -8,20 +8,31 @@
         </h1>
         <table class="table text-light">
             <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Prezzo</th>
-                <th scope="col">Disponibile</th>
-                <th scope="col">Azioni</th>
-            </tr>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Disponibile</th>
+                    <th scope="col">Azioni</th>
+                </tr>
             </thead>
             <tbody>
-                @forelse ($orders as $order)
-                    <td>
+                @forelse ($col as $order)
+                <tr>
+                    @foreach ($order as $os)
+                        <td>
+                            {{ $os->name }} {{ $os->surname}}
+                        </td>
+                        <td>
+                            {{ $os->total_amount }}
+                        </td>
+                        <td>
+                            {{ $os->checked }}
+                        </td>
+                    @endforeach
+                </tr>
 
-                    </td>
+
                 @empty
-
                 @endforelse
             </tbody>
 

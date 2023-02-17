@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Food;
 use App\Models\Order;
 use App\Models\Restaurant;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +19,38 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-
+        /* $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
         $orders = [];
         foreach ($foods as $food)
+        array_push($orders, $food->orders->all());
+        $orders = array_filter($orders);
+        $col = collect($orders);
+        dump($col);
+        return view('admin.orders.index', compact('orders'));
+        */
+
+        $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
+
+        $col = collect();
+        foreach ($foods as $food)
+            $col->push(($food->orders)->all());
+
+        return view('admin.orders.index', compact('col'));
+
+
+        /* $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
+
+        $orders = [];
+        foreach($foods as $food){
+            dump($food->orders->all());
             array_push($orders, $food->orders->all());
-        $new = array_filter($orders);
+        }
+        $col = collect($orders);
+        dump($col);
+ */
 
-        dump($new);
-
+        /* $col = collect(1);
+        dump($col->all()); */
     }
 
     /**

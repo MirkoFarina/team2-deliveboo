@@ -44,7 +44,7 @@ class RestaurantController extends Controller
     {
         $res = Restaurant::where('user_id', Auth::user()->id)->get();
         if (!empty($res->all()))
-            dump(Auth::user()->name, 'Hai già un ristorante');
+            return redirect()->route('admin.restaurants.index')->with('denied', 'Possiedi già un ristorante registrato!');
         else{
             $categories = Category::all();
             return view('admin.restaurants.create', compact('categories'));

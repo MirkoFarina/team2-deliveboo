@@ -3,6 +3,17 @@
 @section('content')
 
     <div class="container text-light py-5">
+
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {!! session('success') !!}
+            </div>
+        @elseif (session('denied'))
+            <div class="alert alert-danger" role="alert">
+                {!! session('denied') !!}
+            </div>
+        @endif
+
         <h1>
             TABELLA CIBI
             <a class="btn btn-success" href="{{route('admin.food.create')}}">AGGIUNGI UN NUOVO PIATTO</a>

@@ -22,7 +22,6 @@ class FoodController extends Controller
     {
         $res_id = Restaurant::where('user_id', Auth::id())->first()->id;
         $foods = Food::where('restaurant_id', $res_id)->get();
-
         return view('admin.foods.index', compact('foods'));
     }
 
@@ -65,7 +64,10 @@ class FoodController extends Controller
      */
     public function show(Food $food)
     {
-        return view('admin.foods.show', compact('food'));
+        if($food->restaurant_id != Restaurant::where('user_id', Auth::user()->id)->first()->id)
+            return redirect()->route('admin.food.index')->with('denied', 'Puoi visualizzare soltanto i tuoi piatti');
+        else
+            return view('admin.foods.show', compact('food'));
     }
 
     /**

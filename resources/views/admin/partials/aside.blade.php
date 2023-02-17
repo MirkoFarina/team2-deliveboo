@@ -27,13 +27,14 @@
                     FOODS</a>
             </li>
         @endif
-
-        <li class="ps-3">
-            <a href=" {{ route('admin.order.index') }} ">
-                <i class="fa-solid fa-building-user"></i>
-                Ordini
-            </a>
-        </li>
+        @if (GlobalHelpers::checkRestaurant())
+            <li class="ps-3">
+                <a href=" {{ route('admin.order.index') }} ">
+                    <i class="fa-solid fa-building-user"></i>
+                    Ordini
+                </a>
+            </li>
+        @endif
         <li class="ps-3">
             <a href=" {{ route('admin.restaurants.index') }} "
                 class=" {{ (Route::CurrentRouteName() === 'admin.restaurants.index') | (Route::CurrentRouteName() === 'admin.restaurants.show') | (Route::CurrentRouteName() === 'admin.restaurants.edit') | (Route::CurrentRouteName() === 'admin.restaurants.create') ? 'active' : '' }} ">

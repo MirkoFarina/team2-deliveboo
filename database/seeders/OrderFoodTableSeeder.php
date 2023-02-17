@@ -30,6 +30,10 @@ class OrderFoodTableSeeder extends Seeder
         $food_id = Food::find(15);
         $order->foods()->attach($food_id);
 
+        $order = Order::find(2);
+        $food_id = Food::find(16);
+        $order->foods()->attach($food_id);
+
         /* $last_orders = [];
 
         for ($i = 0; $i < 10; $i++) {

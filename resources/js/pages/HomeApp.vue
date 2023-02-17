@@ -6,7 +6,7 @@ export default {
 
 <template>
     <h1>
-        ciaooobellooo
+        Public
     </h1>
 </template>
 
