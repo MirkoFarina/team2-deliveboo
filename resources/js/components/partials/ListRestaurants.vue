@@ -20,11 +20,11 @@ export default {
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body card-body-lf">
                 <h5 class="card-title fs-3 py-3 text-uppercase">{{ restaurant.name_of_restaurant }}</h5>
-                <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 mb-5">{{category.name}}</span>
+                <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 mb-1">{{category.name}}</span>
                 <p class="card-text fs-5">Indirizzo: {{ restaurant.address }}</p>
                 <p class="card-text fs-5">Numero: {{ restaurant.phone_number }}</p>
                 <p class="card-text">Piatti Disponibili: {{ restaurant.foods.length }}</p>
-                <a href="#" class="btn btn-outline-secondary mt-5 text-uppercase">Vai al ristorante</a>
+                 <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-5 text-uppercase">Vai al ristorante</router-link>
             </div>
             </div>
         </div>

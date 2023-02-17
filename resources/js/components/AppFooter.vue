@@ -41,7 +41,7 @@ export default {
 
     footer {
         background-color: #26635B;
-        height: 150px;
+        height: 120px;
         ul {
             li {
                 list-style: none;
