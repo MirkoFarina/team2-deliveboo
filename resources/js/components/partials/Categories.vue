@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid mt-5">
+  <div class="container mt-5">
       <div class="boxes">
 
        <router-link :to="{name: 'italiano'}" v-for="category in store.categories" :key="category.slug">
