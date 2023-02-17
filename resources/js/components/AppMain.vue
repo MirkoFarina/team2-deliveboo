@@ -2,13 +2,15 @@
 import Jumbo from './partials/Jumbo.vue';
 import Categories from './partials/Categories.vue';
 import Description from './partials/Description.vue';
+import ListRestaurants from './partials/ListRestaurants.vue';
 export default {
     name: 'AppMain',
     components: {
         Jumbo,
         Categories,
         //CategorySlider,
-        Description
+        Description,
+        ListRestaurants
     }
 }
 </script>
@@ -18,6 +20,7 @@ export default {
         <Jumbo />
         <Categories />
         <Description />
+        <ListRestaurants/>
     </main>
 </template>
 
