@@ -16,7 +16,7 @@ class RestaurantApiController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::with(['categories', 'foods'])->get();
+        $restaurants = Restaurant::with(['foods','categories'])->get();
         return response()->json(compact('restaurants'));
     }
 
