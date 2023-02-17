@@ -1,11 +1,13 @@
 <script>
 export default {
-    name: 'App'
+    name: 'App',
+
 }
 </script>
 
 
 <template>
+
     <router-view> </router-view>
 </template>
 
