@@ -23,13 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::namespace('api')
     ->prefix('restaurants')
     ->group(function(){
-        Route::get('', [RestaurantApiController::class, 'index']);
+        Route::get('/',[RestaurantApiController::class, 'index']);
         Route::get('/{slug}', [RestaurantApiController::class, 'show']);
     });
 
 Route::namespace('api')
     ->prefix('categories')
     ->group(function(){
-        Route::get('', [CategoryApiController::class, 'index']);
+        Route::get('/', [CategoryApiController::class, 'index']);
         Route::get('/{id}', [CategoryApiController::class, 'show']);
     });
