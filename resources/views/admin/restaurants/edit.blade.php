@@ -17,7 +17,7 @@
             {{-- ? name --}}
             <div class="mb-3">
                 <label for="name_of_restaurant" class="form-label">Nome del ristorante * </label>
-                <input type="text" name="name_of_restaurant"
+                <input required maxlength="75" type="text" name="name_of_restaurant"
                     class="form-control  @error('name_of_restaurant')
                     is-invalid  @enderror"
                     id="name_of_restaurant" placeholder="inserire il nome del ristorante"
@@ -32,7 +32,7 @@
             {{-- ? p.iva --}}
             <div class="mb-3">
                 <label for="p_iva" class="form-label">Partita IVA * </label>
-                <input type="text" name="p_iva"
+                <input required maxlength="11" type="text" name="p_iva"
                     class="form-control @error('p_iva')
                     is-invalid  @enderror" id="p_iva"
                     placeholder="inserire la partita IVA" value=" {{ old('p_iva', $restaurant->p_iva) }} ">
@@ -46,7 +46,7 @@
             {{-- ? website --}}
             <div class="mb-3">
                 <label for="website" class="form-label">Sito web</label>
-                <input type="text" name="website"
+                <input maxlength="255"  type="text" name="website"
                     class="form-control @error('website')
                     is-invalid  @enderror" id="website"
                     placeholder="link del tuo sito web" value=" {{ old('website', $restaurant->website) }} ">
@@ -60,7 +60,7 @@
             {{-- ? Indirizzo --}}
             <div class="mb-3">
                 <label for="address" class="form-label">Indirizzo * </label>
-                <input type="text" name="address"
+                <input required  type="text" name="address"
                     class="form-control @error('address')
                     is-invalid  @enderror" id="address"
                     placeholder="Inserisci l'indirizzo della tua attività"
@@ -75,7 +75,7 @@
             {{-- ? phone_number --}}
             <div class="mb-3">
                 <label for="phone_number" class="form-label">Numero di telefono * </label>
-                <input type="text" name="phone_number"
+                <input required maxlength="12" type="text" name="phone_number"
                     class="form-control @error('phone_number')
                     is-invalid  @enderror" id="phone_number"
                     placeholder="Inserisci il numero di telefono della tua attività"
@@ -90,7 +90,7 @@
             {{-- ? email --}}
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail *</label>
-                <input type="text" name="email"
+                <input required type="email" name="email"
                     class="form-control @error('email')
                     is-invalid  @enderror" id="email"
                     placeholder="Inserisci l'email " value=" {{ old('email', $restaurant->email) }} ">
@@ -103,8 +103,8 @@
 
             {{-- ? cover_image --}}
             <div class="mb-3">
-                <label for="cover_image" class="form-label">Image</label>
-                <input type="file" name="cover_image" onchange="showImage(event)"
+                <label for="cover_image" class="form-label">Image*</label>
+                <input required type="file" name="cover_image" onchange="showImage(event)"
                     class="form-control bg-dark text-light @error('cover_image')
                     is-invalid  @enderror"
                     id="cover_image" placeholder="inserire l'url dell'immagine"
@@ -125,13 +125,19 @@
             <div class="mb-3">
                 <label for="categories" class="d-block mb-3">Categorie:</label>
                 @foreach ($categories as $cat)
-                    <input id="categories{{ $loop->iteration }}" type="checkbox" name="categories[]"
+                    <input class="@error('categories')
+                    is-invalid  @enderror" id="categories{{ $loop->iteration }}" type="checkbox" name="categories[]"
                         value=" {{ $cat->id }} "
                         @if (!$errors->all() && $restaurant->categories->contains($cat)) checked
                             @elseif ($errors->all() && in_array($cat->id, old('categories', [])))
                                 checked @endif>
                     <label class="me-3" for="categories{{ $loop->iteration }}"> {{ $cat->name }} </label>
                 @endforeach
+                <div class="invalid-feedback">
+                    @error('categories')
+                        {{ $message }}
+                    @enderror
+                </div>
             </div>
 
             <div class="mb-3 text-center">
