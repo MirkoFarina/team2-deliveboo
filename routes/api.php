@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\RestaurantApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::namespace('api')
+    ->prefix('restaurants')
+    ->group(function(){
+        Route::get('', [RestaurantApiController::class, 'index']);
+        Route::get('/{slug}', [RestaurantApiController::class, 'show']);
+    });
+
+Route::namespace('api')
+    ->prefix('categories')
+    ->group(function(){
+        Route::get('', [CategoryApiController::class, 'index']);
+        Route::get('/{id}', [CategoryApiController::class, 'show']);
+    });
