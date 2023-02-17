@@ -16,7 +16,7 @@ export default {
       <div class="boxes">
 
        <router-link :to="{name: 'italiano'}" v-for="category in store.categories" :key="category.slug">
-          <div class="box italiano">
+          <div class="box">
               <img :src="category.cover_image" :alt="category.slug">
               <p>{{category.name}}</p>
           </div>
@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../../scss/partials/vars' as *;
-
+@use '../../../scss/partials/guest/categories';
   .boxes {
     display: flex;
     justify-content: space-around;
