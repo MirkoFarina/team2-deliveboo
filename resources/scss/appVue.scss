@@ -1,2 +1,36 @@
 //BOOTSTRAP
 @use 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .container-lf {
+    max-width: 1200px;
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  ///// CATEGORY CLASSES /////
+  .italiano{
+    background-color: #d13d3d;
+  }
+  .giapponese{
+    background-color: #C7800B;
+  }
+  .pub{
+    background-color: #808E3B;
+  }
+  .panini{
+    background-color: #C0814D;
+  }
+  .pizza{
+    background-color: #873D08;
+  }
+  .hawaiano{
+    background-color: #ff5757;
+  }
+  .kebab{
+    background-color: #48433C;
+  }
+  //// ///// ///// ///// ///
