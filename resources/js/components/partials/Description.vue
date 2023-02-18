@@ -42,7 +42,7 @@ export default {
 
 .wave.down {
   transform: rotate(180deg);
-  margin-top: -50px;
+  margin-top: -35px;
 }
 
 .app_description{
