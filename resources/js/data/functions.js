@@ -1,5 +1,3 @@
-
-
 export function searchSlugRecord(array, sl){
     var x = null;
     array.forEach(element => {

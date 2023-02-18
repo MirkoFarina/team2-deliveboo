@@ -32,7 +32,7 @@ export default {
 
         <div v-if="restaurant.foods" class="row">
             <div class="col" v-for="food in restaurant.foods" :key="food.id">
-                <div class="card card-lf container-lf my-5" style="width: 20rem;">
+                <div class="card card-lf container-lf my-5 d-flex" style="width: 20rem;">
                     <img :src="food.cover_image" class="card-img-top" :alt="food.name">
                     <div class="card-body">
                         <p>{{ food.name }}</p>
@@ -43,6 +43,9 @@ export default {
                         <p v-if="food.is_available === 1">Disponibile</p>
                         <p v-else>Non Disponibile</p>
                         </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary m-2"><i class="fa-solid fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -62,7 +65,7 @@ export default {
     }
     .card-lf {
         background-color: #fcfcfc;
-        height: 300px;
+        height: 400px;
         border-radius: 10px;
         padding: 10px 15px;
         box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
