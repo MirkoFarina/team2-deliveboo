@@ -41,8 +41,7 @@ const routes = [
         name:"contatti",
         component: Contatti
       },
-      
-
+    {
         path: "/login",
         name: "login",
         component: Login,
