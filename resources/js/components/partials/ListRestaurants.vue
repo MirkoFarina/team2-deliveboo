@@ -24,7 +24,7 @@ export default {
                 <p class="card-text fs-5">Indirizzo: {{ restaurant.address }}</p>
                 <p class="card-text fs-5">Numero: {{ restaurant.phone_number }}</p>
                 <p class="card-text">Piatti Disponibili: {{ restaurant.foods.length }}</p>
-                 <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-5 text-uppercase">Vai al ristorante</router-link>
+                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-5 text-uppercase">Vai al ristorante</router-link>
             </div>
             </div>
         </div>
