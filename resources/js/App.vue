@@ -16,6 +16,7 @@ export default {
     methods: {},
     mounted() {
         ApiService.getApi('restaurants', null);
+        ApiService.getApi('categories', null);
     }
 }
 </script>
