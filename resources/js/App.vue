@@ -1,32 +1,47 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
-import { ApiService } from './services/api.service'
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import { ApiService } from "./services/api.service";
 
 export default {
-    name: 'App',
+    name: "App",
     components: {
         AppHeader,
         AppFooter,
     },
     data() {
         return {
-        }
+        interval: null,
+        /* time in ms */
+        time: 10000,
+        };
     },
-    methods: {},
+    methods: {
+        loadData() {
+            ApiService.getApi("restaurants", null);
+            ApiService.getApi("categories", null);
+        },
+    },
     mounted() {
-        ApiService.getApi('restaurants', null);
-        ApiService.getApi('categories', null);
-    }
-}
+        this.loadData();
+    },
+    created() {
+        this.interval = setInterval(() => {
+        this.loadData();
+        }, this.time);
+    },
+    destroyed() {
+        clearInterval(this.interval);
+    },
+};
 </script>
 
 <template>
-    <AppHeader />
-    <router-view> </router-view>
-    <AppFooter />
+  <AppHeader />
+  <router-view> </router-view>
+  <AppFooter />
 </template>
 
 <style lang="scss">
-@use '../scss/appVue.scss'
+@use "../scss/appVue.scss";
 </style>
