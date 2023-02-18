@@ -4,8 +4,7 @@ export default {
     name: "AppHeader",
     data(){
         return {
-            store,
-            is_canvas: false
+            store
         }
     }
 };
@@ -21,17 +20,20 @@ export default {
 
         <div class="btn">
             <div>
-                <button @click="is_canvas = !is_canvas" class="mx-3 text-light dropbtn">
+                <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </button>
-                <div class="mf-offcanvas p-4" :class="{active : is_canvas}">
+                <div class="mf-offcanvas p-4" :class="{active : store.is_canvas}">
                     <div class="text-end">
-                        <i @click="is_canvas = false" class="fa-solid fa-xmark"></i>
+                        <i @click="store.is_canvas = false" class="fa-solid fa-xmark"></i>
                     </div>
-                    <div>
-                        <div class="d-flex align-items-center flex-column w-50" v-if="store.shopping_cart.length">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h3>
+                            IL TUO CARRELLO
+                        </h3>
+                        <div class="d-flex align-items-center  flex-column w-50" v-if="store.shopping_cart.foods.length">
                             <div class="container">
-                                <div v-for="(food, index) in store.shopping_cart" :key="index + 'piatto'" class="row">
+                                <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row my-3">
                                     <div class="col-6">
                                         <p>
                                             {{ food.quantity }}x {{food.name}}
@@ -42,6 +44,9 @@ export default {
                                              +{{ food.price }} &euro;
                                         </p>
                                     </div>
+                                </div>
+                                <div class="total">
+                                    TOTALE: {{ store.shopping_cart.total_amount }}
                                 </div>
                             </div>
                         </div>
@@ -166,11 +171,12 @@ header {
         display: block;
         top: 0;
         left: -100%;
-        height: 70vh;
-        width: 60vw;
+        height: 60vh;
+        width: 40vw;
         background-color: #25645B;
         padding: 10px;
         transition: all 0.55s;
+        border-bottom-right-radius: 10px;
         &.active {
             display: block;
             left: 0;
