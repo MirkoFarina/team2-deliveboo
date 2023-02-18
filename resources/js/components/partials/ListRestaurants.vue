@@ -14,7 +14,6 @@ export default {
   <div class="container w-75 my-5">
     <h2 class="text-center text-uppercase py-5">I nostri ristoranti</h2>
     <div class="row">
-        <!-- PER LUCA TUTTO DA STILIZZARE, FARE ANCHE PAGINA PER MENU RISTORANTI SU CUI POI FAREMO ANCHE GLI ORDINI  -->
         <div class="col my-5" v-for="restaurant in store.restaurants" :key="restaurant.slug">
             <div class="card card-lf m-auto">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
