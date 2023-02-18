@@ -1,4 +1,4 @@
-import store from 'resources/js/data/store'
+import {store} from './store'
 
 export function searchSlugRecord(array, sl){
     var x = null;
