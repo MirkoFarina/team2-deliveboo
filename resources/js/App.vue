@@ -1,49 +1,48 @@
 <script>
-import axios from 'axios'
-import {store} from './data/store'
-import {BASE_URL} from './data/data'
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import { ApiService } from "./services/api.service";
+
 export default {
-    name: 'App',
+    name: "App",
     components: {
         AppHeader,
         AppFooter,
     },
     data() {
         return {
-            store
-        }
+        interval: null,
+        /* time in ms */
+        time: 10000,
+        };
     },
     methods: {
-        getApi(){
-            axios.get(BASE_URL + 'restaurants')
-                .then(result => {
-                    store.restaurants = result.data.restaurants;
-                });
-            axios.get(BASE_URL + 'categories')
-                .then(result => {
-                    store.categories = result.data.categories;
-                    console.log(store.categories);
-                });
-        }
+        loadData() {
+            ApiService.getApi("restaurants", null);
+            ApiService.getApi("categories", null);
+        },
     },
     mounted() {
-       this.getApi();
-    }
-}
-
+        this.loadData();
+    },
+    created() {
+        this.interval = setInterval(() => {
+        this.loadData();
+        }, this.time);
+    },
+    destroyed() {
+        clearInterval(this.interval);
+    },
+};
 </script>
 
-
 <template>
-    <AppHeader />
-    <router-view> </router-view>
-    <AppFooter />
+  <AppHeader />
+  <router-view> </router-view>
+  <AppFooter />
 </template>
 
-
-
 <style lang="scss">
-@use '../scss/appVue.scss'
+
+@use '../scss/appVue.scss';
 </style>

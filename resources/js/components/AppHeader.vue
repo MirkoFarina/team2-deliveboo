@@ -1,6 +1,13 @@
 <script>
+import {store} from '../data/store';
 export default {
     name: "AppHeader",
+    data(){
+        return {
+            store,
+            is_canvas: false
+        }
+    }
 };
 </script>
 
@@ -13,7 +20,40 @@ export default {
         </div>
 
         <div class="btn">
-            <button class="btn-plus">Aggiungi il tuo ristorante</button>
+            <div>
+                <button @click="is_canvas = !is_canvas" class="mx-3 text-light dropbtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <div class="mf-offcanvas p-4" :class="{active : is_canvas}">
+                    <div class="text-end">
+                        <i @click="is_canvas = false" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center flex-column w-50" v-if="store.shopping_cart.length">
+                            <div class="container">
+                                <div v-for="(food, index) in store.shopping_cart" :key="index + 'piatto'" class="row">
+                                    <div class="col-6">
+                                        <p>
+                                            {{ food.quantity }}x {{food.name}}
+                                        </p>
+                                    </div>
+                                    <div class="col-6 d-flex">
+                                        <p>
+                                             +{{ food.price }} &euro;
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5" v-else>
+                            <h5>
+                                IL TUO CARRELLO &Eacute; VUOTO <br>
+                                PROVA A FARE QUALCHE ACQUISTO
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="dropdown">
                 <button class="dropbtn">
                     <i class="fa-solid fa-bars"></i>
@@ -36,10 +76,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #F6F6F6;
 
     img {
         width: 80px;
         margin: 10px;
+    }
+
+    .row {
+        background-color: black;
+        border-radius: 20px;
+        color: #25645B;
     }
     .btn {
         border: none;
@@ -68,14 +115,14 @@ header {
         }
     }
     button:hover {
-        background-color: #d3d3d3;
+        background-color: #46e3cd;
     }
     button:active {
         transform: translateY(2px);
     }
 
     .dropbtn {
-        background-color: #46e3cd;
+        background-color: #25645B;
         color: white;
         padding: 10px;
         font-size: 13px;
@@ -111,6 +158,23 @@ header {
     }
     .dropdown:hover .dropbtn {
         background-color: #46e3cd;
+    }
+
+    .mf-offcanvas {
+        position: fixed;
+        z-index: 99;
+        display: block;
+        top: 0;
+        left: -100%;
+        height: 70vh;
+        width: 60vw;
+        background-color: #25645B;
+        padding: 10px;
+        transition: all 0.55s;
+        &.active {
+            display: block;
+            left: 0;
+        }
     }
 }
 </style>
