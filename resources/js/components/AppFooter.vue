@@ -43,6 +43,8 @@ export default {
         background-color: #26635B;
         height: 120px;
         ul {
+            margin: 0;
+            padding: 0;
             li {
                 list-style: none;
                 a {
