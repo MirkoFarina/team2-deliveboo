@@ -1,6 +1,6 @@
 <script>
-import  axios  from 'axios';
-import {BASE_URL} from  '../data/data'
+import { searchSlugRecord } from '../data/functions'
+import { store } from '../data/store';
 export default {
     name: 'RestaurantsDetais',
     data() {
@@ -9,24 +9,20 @@ export default {
         }
     },
     methods: {
-        getApi() {
-            axios.get(BASE_URL + 'restaurants/' + this.$route.params.slug)
-                .then(response => {
-                    this.restaurant = response.data.restaurants;
-                    console.log(this.restaurant);
-                })
-        }
     },
     mounted() {
-        this.getApi();
+        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
+        console.log(this.restaurant);
     }
 }
 </script>
 
 <template>
-    <div class="container">
+    <div v-if="restaurant" class="container">
         <h1 class="text-center">Pagina Menu</h1>
+        <h2>{{ restaurant.name_of_restaurant }}</h2> 
     </div>
+    <h2 v-else class="text-center py-3">Ops. Qualcosa è andato storto :(</h2>
 </template>
 
 <style>
