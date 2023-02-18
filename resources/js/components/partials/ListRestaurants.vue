@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="container w-75 my-5">
+  <div class="container my-5">
     <h2 class="text-center text-uppercase py-5">I nostri ristoranti</h2>
     <div class="row">
         <div class="col my-5" v-for="restaurant in store.restaurants" :key="restaurant.slug">
@@ -36,8 +36,8 @@ export default {
 
 <style lang="scss" scoped>
     .card-lf {
-        width: 30rem;
-        height: 450px;
+        width: 38rem;
+        height: 380px;
         border: none;
     }
 
