@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeApp from '../pages/HomeApp.vue';
 import ChiSiamo from "../pages/ChiSiamo.vue";
+import Contatti from "../pages/Contatti.vue";
 import Login from "../pages/Login.vue";
 import Italiano from '../pages/Italiano.vue';
 import Giapponese from "../pages/Giapponese.vue";
@@ -22,6 +23,11 @@ const routes = [
         path:"/chisiamo",
         name:"chisiamo",
         component: ChiSiamo
+      },
+      {
+        path:"/contatti",
+        name:"contatti",
+        component: Contatti
       },
       {
         path: "/login",

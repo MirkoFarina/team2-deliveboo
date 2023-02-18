@@ -10,7 +10,7 @@ export default {
             <div class="left">
                 <ul>
                     <li><router-link :to="{name: 'chisiamo'}">Chi siamo</router-link></li>
-                    <li><a href="#">Contatti</a></li>
+                    <li><router-link :to="{name: 'contatti'}">Contatti</router-link></li>
                     <li><a href="#">Privacy</a></li>
                     <li><a href="#">Termini e Condizioni</a></li>
                 </ul>
