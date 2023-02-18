@@ -9,6 +9,7 @@ export const store = reactive({
         restaurant: 10,
         foods: [
             {
+                id: 1,
                 name: 'pita',
                 price: 10,
                 quantity: 1
