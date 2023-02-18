@@ -23,16 +23,16 @@ export default {
                 <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </button>
-                <div class="mf-offcanvas p-4" :class="{active : store.is_canvas}">
+                <div class="mf-offcanvas px-3 py-5" :class="{active : store.is_canvas}">
                     <div class="text-end">
                         <i @click="store.is_canvas = false" class="fa-solid fa-xmark"></i>
                     </div>
-                    <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="h-100 d-flex flex-column justify-content-center align-items-center">
                         <h3>
                             IL TUO CARRELLO
                         </h3>
-                        <div class="d-flex align-items-center  flex-column w-50" v-if="store.shopping_cart.foods.length">
-                            <div class="container">
+                        <div class="h-100 d-flex align-items-center  flex-column w-50" v-if="store.shopping_cart.foods.length">
+                            <div class="container content-order">
                                 <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row my-3">
                                     <div class="col-6">
                                         <p>
@@ -45,9 +45,12 @@ export default {
                                         </p>
                                     </div>
                                 </div>
-                                <div class="total">
-                                    TOTALE: {{ store.shopping_cart.total_amount }}
-                                </div>
+                            </div>
+                            <div class="total mb-3">
+                                TOTALE: {{ store.shopping_cart.total_amount }} &euro;
+                            </div>
+                            <div>
+                                <button>PAGA</button>
                             </div>
                         </div>
                         <div class="mt-5" v-else>
@@ -180,6 +183,10 @@ header {
         &.active {
             display: block;
             left: 0;
+        }
+        .content-order {
+            height: calc(100% - 20vh);
+            overflow-y: auto;
         }
     }
 }
