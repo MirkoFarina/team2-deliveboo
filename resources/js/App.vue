@@ -45,5 +45,4 @@ export default {
 <style lang="scss">
 
 @use '../scss/appVue.scss';
-@use "../scss/appVue.scss";
 </style>
