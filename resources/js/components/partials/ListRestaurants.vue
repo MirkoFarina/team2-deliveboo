@@ -25,6 +25,8 @@ export default {
                 <p class="card-text">Piatti Disponibili: {{ restaurant.foods.length }}</p>
                     <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-5 text-uppercase">Vai al ristorante</router-link>
             </div>
+            <div>
+            </div>
             </div>
         </div>
     </div>
