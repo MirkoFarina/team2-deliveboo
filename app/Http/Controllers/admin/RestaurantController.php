@@ -26,9 +26,9 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
 
         // SE IL RISTORANTE NON ESISTE CATEGORIES DIVENTA NULL E NON ESEGUE IL CONTROLLO
-        if(is_null($restaurant)) {
+        if (is_null($restaurant)) {
             $categories = null;
-        }else {
+        } else {
             $categories = $restaurant->categories()->get();
         }
 
@@ -45,7 +45,7 @@ class RestaurantController extends Controller
         $res = Restaurant::where('user_id', Auth::user()->id)->get();
         if (!empty($res->all()))
             return redirect()->route('admin.restaurants.index')->with('denied', 'Possiedi già un ristorante registrato!');
-        else{
+        else {
             $categories = Category::all();
             return view('admin.restaurants.create', compact('categories'));
         }
@@ -78,10 +78,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -91,8 +88,11 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        $categories = Category::all();
-        return view('admin.restaurants.edit', compact('restaurant', 'categories'));
+        if ($this->authUserRest($restaurant)) {
+            $categories = Category::all();
+            return view('admin.restaurants.edit', compact('restaurant', 'categories'));
+        } else
+            return redirect()->route('admin.restaurants.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
     }
 
     /**
@@ -104,28 +104,32 @@ class RestaurantController extends Controller
      */
     public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
-        $data = $request->all();
+        if ($this->authUserRest($restaurant)) {
+            $data = $request->all();
 
-        if ($data['name_of_restaurant'] != $restaurant->name_of_restaurant)
-            $data['slug'] = GlobalHelpers::generateSlug($data['name_of_restaurant'], $restaurant);
+            if ($data['name_of_restaurant'] != $restaurant->name_of_restaurant)
+                $data['slug'] = GlobalHelpers::generateSlug($data['name_of_restaurant'], $restaurant);
 
-        if (array_key_exists('cover_image', $data)) {
+            if (array_key_exists('cover_image', $data)) {
 
-            if ($restaurant->cover_image) {
-                Storage::disk('public')->delete($restaurant->cover_image);
+                if ($restaurant->cover_image) {
+                    Storage::disk('public')->delete($restaurant->cover_image);
+                }
+
+                $data['original_name'] = $request->file('cover_image')->getClientOriginalName();
+                $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
             }
 
-            $data['original_name'] = $request->file('cover_image')->getClientOriginalName();
-            $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
-        }
+            if (array_key_exists('categories', $data))
+                $restaurant->categories()->sync($data['categories']);
+            else
+                $restaurant->categories()->detach();
 
-        if (array_key_exists('categories', $data))
-            $restaurant->categories()->sync($data['categories']);
-        else
-            $restaurant->categories()->detach();
+            $restaurant->update($data);
+            return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant ' . $restaurant->name_of_restaurant . ' modificato con successo');
+        } else
+            return redirect()->route('admin.restaurants.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
 
-        $restaurant->update($data);
-        return redirect()->route('admin.restaurants.index')->with('success', 'Restaurant ' . $restaurant->name_of_restaurant . ' modificato con successo');
     }
 
     /**
@@ -136,12 +140,22 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        if ($restaurant->cover_image) {
-            Storage::disk('public')->delete($restaurant->cover_image);
-        }
+        if ($this->authUserRest($restaurant)) {
 
-        $restaurant->delete();
+            if ($restaurant->cover_image) {
+                Storage::disk('public')->delete($restaurant->cover_image);
+            }
 
-        return redirect()->route('admin.restaurants.index')->with('success', 'Hai eliminato correttamente il tuo ristorante');
+            $restaurant->delete();
+
+            return redirect()->route('admin.restaurants.index')->with('success', 'Hai eliminato correttamente il tuo ristorante');
+        }else
+        return redirect()->route('admin.restaurants.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
+    }
+
+    /* controlla se l''utente loggato è il proprietario del ristorante in questione  */
+    private function authUserRest(Restaurant $restaurant)
+    {
+        return ($restaurant->user_id === Auth::id()) ? true : false;
     }
 }

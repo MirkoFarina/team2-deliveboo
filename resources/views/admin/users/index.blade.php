@@ -60,7 +60,7 @@
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
                     <div class="card text-dark" style="width: 24rem;" >
-                        <img src=" {{ asset('storage/' . $res->cover_image) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' imaggine'}}">
+                        <img src=" {{ asset('storage/' . $res->cover_image) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}">
                         <div class="card-body">
                             <h5 class="card-title">
                                 {{$res->name_of_restaurant}}

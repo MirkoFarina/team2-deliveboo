@@ -19,15 +19,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        /* $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-        $orders = [];
-        foreach ($foods as $food)
-        array_push($orders, $food->orders->all());
-        $orders = array_filter($orders);
-        $col = collect($orders);
-        dump($col);
-        return view('admin.orders.index', compact('orders'));
-        */
+        /* CONTROLLARE AUTENTIFICAZIONE UTENTE */
 
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
 
@@ -37,20 +29,6 @@ class OrderController extends Controller
 
         return view('admin.orders.index', compact('col'));
 
-
-        /* $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-
-        $orders = [];
-        foreach($foods as $food){
-            dump($food->orders->all());
-            array_push($orders, $food->orders->all());
-        }
-        $col = collect($orders);
-        dump($col);
- */
-
-        /* $col = collect(1);
-        dump($col->all()); */
     }
 
     /**

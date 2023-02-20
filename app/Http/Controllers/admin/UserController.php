@@ -17,13 +17,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         $user = User::find(Auth::id());
-        if(GlobalHelpers::checkRestaurant())
+        if (GlobalHelpers::checkRestaurant())
             $res = Restaurant::where('user_id', Auth::id())->first();
-        else $res = null;
+        else
+            $res = null;
 
-        return view('admin.users.index', compact('user','res'));
+        return view('admin.users.index', compact('user', 'res'));
     }
 
     /**
@@ -66,7 +68,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        if ($user->id !== Auth::id())
+            return redirect()->route('admin.users.index')->with('denied', 'ACCESSO NEGATO. Accessibilità limitata al tuo account.');
+        else
+            return view('admin.users.edit', compact('user'));
+
     }
 
     /**
@@ -78,17 +84,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
-            'name' => ['string', 'max:45', 'required'],
-            'email' => ['email', 'max:255'],
-            'surname' => ['string', 'max:45', 'required'],
-            'address' => ['string', 'max:255', 'required'],
-            'phone_number' => ['string', 'max:12', 'required'],
-        ]);
-        $user->update($request->all());
+        if ($user->id !== Auth::id())
+            return redirect()->route('admin.users.index')->with('denied', 'ACCESSO NEGATO. Accessibilità limitata al tuo account.');
+        else {
+            $request->validate([
+                'name' => ['string', 'max:45', 'required'],
+                'email' => ['email', 'max:255'],
+                'surname' => ['string', 'max:45', 'required'],
+                'address' => ['string', 'max:255', 'required'],
+                'phone_number' => ['string', 'max:12', 'required'],
+            ]);
+            $user->update($request->all());
 
 
-        return redirect()->route('admin.users.index')->with('success', 'Profile updated successfully');
+            return redirect()->route('admin.users.index')->with('success', 'Profile updated successfully');
+        }
+
     }
 
     /**
@@ -99,7 +110,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-        return redirect()->route('admin.users.index');
+        if ($user->id !== Auth::id())
+            return redirect()->route('admin.users.index')->with('denied', 'ACCESSO NEGATO. Accessibilità limitata al tuo account.');
+        else {
+            $user->delete();
+            return redirect()->route('admin.users.index');
+        }
+
     }
 }
