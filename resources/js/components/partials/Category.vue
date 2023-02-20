@@ -10,7 +10,10 @@ export default {
         }
     },
     methods: {
-        
+        changeCheck() {
+            this.checked = !this.checked;
+            console.log(this.checked)
+        }
     }
 }
 </script>
@@ -20,9 +23,9 @@ export default {
         <img :src="category.cover_image" :alt="category.slug">
         <p>{{ category.name }}</p>
         <div class="form-check m-2">
-        <input class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-        </label>
+            <input :onClick="changeCheck()" class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
+            <label class="form-check-label" for="flexCheckIndeterminate">
+            </label>
         </div>
     </div>
 </template>
