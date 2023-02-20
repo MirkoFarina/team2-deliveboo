@@ -64,8 +64,8 @@ class FoodController extends Controller
      */
     public function show(Food $food)
     {
-        if($food->restaurant_id != Restaurant::where('user_id', Auth::user()->id)->first()->id)
-            return redirect()->route('admin.food.index')->with('denied', 'Puoi visualizzare soltanto i tuoi piatti');
+        if (!$this->checkAuthFood($food))
+            return redirect()->route('admin.food.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
         else
             return view('admin.foods.show', compact('food'));
     }
@@ -78,7 +78,10 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        return view('admin.foods.edit', compact('food'));
+        if (!$this->checkAuthFood($food))
+            return redirect()->route('admin.food.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
+        else
+            return view('admin.foods.edit', compact('food'));
     }
 
     /**
@@ -90,21 +93,27 @@ class FoodController extends Controller
      */
     public function update(FoodRequest $request, Food $food)
     {
-        $form_data = $request->all();
-        //GESTISTO LE IMMAGINI
-        if(array_key_exists('cover_image', $form_data)){
-            if($food->cover_image) {
-                Storage::disk('public')->delete($food->cover_image);
+        if (!$this->checkAuthFood($food))
+            return redirect()->route('admin.food.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
+        else {
+
+            $form_data = $request->all();
+            //GESTISTO LE IMMAGINI
+            if (array_key_exists('cover_image', $form_data)) {
+                if ($food->cover_image) {
+                    Storage::disk('public')->delete($food->cover_image);
+                }
+                $form_data['image_original_name'] = $request->file('cover_image')->getClientOriginalName();
+                $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
             }
-            $form_data['image_original_name'] = $request->file('cover_image')->getClientOriginalName();
-            $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
+
+            // ASSEGNO L'ID RESTAURANT
+            $form_data['restaurant_id'] = Restaurant::where('user_id', Auth::id())->first()->id;
+
+            $food->update($form_data);
+            return redirect()->route('admin.food.show', compact('food'))->with('edit', "$food->name è stato modificato corretamente");
         }
 
-        // ASSEGNO L'ID RESTAURANT
-        $form_data['restaurant_id'] = Restaurant::where('user_id', Auth::id())->first()->id;
-
-        $food->update($form_data);
-        return redirect()->route('admin.food.show', compact('food'))->with('edit', "$food->name è stato modificato corretamente");
     }
 
     /**
@@ -115,11 +124,22 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
-        if($food->cover_image) {
-            Storage::disk('public')->delete($food->cover_image);
-        }
+        if (!$this->checkAuthFood($food))
+            return redirect()->route('admin.food.index')->with('denied', 'ACCESSO NEGATO, le operazioni che puoi svolgere sono relative soltanto al tuo account.');
+        else {
+            if ($food->cover_image)
+                Storage::disk('public')->delete($food->cover_image);
 
-        $food->delete();
-        return redirect()->route('admin.food.index')->with('delete', 'Il tuo piatto è stato eliminato correttamente');
+            $food->delete();
+
+            return redirect()->route('admin.food.index')->with('delete', 'Il tuo piatto è stato eliminato correttamente');
+        }
     }
+
+    private function checkAuthFood(Food $food)
+    {
+        return ($food->restaurant_id === Restaurant::where('user_id', Auth::user()->id)->first()->id) ? true : false;
+    }
+
+
 }
