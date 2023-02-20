@@ -46,9 +46,7 @@ export default {
 }
 
 .app_description{
-
   background-color: #F6F6F6;
-  padding: 10px;
 
   h2 {
       color: #252525;

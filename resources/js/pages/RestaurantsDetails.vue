@@ -60,15 +60,15 @@ export default {
         border: 1px solid $gray-border;
         padding: 20px 25px;
         background-color: #f6f6f6;
-        border-radius: 10px;
-        box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
+        border-radius: 8px;
+        box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
     }
     .card-lf {
         background-color: #fcfcfc;
         height: 400px;
-        border-radius: 10px;
+        border-radius: 8px;
         padding: 10px 15px;
-        box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
+        box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
     }
 </style>
 
