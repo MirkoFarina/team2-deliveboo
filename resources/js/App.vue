@@ -37,9 +37,9 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
-  <router-view> </router-view>
-  <AppFooter />
+    <AppHeader />
+    <router-view> </router-view>
+    <AppFooter />
 </template>
 
 <style lang="scss">

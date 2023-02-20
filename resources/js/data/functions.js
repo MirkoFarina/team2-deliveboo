@@ -50,3 +50,12 @@ function refreshAmount(array){
 
     return sum;
 }
+
+export function filterResCat(){
+    let arr = [];
+    store.restaurants.forEach(element => {
+        if(element.categories.filter(x => store.filtered.includes(x.id)).length !== 0 )
+            arr.push(element);
+    });
+    store.filtered_rest = arr;
+}

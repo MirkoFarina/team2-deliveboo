@@ -15,7 +15,11 @@ export const store = reactive({
                 quantity: 1
             }
         ]
-    }
+    },
+
+    filtered : [],
+    filtered_rest : [],
+
 })
 
 

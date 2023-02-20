@@ -1,4 +1,5 @@
 <script>
+import {store} from '../../data/store';
 export default {
     name: 'Category',
     props: {
@@ -6,14 +7,20 @@ export default {
     },
     data() {
         return {
-            checked: false
+            checked: false,
+            store,
         }
     },
     methods: {
         changeCheck() {
             this.checked = !this.checked;
-            console.log(this.checked)
-        }
+            if(this.checked)
+                store.filtered.push(this.category.id);
+            else
+                store.filtered.splice(store.filtered.indexOf(this.category.id), 1);
+
+            console.log(store.filtered);
+        }   
     }
 }
 </script>
@@ -23,7 +30,7 @@ export default {
         <img :src="category.cover_image" :alt="category.slug">
         <p>{{ category.name }}</p>
         <div class="form-check m-2">
-            <input :onClick="changeCheck()" class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
+            <input @click="changeCheck()" class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
             <label class="form-check-label" for="flexCheckIndeterminate">
             </label>
         </div>

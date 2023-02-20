@@ -7,13 +7,15 @@ export class ApiService{
 
         return axios.get(`${BASE_URL}${route}`, {
             params:{
-                
+
             }
         }).then((res) => {
-            if(res.data.restaurants)
+            if(res.data.restaurants){
                 store.restaurants = res.data.restaurants;
+            }
             if(res.data.categories)
                 store.categories = res.data.categories;
+
         })
     }
 }
