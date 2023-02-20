@@ -18,8 +18,8 @@ export default {
 <template>
     <main>
         <Jumbo />
-        <Categories />
         <Description />
+        <Categories />
         <ListRestaurants/>
     </main>
 </template>

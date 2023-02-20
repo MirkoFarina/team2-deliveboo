@@ -1,5 +1,7 @@
 <script>
 import { store } from '../../data/store';
+// import axios from 'axios';
+// import { BASE_URL } from '../../data/data';
 
 export default {
   name: 'Categories',
@@ -7,23 +9,36 @@ export default {
     return{
         store
     }
-  }
+    },
+//     methods: {
+//         getApiByCategory(uri, id) {
+//             axios.get(`${BASE_URL} categories/${uri}/${id}`)
+//                 .then(result => {
+//                     console.log(result.data)
+//                     store.restaurants = result.data;
+//                     console.log(store.restaurants)
+//             })
+//         }
+//   }
 }
 </script>
 
 <template>
   <div class="container mt-5 my-5">
       <div class="boxes">
-
-       <router-link :to="{name: 'italiano'}" v-for="category in store.categories" :key="category.slug">
+       <a v-for="category in store.categories" :key="'category' + category.id" >
           <div class="box">
               <img :src="category.cover_image" :alt="category.slug">
               <p>{{category.name}}</p>
+              <div class="form-check m-2">
+                <input class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                </label>
+              </div>
           </div>
-        </router-link>
-
-
+        </a>
      </div>
+    <button class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase">Ricerca per categorie</button>
   </div>
 </template>
 
@@ -33,11 +48,11 @@ export default {
 @use '../../../scss/partials/guest/categories';
   .boxes {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 30px;
     a {
         text-decoration: none;
-        color: white;
       }
     .box {
       display: flex;
@@ -45,10 +60,11 @@ export default {
       justify-content: space-around;
       height: 45px;
       min-width: 100px;
-      width: 170px;
+      width: 300px;
       height: 70px;
       margin: 5px;
       padding: 10px;
+      color: white;
       border-radius: 20px;
       margin-bottom: 45px;
       box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
@@ -58,11 +74,8 @@ export default {
         text-transform: uppercase;
       }
       img{
-        width: 70%;
+        width: 45%;
         object-fit: contain;
-      }
-      &:hover {
-        background-color: $secondary-color;
       }
     }
   }
