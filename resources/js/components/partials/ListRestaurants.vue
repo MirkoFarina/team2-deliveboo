@@ -43,7 +43,7 @@ export default {
     .card-body-lf {
         background-color: #f6f6f6;
         border-radius: 10px;
-        box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
+        box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
         padding: 15px 26px;
     }
 </style>
