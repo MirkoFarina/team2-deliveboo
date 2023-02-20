@@ -42,7 +42,6 @@ class RestaurantRequest extends FormRequest
 
             'p_iva.required'                => 'La partita IVA è un campo obbligatorio',
             'p_iva.size'                    => 'La formattazione della partita IVA è errata (inserire soltanto le :size cifre che la compongono)',
-
             'address.required'              => 'l\'indirizzo è un campo obbligatorio',
 
             'phone_number.required'         => 'Il numero di telefono è un campo obbligatorio',
