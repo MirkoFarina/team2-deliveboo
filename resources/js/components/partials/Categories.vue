@@ -1,4 +1,5 @@
 <script>
+import Category from './Category.vue'
 import { store } from '../../data/store';
 // import axios from 'axios';
 // import { BASE_URL } from '../../data/data';
@@ -7,19 +8,12 @@ export default {
   name: 'Categories',
   data(){
     return{
-        store
+        store,
     }
     },
-//     methods: {
-//         getApiByCategory(uri, id) {
-//             axios.get(`${BASE_URL} categories/${uri}/${id}`)
-//                 .then(result => {
-//                     console.log(result.data)
-//                     store.restaurants = result.data;
-//                     console.log(store.restaurants)
-//             })
-//         }
-//   }
+    components: {
+        Category
+    }
 }
 </script>
 
@@ -27,15 +21,7 @@ export default {
   <div class="container mt-5 my-5">
       <div class="boxes">
        <a v-for="category in store.categories" :key="'category' + category.id" >
-          <div class="box">
-              <img :src="category.cover_image" :alt="category.slug">
-              <p>{{category.name}}</p>
-              <div class="form-check m-2">
-                <input class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
-                <label class="form-check-label" for="flexCheckIndeterminate">
-                </label>
-              </div>
-          </div>
+        <Category />
         </a>
      </div>
     <button class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase">Ricerca per categorie</button>
