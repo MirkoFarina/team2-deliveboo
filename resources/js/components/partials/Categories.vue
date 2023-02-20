@@ -33,44 +33,29 @@ export default {
 
 <template>
 
-    <div class="container mt-5 my-5">
-        <div class="boxes">
-        <a v-for="category in store.categories" :key="'category' + category.id" >
-            <Category :category="category" />
-            </a>
-        </div>
-        <button @click="filterResCat()" class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase">Ricerca per categorie</button>
-    </div>
-    <swiper
-:modules="modules"
-navigation
-:slidesPerView="'3'"
-:effect="'coverflow'"
-:pagination="{clickable: true }"
-:coverflowEffect="{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }">
+    <div class="container-fluid my-5">
+        <h2 class="text-center text-uppercase fs-4 my-4 mb-5">Scegli tra le nostre categorie</h2>
+            <swiper
+                :modules="modules"
+                navigation
+                :slidesPerView="'3'"
+                :effect="'coverflow'"
+                :pagination="{clickable: true }"
+                :coverflowEffect="{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            }">
 
-      <SwiperSlide  v-for="category in store.categories" :key="'category' + category.id">
-        <div>
-            <Category :category="category" />
+            <SwiperSlide  v-for="category in store.categories" :key="'category' + category.id">
+                    <Category :category="category" />
+            </SwiperSlide>
 
-        </div>
-      </SwiperSlide>
-      </swiper>
-
-  <div class="container mt-5 my-5">
-      <div class="boxes">
-       <a v-for="category in store.categories" :key="'category' + category.id" >
-        <Category :category="category" />
-        </a>
+            </swiper>
+                <button @click="filterResCat()" class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase my-5">Cerca</button>
      </div>
-    <button class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase">Ricerca per categorie</button>
-  </div>
 </template>
 
 
