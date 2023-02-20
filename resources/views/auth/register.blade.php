@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id="register" method="POST"  action="{{ route('register') }}">
                         @csrf
 
                         <div class="mb-4 row">
@@ -84,11 +84,16 @@
                             <div class="col-md-6">
                                 <input id="password" minlength="8" maxlength="32" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                <span class="text-danger" >
+                                    @error('password')
+                                            <span class="invalid-feedback" role="alert">
+
+                                            </span>
+                                    @enderror
+                                    <span id="message">
+
+                                    </span>
                                 </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -102,7 +107,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -113,4 +118,26 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    const form = document.getElementById('register');
+    const message = document.getElementById('message');
+    form.addEventListener('submit', (event) => {
+        if (checkPassword()) {
+            message.innerText = 'Le password non combaciano';
+            event.preventDefault();
+        }
+    })
+
+    function checkPassword(){
+        const inputPassword = document.getElementById('password').value;
+        const checkPassword = document.getElementById('password-confirm').value;
+
+        if(inputPassword !== checkPassword) {
+            return true;
+        }
+    }
+</script>
+
 @endsection
