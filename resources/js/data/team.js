@@ -3,7 +3,7 @@ export default [
         name: "Giorgio",
         usrname: "Perez",
         rule: "Front-End",
-        img: "../assets/chisiamo/giorgio.jpg",
+        img: "./js/assets/chisiamo/giorgio.jpg",
         number:"3505255178",
         email:"giorgiop62@gmail.com",
         luogo:"Napoli,"
