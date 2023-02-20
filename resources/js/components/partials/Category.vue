@@ -20,7 +20,7 @@ export default {
                 store.filtered.splice(store.filtered.indexOf(this.category.id), 1);
 
             console.log(store.filtered);
-        }   
+        }
     }
 }
 </script>
@@ -39,27 +39,31 @@ export default {
 
 
 <style lang="scss" scoped>
+@use '../../../scss/partials/vars' as *;
+@use '../../../scss/partials/guest/categories';
     .box {
       display: flex;
       align-items: center;
       justify-content: space-around;
       height: 45px;
       min-width: 100px;
-      width: 300px;
-      height: 70px;
+      width: 380px;
+      height: 130px;
       margin: 5px;
       padding: 10px;
-      color: white;
-      border-radius: 20px;
+      background-color: #597377;
+      color: #e8e8e8;
+      font-weight: bold;
+      border-radius: 8px;
       margin-bottom: 45px;
-      box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.2);
+      box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.1);
       p {
         margin: 0;
         font-size: 0.7rem;
         text-transform: uppercase;
       }
       img{
-        width: 45%;
+        width: 60%;
         object-fit: contain;
       }
     }
