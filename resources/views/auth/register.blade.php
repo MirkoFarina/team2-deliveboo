@@ -83,13 +83,15 @@
 
                             <div class="col-md-6">
                                 <input id="password" minlength="8" maxlength="32" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                <span class="text-danger" >
+                                <div class="invalid-feedback" role="alert">
                                     @error('password')
-                                            <span class="invalid-feedback" role="alert">
-
+                                            <span >
+                                                {{ $message }}
                                             </span>
                                     @enderror
+
+                                </div>
+                                <span class="text-danger" >
                                     <span id="message">
 
                                     </span>

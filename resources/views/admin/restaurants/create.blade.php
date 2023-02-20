@@ -4,7 +4,7 @@
     <div class="container text-light py-5">
 
         <h1 class="mb-3">Registra il tuo ristorante</h1>
-        <form action=" {{ route('admin.restaurants.store') }} " method="POST" enctype="multipart/form-data">
+        <form id="create_res" action=" {{ route('admin.restaurants.store') }} " method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- ? name --}}
@@ -25,18 +25,26 @@
             {{-- ? p.iva --}}
             <div class="mb-3">
                 <label for="p_iva" class="form-label">Partita IVA * </label>
-                <input required maxlength="11" type="number" name="p_iva"
+                <input required minlength="11" maxlength="11" id="p_iva" type="text" name="p_iva"
                     class="form-control @error('p_iva')
                     is-invalid  @enderror" id="p_iva"
                     placeholder="inserire la partita IVA" value="{{ old('p_iva') }}">
-                <div class="invalid-feedback">
-                    @error('p_iva')
-                        {{ $message }}
-                    @enderror
+                    <div  class="invalid-feedback">
+                        @error('p_iva')
+                            <span >
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+
+                <div class="text-danger" >
+                    <span id="messageP">
+
+                    </span>
                 </div>
             </div>
 
-            {{-- ? p.iva --}}
+            {{-- ? sito web --}}
             <div class="mb-3">
                 <label for="website" class="form-label">Sito web</label>
                 <input maxlength="255" type="text" name="website"
@@ -137,6 +145,22 @@
 
 
     <script>
+        const form = document.getElementById('create_res');
+        const message = document.getElementById('messageP');
+        form.addEventListener('submit', (event)=> {
+            if(checkPIva()){
+                message.innerText = 'La partita iva deve essere composta solo da numeri';
+                event.preventDefault();
+            }
+        })
+
+        function checkPIva(){
+            const pIva = document.getElementById('p_iva').value;
+            if(isNaN(pIva)){
+                return true;
+            }
+        }
+
         function showImage(event) {
             const tagImage = document.getElementById('preview_image');
             tagImage.src = URL.createObjectURL(event.target.files[0]);
