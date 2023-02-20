@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div class="jumbo-container w-100 d-flex align-items-center flex-column justify-content-end">
+    <div class="jumbo-container w-100 d-flex align-items-center flex-column justify-content-end mb-5">
         <div class="search-div">
             <a href="#"></a>
             <input type="text" class="searchbar" placeholder="Cerca un ristorante">
