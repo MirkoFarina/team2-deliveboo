@@ -6,12 +6,6 @@
                 DeliveBoo
             </div>
         </a>
-        <ul class="navbar-nav me-auto">
-            <li>
-                <!-- Left Side Of Navbar -->
-                <a href="{{ route('home') }}"> Sito Pubblico </a>
-            </li>
-        </ul>
 
         <div class="d-flex" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
