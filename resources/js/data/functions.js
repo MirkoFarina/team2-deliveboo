@@ -51,15 +51,9 @@ function refreshAmount(array) {
     return sum;
 }
 
-/* export function filterResCat(){
-    let arr = [];
-    store.restaurants.forEach(element => {
-        if(element.categories.filter(x => store.filtered.every(x.id)))
-            arr.push(element);
-    });
-} */
-
 export function filterResCat() {
+    if(store.filtered_rest.length !== 0 )
+        store.filtered_rest = [];
     store.restaurants.forEach(restaurant => {
         const temp = restaurant.categories.map(x => x.id);
         if(checkSubset(temp, store.filtered))
@@ -73,27 +67,6 @@ let checkSubset = (parentArray, subsetArray) => {
         return parentArray.includes(el)
     })
 }
-
-/* export function filterResCat() {
-    let arr = [];
-    store.restaurants.forEach(restaurant => {
-            console.log(restaurant.categories);
-    });
-    console.log(arr);
-} */
-
-/* export function filterResCat(){
-    let out = [];
-    store.restaurants.forEach(res => {
-        let maronna = [];
-        res.categories.forEach(cat =>{
-            maronna.push(store.filtered.includes(cat.id));
-        });
-        if( maronna.map(x => x==true).length <= store.filtered.length)
-            out.push(res);
-    });
-    console.log(out);
-} */
 
 
 

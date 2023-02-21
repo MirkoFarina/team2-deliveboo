@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <AppMain />
+    <AppMain  />
 </template>
 
 
