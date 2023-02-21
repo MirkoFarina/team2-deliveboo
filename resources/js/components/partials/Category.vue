@@ -18,8 +18,6 @@ export default {
                 store.filtered.push(this.category.id);
             else
                 store.filtered.splice(store.filtered.indexOf(this.category.id), 1);
-
-            console.log(store.filtered);
         }
     }
 }

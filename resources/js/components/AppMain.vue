@@ -8,7 +8,6 @@ export default {
     components: {
         Jumbo,
         Categories,
-        //CategorySlider,
         Description,
         ListRestaurants
     }
