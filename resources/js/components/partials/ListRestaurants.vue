@@ -30,7 +30,7 @@ export default {
         <div v-else class="row">
             <div class="col my-3" v-for="restaurant in store.restaurants" :key="restaurant.slug">
                 <div class="card card-lf m-auto">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <img :src="restaurant.cover_image" class="card-img-top" alt="...">
                     <div class="card-body card-body-lf">
                         <h5 class="card-title fs-3 py-3 text-uppercase">{{ restaurant.name_of_restaurant }}</h5>
                         <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 mb-1">{{category.name}}</span>
