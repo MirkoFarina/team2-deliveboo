@@ -57,7 +57,7 @@ export default {
       box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.1);
       cursor: pointer;
       &.active {
-        background-color: #FF5758;
+        background-color: #FF5758 !important;
       }
       p {
         margin: 0;
