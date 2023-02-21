@@ -44,8 +44,8 @@ export default {
       align-items: center;
       justify-content: space-around;
       height: 45px;
-      min-width: 100px;
-      width: 380px;
+      min-width: 75%;
+      max-width: 90%;
       height: 130px;
       margin: 5px;
       padding: 10px;
