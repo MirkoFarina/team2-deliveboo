@@ -29,7 +29,7 @@ export default {
     justify-content-center
     align-items-center
     "
-    v-if="store.pagination.total_records !== 1"
+    v-if="store.pagination.total_records >= 1"
     >
         <button
         class="btn btn-primary"
