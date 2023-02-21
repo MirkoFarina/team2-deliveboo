@@ -14,7 +14,18 @@ export default {
         this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
         store.filtered_rest = [];
         store.filtered = [];
+    },
+    updated(){
+        console.log('ricaricata');
+    },
+    beforeCreate(){
+        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
+    },
+    ready:function(){
+        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
+
     }
+
 }
 </script>
 
