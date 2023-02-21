@@ -1,9 +1,10 @@
 <script>
 import { store } from '../../data/store'
+import Paginator from './Paginator.vue'
 import Card from './Card.vue';
 export default {
     name: 'ListRestaurants',
-    components: {Card},
+    components: {Card, Paginator},
     data() {
         return {
         store
@@ -28,6 +29,7 @@ export default {
             <div class="col my-3" v-for="restaurant in store.restaurants" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
             </div>
+            <Paginator/>
         </div>
 
     </div>
