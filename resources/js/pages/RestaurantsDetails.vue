@@ -12,6 +12,8 @@ export default {
     },
     mounted() {
         this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
+        store.filtered_rest = [];
+        store.filtered = [];
     }
 }
 </script>
