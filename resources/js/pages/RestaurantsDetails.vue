@@ -1,31 +1,27 @@
 <script>
-import { searchSlugRecord } from '../data/functions'
 import { store } from '../data/store';
+import { ApiService } from "../services/api.service";
+
 export default {
     name: 'RestaurantsDetais',
     data() {
         return {
-            restaurant: {}
+            restaurant: {},
+            slug: this.$route.params.slug,
+            store,
         }
     },
     methods: {
+        async callRes(){
+            this.restaurant = (await ApiService.getApi('restaurants/' + this.$route.params.slug ,''))[0];
+            console.log('res',this.restaurant );
+        }
     },
     mounted() {
-        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
+        this.callRes();
         store.filtered_rest = [];
         store.filtered = [];
     },
-    updated(){
-        console.log('ricaricata');
-    },
-    beforeCreate(){
-        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
-    },
-    ready:function(){
-        this.restaurant = searchSlugRecord(store.restaurants,this.$route.params.slug );
-
-    }
-
 }
 </script>
 

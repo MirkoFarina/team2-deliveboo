@@ -45,18 +45,4 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach(() => {
-
-    /* invece di fare una chiamata a prescindere controllare se la data delle ultime modifiche coincide con quel del DB
-        1. Implementare Api che ritorni il datetime del last_updated
-        2. Aggiungere eccezioni al beforeEach
-    */
-
-    ApiService.getApi('restaurants', '');
-    ApiService.getApi('categories', '');
-});
-
-
-
-
 export default router;
