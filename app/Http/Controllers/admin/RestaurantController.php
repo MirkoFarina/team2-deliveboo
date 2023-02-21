@@ -32,6 +32,8 @@ class RestaurantController extends Controller
             $categories = $restaurant->categories()->get();
         }
 
+
+
         return view('admin.restaurants.index', compact('restaurant', 'categories'));
     }
 

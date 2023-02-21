@@ -16,6 +16,8 @@ export class ApiService{
             if(res.data.categories)
                 store.categories = res.data.categories;
 
+                console.log(res);
+
         })
     }
 }

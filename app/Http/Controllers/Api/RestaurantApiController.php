@@ -17,6 +17,14 @@ class RestaurantApiController extends Controller
     public function index()
     {
         $restaurants = Restaurant::with(['foods','categories'])->get();
+
+
+        /* da sistemare */
+        foreach($restaurants->all() as $res){
+            if($res->cover_image !== null)
+                $res->cover_image = url('storage/' . $res->cover_image);
+        }
+
         return response()->json(compact('restaurants'));
     }
 
