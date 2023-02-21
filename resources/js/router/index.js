@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { ApiService } from "../services/api.service";
 
 import HomeApp from '../pages/HomeApp.vue';
 import ChiSiamo from "../pages/ChiSiamo.vue";
@@ -43,6 +44,17 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
+router.beforeEach(() => {
+
+    /* invece di fare una chiamata a prescindere controllare se la data delle ultime modifiche coincide con quel del DB
+        1. Implementare Api che ritorni il datetime del last_updated
+        2. Aggiungere eccezioni al beforeEach
+    */
+
+    ApiService.getApi('restaurants', '');
+    ApiService.getApi('categories', '');
+});
 
 
 

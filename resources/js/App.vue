@@ -25,14 +25,14 @@ export default {
     mounted() {
         this.loadData();
     },
-    created() {
+    /* created() {
         this.interval = setInterval(() => {
         this.loadData();
         }, this.time);
     },
     destroyed() {
         clearInterval(this.interval);
-    },
+    }, */
 };
 </script>
 
