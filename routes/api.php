@@ -31,5 +31,5 @@ Route::namespace('api')
     ->prefix('categories')
     ->group(function(){
         Route::get('/', [CategoryApiController::class, 'index']);
-        Route::get('/{id}', [CategoryApiController::class, 'show']);
+        // Route::get('/{id}', [CategoryApiController::class, 'show']);
     });

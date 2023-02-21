@@ -27,16 +27,16 @@ class CategoryApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    // public function show($id)
+    // {
 
-        $restaurants = Restaurant::with(['categories','foods'])
-            ->whereHas('categories', function (Builder $query) use($id){
-                $query->where('category_id', $id);
-            })->get();
+    //     $restaurants = Restaurant::with(['categories','foods'])
+    //         ->whereHas('categories', function (Builder $query) use($id){
+    //             $query->where('category_id', $id);
+    //         })->get();
 
-        return response()->json(compact('restaurants'));
-    }
+    //     return response()->json(compact('restaurants'));
+    // }
 
 
 }
