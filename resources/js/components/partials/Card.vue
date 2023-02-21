@@ -17,8 +17,9 @@ export default {
                 <div class="info">
                     <h5 class="card-title fs-4 mb-4 text-uppercase">{{ restaurant.name_of_restaurant }}</h5>
                     <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 my-1">{{ category.name }}</span>
-                    <p class="card-text fs-6 m-0 mt-4">Indirizzo: {{ restaurant.address }}</p>
+                    <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
                     <p class="card-text fs-6">Numero: {{ restaurant.phone_number }}</p>
+                     <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
                 </div>
             </div>
             <!-- <p class="card-text">Piatti Disponibili: {{ restaurant.foods.length }}</p> -->
