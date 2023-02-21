@@ -3,11 +3,11 @@ import { BASE_URL } from "../data/data";
 import { store } from "../data/store";
 
 export class ApiService{
-    static getApi(route, params){
+    static async getApi(route, params){
 
-        return axios.get(`${BASE_URL}${route}`, {
+        return await axios.get(`${BASE_URL}${route}`, {
             params:{
-
+                
             }
         }).then((res) => {
             if(res.data.restaurants){
@@ -16,8 +16,8 @@ export class ApiService{
             if(res.data.categories)
                 store.categories = res.data.categories;
 
-                console.log(res);
-
+            if(res.data.restaurant)
+                return res.data.restaurant;
         })
     }
 }

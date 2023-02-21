@@ -1,5 +1,5 @@
 import { store } from './store'
-
+/* 
 export function searchSlugRecord(array, sl) {
     var x = null;
     array.forEach(element => {
@@ -7,7 +7,7 @@ export function searchSlugRecord(array, sl) {
             x = element;
     });
     return x;
-}
+} */
 
 export function addToCart(food, res_id) {
 
@@ -67,6 +67,7 @@ let checkSubset = (parentArray, subsetArray) => {
         return parentArray.includes(el)
     })
 }
+
 
 
 
