@@ -60,13 +60,12 @@ function refreshAmount(array) {
 } */
 
 export function filterResCat() {
-    let arr = [];
     store.restaurants.forEach(restaurant => {
         const temp = restaurant.categories.map(x => x.id);
         if(checkSubset(temp, store.filtered))
-            arr.push(restaurant);
+        store.filtered_rest.push(restaurant);
     });
-    console.log(arr);
+    console.log(store.filtered_rest);
 }
 
 let checkSubset = (parentArray, subsetArray) => {
