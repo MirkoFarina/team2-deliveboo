@@ -2,7 +2,6 @@
 import Category from './Category.vue'
 import { store } from '../../data/store';
 
-import { filterResCat } from '../../data/functions';
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {Navigation, Pagination} from 'swiper';
 import 'swiper/css/bundle';
@@ -20,7 +19,6 @@ export default {
   data(){
     return{
         store,
-        filterResCat,
     }
     },
     setup () {
@@ -54,7 +52,7 @@ export default {
             </SwiperSlide>
 
             </swiper>
-                <button @click="filterResCat()" class="btn btn-outline-secondary m-auto d-flex p-3 text-uppercase my-5">Cerca</button>
+
      </div>
 </template>
 

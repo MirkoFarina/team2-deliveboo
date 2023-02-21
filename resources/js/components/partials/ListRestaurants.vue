@@ -27,6 +27,11 @@ export default {
                 </div>
             </div>
         </div>
+
+        <div class="py-5 text-center" v-else-if="store.filtered.length > 0 && store.filtered_rest.length == 0">
+            <h3>Non ci sono risultati</h3>
+        </div>
+
         <div v-else class="row">
             <div class="col my-3" v-for="restaurant in store.restaurants" :key="restaurant.slug">
                 <div class="card card-lf m-auto">

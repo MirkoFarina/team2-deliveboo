@@ -1,5 +1,6 @@
 <script>
 import {store} from '../../data/store';
+import { filterResCat } from '../../data/functions';
 export default {
     name: 'Category',
     props: {
@@ -9,6 +10,7 @@ export default {
         return {
             checked: false,
             store,
+            filterResCat,
         }
     },
     methods: {
@@ -18,6 +20,9 @@ export default {
                 store.filtered.push(this.category.id);
             else
                 store.filtered.splice(store.filtered.indexOf(this.category.id), 1);
+
+            filterResCat();
+
         }
     }
 }
