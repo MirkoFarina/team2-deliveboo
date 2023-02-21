@@ -19,6 +19,11 @@ export const store = reactive({
 
     filtered : [],
     filtered_rest : [],
+    pagination: {
+        total_page : null,
+        current_page : null,
+        last_route : null,
+    }
 
 })
 

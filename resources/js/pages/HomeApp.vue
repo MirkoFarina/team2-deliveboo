@@ -16,7 +16,7 @@ export default {
 
     methods: {
         async callRes(){
-            store.restaurant = (await ApiService.getApi('restaurants',''));
+            await ApiService.getApi('restaurants',{});
         }
     },
     mounted(){

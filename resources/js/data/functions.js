@@ -1,5 +1,6 @@
 import { store } from './store'
-/* 
+import { ApiService } from '../services/api.service'
+/*
 export function searchSlugRecord(array, sl) {
     var x = null;
     array.forEach(element => {
@@ -68,6 +69,17 @@ let checkSubset = (parentArray, subsetArray) => {
     })
 }
 
+export function nextPrev(dir) {
+    console.log(store.pagination.last_route);
+    if (dir)
+        ApiService.getApi(store.pagination.last_route, {
+            page: ++store.pagination.current_page,
+        });
+    else
+        ApiService.getApi(store.pagination.last_route, {
+            page: --store.pagination.current_page,
+        });
+}
 
 
 
