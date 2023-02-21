@@ -31,7 +31,6 @@ export default {
 <style lang="scss" scoped>
 
 .app_description{
-  background-color: #f8f8f8;
   margin-top: 40px;
   h2 {
       color: #252525;
