@@ -16,7 +16,7 @@ class RestaurantApiController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::with(['categories'])->paginate(5);
+        $restaurants = Restaurant::with(['categories'])->get();
 
         /* da sistemare */
         foreach($restaurants->all() as $res){

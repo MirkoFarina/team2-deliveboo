@@ -7,9 +7,16 @@ export default {
     components: {Card, Paginator},
     data() {
         return {
-        store
-      }
-    }
+        store,
+
+        }
+    },
+    methods:{
+        
+    },
+    mounted(){
+    },
+    
 }
 </script>
 
@@ -26,12 +33,12 @@ export default {
         </div>
 
         <div v-else class="row">
-            <div class="col my-3" v-for="restaurant in store.restaurants" :key="restaurant.slug">
+            <div class="col my-3" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
             </div>
-            <Paginator/>
         </div>
-
+        
+        <Paginator v-if="!(store.filtered.length > 0 && store.filtered_rest.length == 0)" />
     </div>
 </template>
 

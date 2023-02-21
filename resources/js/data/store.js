@@ -16,13 +16,20 @@ export const store = reactive({
             }
         ]
     },
-
+    restaurants_paginate: [],
     filtered : [],
     filtered_rest : [],
-    pagination: {
+    /* pagination: {
         total_page : null,
         current_page : null,
         last_route : null,
+    } */
+
+    pagination: {
+        total_records : null,
+        current_records : 0,
+        current_page: 1,
+        passo: 5,
     }
 
 })

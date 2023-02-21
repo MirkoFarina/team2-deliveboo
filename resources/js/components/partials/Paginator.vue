@@ -29,7 +29,7 @@ export default {
     justify-content-center
     align-items-center
     "
-    v-if="store.pagination.total_page !== 1"
+    v-if="store.pagination.total_records !== 1"
     >
         <button
         class="btn btn-primary"
@@ -37,10 +37,10 @@ export default {
         v-show="store.pagination.current_page > 1"
         >Prev</button>
         <h4 class="p-3">
-            {{ store.pagination.current_page }} / {{ store.pagination.total_page }}
+            {{store.pagination.current_page}} / {{ Math.ceil(store.pagination.total_records/store.pagination.passo) }}
         </h4>
         <button
-            class="btn btn-primary" @click="nextPrev(true)" v-show="store.pagination.current_page < store.pagination.total_page"
+            class="btn btn-primary" @click="nextPrev(true)" v-show="store.pagination.current_page < (Math.ceil(store.pagination.total_records/store.pagination.passo))"
         >Next</button>
     </div>
 

@@ -1,6 +1,6 @@
 <script>
 import {store} from '../../data/store';
-import { filterResCat } from '../../data/functions';
+import { filterResCat, setPaginate } from '../../data/functions';
 export default {
     name: 'Category',
     props: {
@@ -11,6 +11,7 @@ export default {
             checked: false,
             store,
             filterResCat,
+            setPaginate,
         }
     },
     methods: {
@@ -21,7 +22,10 @@ export default {
             else
                 store.filtered.splice(store.filtered.indexOf(this.category.id), 1);
 
+
             filterResCat();
+            setPaginate();
+            
 
         }
     }
