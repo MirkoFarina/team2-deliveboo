@@ -38,7 +38,6 @@ export default {
                 navigation
                 :slidesPerView="'4'"
                 :effect="'coverflow'"
-                :pagination="{clickable: true }"
                 :coverflowEffect="{
                 rotate: 50,
                 stretch: 0,
