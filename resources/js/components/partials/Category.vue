@@ -24,15 +24,10 @@ export default {
 </script>
 
 <template>
-<div class="box">
+<div  @click="changeCheck()" class="box">
         <img :src="category.cover_image" :alt="category.slug">
         <p>{{ category.name }}</p>
-        <div class="form-check m-2">
-            <input @click="changeCheck()" class="form-check-input p-3 border-info" type="checkbox" value="" id="flexCheckIndeterminate">
-            <label class="form-check-label" for="flexCheckIndeterminate">
-            </label>
-        </div>
-    </div>
+</div>
 </template>
 
 
@@ -63,6 +58,9 @@ export default {
       img{
         width: 60%;
         object-fit: contain;
+      }
+      .active {
+        background-color: black;
       }
     }
 </style>
