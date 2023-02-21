@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-<div  @click="changeCheck()" class="box">
+<div  @click="changeCheck()" :class="{'active' : checked}" class="box">
         <img :src="category.cover_image" :alt="category.slug">
         <p>{{ category.name }}</p>
 </div>
@@ -50,6 +50,10 @@ export default {
       border-radius: 8px;
       margin-bottom: 45px;
       box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.1);
+      cursor: pointer;
+      &.active {
+        background-color: #FF5758;
+      }
       p {
         margin: 0;
         font-size: 0.7rem;
@@ -59,8 +63,6 @@ export default {
         width: 60%;
         object-fit: contain;
       }
-      .active {
-        background-color: black;
-      }
+
     }
 </style>

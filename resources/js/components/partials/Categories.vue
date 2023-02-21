@@ -62,14 +62,4 @@ export default {
 <style lang="scss" scoped>
 @use '../../../scss/partials/vars' as *;
 @use '../../../scss/partials/guest/categories';
-  .boxes {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    a {
-        text-decoration: none;
-      }
-
-  }
 </style>
