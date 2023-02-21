@@ -38,7 +38,7 @@ export default {
             <swiper
                 :modules="modules"
                 navigation
-                :slidesPerView="'3'"
+                :slidesPerView="'4'"
                 :effect="'coverflow'"
                 :pagination="{clickable: true }"
                 :coverflowEffect="{
