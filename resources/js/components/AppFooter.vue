@@ -7,6 +7,7 @@ export default {
 <template>
     <footer>
         <div class="container w-75 d-flex justify-content-between align-items-center h-100">
+
             <div class="left">
                 <ul>
                     <li><router-link :to="{name: 'chisiamo'}">Chi siamo</router-link></li>

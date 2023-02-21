@@ -7,6 +7,7 @@ return [
         "name_of_restaurant"=>"Sorbillo",
         "phone_number"=> "081446646",
         "website"=> "https://www.sorbillo.it/",
+        "cover_img"=>"https://www.napolike.it/wp-content/uploads/2022/01/Gino-Sorbillo-e1643102299551.jpg",
         "foods" =>[
             [
             "name"=>"Margherita",
@@ -41,6 +42,7 @@ return [
             "name_of_restaurant"=>"Pastena",
             "phone_number"=> "08119138270",
             "website"=> "#",
+            "cover_img"=>"https://media-cdn.tripadvisor.com/media/photo-s/1c/09/2f/6c/pastena-cucina-con-pasta.jpg",
             "foods" =>[
                 [
                 "name"=>"Carbonara",
@@ -76,6 +78,7 @@ return [
                 "name_of_restaurant"=>"Cicciotto",
                 "phone_number"=> "081 575 1165",
                 "website"=> "https://www.trattoriadacicciotto.it/",
+                "cover_img"=>"https://www.eccodove.it/archivio/galleria/01f92823-6c48-4cc6-94e5-87140c3af1bd.jpg?h=400",
                 "foods" =>[
                     [
                     "name"=>"Spaghetti alle vongole",
@@ -123,6 +126,7 @@ return [
                 "name_of_restaurant"=>"O'Taleban",
                 "phone_number"=> "0818842253",
                 "website"=> "http://www.otalebano.it/",
+                "cover_img"=>"https://www.weglue.it/wp-content/uploads/2020/04/O-Talebano-Kebab-Store2.jpg",
                 "foods" =>[
                     [
                         "name"=>"Pita Pig",
@@ -159,6 +163,7 @@ return [
                 "name_of_restaurant"=>"Spiedo d'Oro",
                 "phone_number"=> "081 552 6111",
                 "website"=> "https://spiedo-d-oro.business.site/?utm_source=gmb&utm_medium=referral#details",
+                "cover_img"=>"https://images.dissapore.com/wp-content/uploads/2020/09/Trattoria-spiedo-doro-ingresso-scaled.jpg",
                 "foods" =>[
                     [
                     "name"=>"Genovese",
@@ -195,6 +200,7 @@ return [
                 "name_of_restaurant"=>"Tandem",
                 "phone_number"=> "08119180196",
                 "website"=> "https://tandemnapoli.it/",
+                "cover_img"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/3c/20/99/caption.jpg",
                 "foods" =>[
                     [
                     "name"=>"Genovese",
@@ -267,6 +273,7 @@ return [
                 "name_of_restaurant"=>"Tufò",
                 "phone_number"=> "3425028667",
                 "website"=> "https://www.tufotrattoria.it/",
+                "cover_img"=>"https://www.gustocampania.it/gustocampania/wp-content/uploads/2019/02/tuf%C3%B2-.jpeg",
                 "foods" =>[
                     [
                     "name"=>"Cuzzutiello con polpette al ragù e provola",
@@ -303,6 +310,7 @@ return [
                 "name_of_restaurant"=>"La pokeria",
                 "phone_number"=> "0813537557",
                 "website"=> "https://lapokeria.it/prenota-tavolo-ordina-asporto-domicilio-la-pokeria/",
+                "cover_img"=>"https://staticfanpage.akamaized.net/wp-content/uploads/sites/30/2021/10/hello-poke-1633620280301.jpg",
                 "foods" =>[
                     [
                     "name"=>"Corean Bowl",
@@ -339,6 +347,7 @@ return [
                 "name_of_restaurant"=>"Michele",
                 "phone_number"=> "0815539204",
                 "website"=> "http://www.damichele.net/",
+                "cover_img"=>"https://axwwgrkdco.cloudimg.io/v7/__gmpics__/6c15cf3b872d47e084fcb5c2979f9843?width=1000",
                 "foods" =>[
                     [
                     "name"=>"Margherita",
@@ -363,6 +372,7 @@ return [
                 "name_of_restaurant"=>"Gigione",
                 "phone_number"=> "081 884 4599",
                 "website"=> "",
+                "cover_img"=>"https://allassaggio.it/wp-content/uploads/2016/06/logo-Gigione.jpg",
                 "foods" =>[
                     [
                     "name"=>"Hamburger",
