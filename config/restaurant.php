@@ -7,7 +7,7 @@ return [
         "name_of_restaurant"=>"Sorbillo",
         "phone_number"=> "081446646",
         "website"=> "https://www.sorbillo.it/",
-        "cover_image"=>"https://www.napolike.it/wp-content/uploads/2022/01/Gino-Sorbillo-e1643102299551.jpg",
+        "cover_image"=> "https://www.scattidigusto.it/wp-content/uploads/2017/11/nuova-pizzeria-Gino-Sorbillo-New-York-logo.jpg",
         "foods" =>[
             [
             "name"=>"Margherita",
@@ -42,7 +42,7 @@ return [
             "name_of_restaurant"=>"Pastena",
             "phone_number"=> "08119138270",
             "website"=> "#",
-            "cover_image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1c/09/2f/6c/pastena-cucina-con-pasta.jpg",
+            "cover_image"=> "https://lh3.googleusercontent.com/p/AF1QipPSaZjgeLG12eE90gM9pAlP9DCuFmniOqNF65PL=w1080-h608-p-no-v0",
             "foods" =>[
                 [
                 "name"=>"Carbonara",
@@ -78,7 +78,7 @@ return [
                 "name_of_restaurant"=>"Cicciotto",
                 "phone_number"=> "081 575 1165",
                 "website"=> "https://www.trattoriadacicciotto.it/",
-                "cover_image"=>"https://www.eccodove.it/archivio/galleria/01f92823-6c48-4cc6-94e5-87140c3af1bd.jpg?h=400",
+                "cover_image"=> "https://www.trattoriadacicciotto.it/wp-content/uploads/2021/10/hero-home-trattoria-da-cicciotto-a-marechiaro-dal-1942.jpg",
                 "foods" =>[
                     [
                     "name"=>"Spaghetti alle vongole",
@@ -123,10 +123,10 @@ return [
                 "id" => "4",
                 "email"=>"franchising@otalebanokebab.it",
                 "address"=> "Via Porta di Massa 8",
-                "name_of_restaurant"=>"O'Taleban",
+                "name_of_restaurant"=>"O'Talebano",
                 "phone_number"=> "0818842253",
                 "website"=> "http://www.otalebano.it/",
-                "cover_image"=>"https://www.weglue.it/wp-content/uploads/2020/04/O-Talebano-Kebab-Store2.jpg",
+                "cover_image"=> "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBIo583BCc1_ZPIlh_dwGL9MjMn9u4_K4nO7qIit-Fu1I9KMwfwa67QKAIhN-KKaH-PA&usqp=CAU",
                 "foods" =>[
                     [
                         "name"=>"Pita Pig",
@@ -163,7 +163,7 @@ return [
                 "name_of_restaurant"=>"Spiedo d'Oro",
                 "phone_number"=> "081 552 6111",
                 "website"=> "https://spiedo-d-oro.business.site/?utm_source=gmb&utm_medium=referral#details",
-                "cover_image"=>"https://images.dissapore.com/wp-content/uploads/2020/09/Trattoria-spiedo-doro-ingresso-scaled.jpg",
+                "cover_image"=> "https://lh3.googleusercontent.com/p/AF1QipNfwLnhKFcm5gAMZFtnqG9LMul0Pflv0U785fqJ=w960-h960-n-o-v1",
                 "foods" =>[
                     [
                     "name"=>"Genovese",
@@ -200,7 +200,7 @@ return [
                 "name_of_restaurant"=>"Tandem",
                 "phone_number"=> "08119180196",
                 "website"=> "https://tandemnapoli.it/",
-                "cover_image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/3c/20/99/caption.jpg",
+                "cover_image"=> "https://tandemnapoli.it/wp-content/uploads/2020/03/tandem-il-ragu-come-piace-a-me-logo.png",
                 "foods" =>[
                     [
                     "name"=>"Genovese",
@@ -237,7 +237,7 @@ return [
                 "name_of_restaurant"=>"Yao Sushi Restaurant",
                 "phone_number"=> "08119574707",
                 "website"=> "https://www.facebook.com/yaoposillipo/",
-                "cover_image"=>"https://www.gamberorosso.it/cdn-cgi/mirage/431852cd9e70cfe3413a8331da0846f55261f559ebe3c2350580c5c42d190aeb/1280/https://static.gamberorosso.it/2021/12/giappo-768x528.jpg",
+                "cover_image"=> "https://qul.imgix.net/18466098-9ab5-409e-9c81-bfeeca985850/312031_landscape.jpg",
                 "foods" =>[
                     [
                     "name"=>"Tartelle al salmone",
@@ -274,7 +274,7 @@ return [
                 "name_of_restaurant"=>"Tufò",
                 "phone_number"=> "3425028667",
                 "website"=> "https://www.tufotrattoria.it/",
-                "cover_image"=>"https://www.gustocampania.it/gustocampania/wp-content/uploads/2019/02/tuf%C3%B2-.jpeg",
+                "cover_image"=> "https://www.tufotrattoria.it/wp-content/uploads/2017/03/logo-tufo%CC%80-768x543.png",
                 "foods" =>[
                     [
                     "name"=>"Cuzzutiello con polpette al ragù e provola",
@@ -311,7 +311,7 @@ return [
                 "name_of_restaurant"=>"La pokeria",
                 "phone_number"=> "0813537557",
                 "website"=> "https://lapokeria.it/prenota-tavolo-ordina-asporto-domicilio-la-pokeria/",
-                "cover_image"=>"https://staticfanpage.akamaized.net/wp-content/uploads/sites/30/2021/10/hello-poke-1633620280301.jpg",
+                "cover_image"=> "https://lapokeria.it/wp-content/uploads/2022/02/logo-e1645269747240.png",
                 "foods" =>[
                     [
                     "name"=>"Corean Bowl",
@@ -345,10 +345,10 @@ return [
                 "id" => "10",
                 "email"=>"#",
                 "address"=> "Via Cesare Sersale 1",
-                "name_of_restaurant"=>"Michele",
+                "name_of_restaurant"=>"Da Michele",
                 "phone_number"=> "0815539204",
                 "website"=> "http://www.damichele.net/",
-                "cover_image"=>"https://axwwgrkdco.cloudimg.io/v7/__gmpics__/6c15cf3b872d47e084fcb5c2979f9843?width=1000",
+                "cover_image"=> "https://www.repstatic.it/content/localirep/img/rep-napoli/2017/11/04/195441094-07916d2f-a681-451f-98aa-626ebbff1145.jpg",
                 "foods" =>[
                     [
                     "name"=>"Margherita",
@@ -370,10 +370,10 @@ return [
                 "id" => "11",
                 "email"=>"#",
                 "address"=> "Via Roma",
-                "name_of_restaurant"=>"Gigione",
+                "name_of_restaurant"=> "Da Gigione Gourmand",
                 "phone_number"=> "081 884 4599",
                 "website"=> "",
-                "cover_image"=>"https://allassaggio.it/wp-content/uploads/2016/06/logo-Gigione.jpg",
+                "cover_image"=> "https://www.aisnapoli.it/wp-content/uploads/2016/06/unspecified.jpeg",
                 "foods" =>[
                     [
                     "name"=>"Hamburger",
