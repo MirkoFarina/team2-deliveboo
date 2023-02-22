@@ -32,9 +32,10 @@ export default {
         <div class="box-image mb-5">
             <div class="overlay">
 
-                <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+                <div class="container d-flex flex-column justify-content-center align-items-center h-100 gap-3">
                     <h2 class="text-light display-1">{{restaurant.name_of_restaurant}}</h2>
                     <h3 class="text-light display-5">{{restaurant.address}}</h3>
+                    <h3 class="text-light display-6"> <i class="fa-solid fa-phone mx-3"></i> {{restaurant.phone_number}}</h3>
                 </div>  
             </div>
             <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">

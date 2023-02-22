@@ -32,16 +32,16 @@ export default {
     v-if="store.pagination.total_records >= 1"
     >
         <button
-        class="btn btn-primary"
+        class="btn btn-outline-primary"
         @click="nextPrev(false)"
         v-show="store.pagination.current_page > 1"
-        >Prev</button>
+        ><i class="fa-solid fa-angle-left"></i></button>
         <h4 class="p-3">
             {{store.pagination.current_page}} / {{ Math.ceil(store.pagination.total_records/store.pagination.passo) }}
         </h4>
         <button
-            class="btn btn-primary" @click="nextPrev(true)" v-show="store.pagination.current_page < (Math.ceil(store.pagination.total_records/store.pagination.passo))"
-        >Next</button>
+            class="btn btn-outline-primary" @click="nextPrev(true)" v-show="store.pagination.current_page < (Math.ceil(store.pagination.total_records/store.pagination.passo))"
+        ><i class="fa-solid fa-angle-right"></i></button>
     </div>
 
 </template>
