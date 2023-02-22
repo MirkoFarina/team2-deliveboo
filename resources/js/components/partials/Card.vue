@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
     .card-lf {
-        width: 100%;
+        width: 600px;
         min-width: 500px;
         height: 350px;
         border: none;
@@ -47,7 +47,7 @@ export default {
             display: flex;
             justify-content: space-around;
             .logo {
-                width: 30%;
+                width: 40%;
                   img {
                     object-fit: contain;
                     height: 100%;
@@ -57,7 +57,7 @@ export default {
             .info {
                 width: 50%;
                 padding: 10px 20px;
-                height: 200px;
+                height: 250px;
             }
         }
     }
