@@ -1,12 +1,16 @@
 <script>
 import {store} from '../../data/store';
+import {modQuantityCart, deleteCart, removeFood} from '../../data/functions';
 export default {
     name: 'ShoppingCart',
     data(){
         return {
-            store
+            store,
+            modQuantityCart,
+            deleteCart,
+            removeFood,
         }
-    }
+    },
 }
 </script>
 
@@ -15,34 +19,42 @@ export default {
     <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
         <i class="fa-solid fa-cart-shopping"></i>
     </button>
-    <div class="mf-offcanvas px-3 py-5" :class="{active : store.is_canvas}">
+    <div class="mf-offcanvas py-5" :class="{active : store.is_canvas}">
         <div class="text-end">
-            <i @click="store.is_canvas = false" class="fa-solid fa-xmark"></i>
+            <i @click="store.is_canvas = false" class="fa-solid fa-xmark p-3"></i>
         </div>
-        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-            <h3>
+        <div class="h-100">
+            <h3 class="mb-3">
                 IL TUO CARRELLO
             </h3>
-            <div class="h-100 d-flex align-items-center  flex-column w-50" v-if="store.shopping_cart.foods.length">
+            <div class="h-100 " v-if="store.shopping_cart.foods.length">
                 <div class="container content-order">
-                    <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row my-3">
-                        <div class="col-6">
-                            <p>
+                    <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row mb-3">
+                        <div class="col-12">
+                            <div class="">
                                 {{ food.quantity }}x {{food.name}}
-                            </p>
+                            </div>
                         </div>
-                        <div class="col-6 d-flex">
-                            <p>
+                        <div class="col-12 text-center my-2">
+                            <div>
                                 +{{ food.price }} &euro;
-                            </p>
+                            </div>
                         </div>
+                        <div class="col-12 my-btns d-flex justify-content-center">
+                            <a @click="modQuantityCart(false, food)" class="btn btn-primary">-</a>
+                            <a @click="modQuantityCart(true, food)" class="btn btn-primary">+</a>
+                            <a @click="removeFood(food)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+
                     </div>
                 </div>
                 <div class="total mb-3">
                     TOTALE: {{ store.shopping_cart.total_amount }} &euro;
                 </div>
-                <div>
-                    <button>PAGA</button>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-success">Pagamento</a>
+                    <a @click="deleteCart" class="btn btn-danger">Svuota</a>
+
                 </div>
             </div>
             <div class="mt-5" v-else>
@@ -66,9 +78,9 @@ export default {
         height: 60vh;
         width: 40vw;
         background-color: #25645B;
-        padding: 10px;
         transition: all 0.55s;
         border-bottom-right-radius: 10px;
+        color: white;
         &.active {
             display: block;
             left: 0;
@@ -77,6 +89,12 @@ export default {
             height: calc(100% - 20vh);
             overflow-y: auto;
         }
+
+        .my-btns>.btn{
+            border-radius: 50%;
+            padding: .5rem 1rem;
+        }
+
     }
     button {
         background-color: #25645B;
@@ -100,5 +118,12 @@ export default {
         display: flex;
         align-items: center;
         margin-right: 30px;
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .mf-offcanvas {
+            width: 80vw;
+        }
     }
 </style>

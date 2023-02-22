@@ -38,7 +38,9 @@ export default {
                      </div>
                 </div>
             </div>
-                <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
+            <div class="addtocard">
+                 <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
+            </div>
         </div>
     </div>
 </template>
@@ -47,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 .card-lf {
     width: 600px;
-    height: 300px;
+    height: 350px;
     margin-bottom: 50px;
     border: none;
     background-color: #f9f8f8;
@@ -76,5 +78,39 @@ export default {
             height: 200px;
         }
     }
-}</style>
+}
+
+    // **********MEDIA***********
+
+    @media screen and (max-width: 600px) {
+    .btn-query {
+        width: 100%;
+        margin-top: 10px;
+    }
+           .card-lf {
+        width: 50%;
+        min-width: 300px;
+        height: 540px;
+        padding: 10px;
+        align-items: center;
+        margin: 0 auto;
+    }
+           .card-body-lf {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        .box {
+            display: block;
+            .logo {
+                width: 100%;
+            }
+            .info {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+</style>
 

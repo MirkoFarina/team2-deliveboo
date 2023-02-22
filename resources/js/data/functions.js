@@ -32,11 +32,68 @@ export function addToCart(food) {
 
     }
     store.shopping_cart.total_amount = refreshAmount(store.shopping_cart.foods);
+
+    getSession();
 }
+
+export function modQuantityCart(dir, food){
+    console.log(store.shopping_cart.foods);
+    if(dir){
+        addToCart(food);
+    }else{
+        let x = isIncluded(store.shopping_cart.foods, food)
+        if(x != null){
+            store.shopping_cart.foods[x].quantity--;
+            getSession();
+            if(store.shopping_cart.foods[x].quantity === 0)
+                removeFood(food);
+        }
+    }
+}
+
+
+export function removeFood(food){
+
+    const x = isIncluded(store.shopping_cart.foods, food);
+
+    if(x != null)
+        store.shopping_cart.foods.splice(x, 1);
+
+    getSession();
+
+}
+
+/** ********************** SESSION CART *************************************         */
+function getSession(){
+    // transfromo l'oggetto in json
+    // lo inserisco nella sessione aggiungendolo alla chiave cart
+    sessionStorage.setItem("cart", JSON.stringify(store.shopping_cart));
+
+    // transformo il json nuovamente in oggetto aggiungendolo allo store cosi' da stampare il risultato della session e prendo il json
+    store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+    store.shopping_cart.total_amount = refreshAmount(store.shopping_cart.foods);
+}
+
+export function getLastSession(){
+    if(sessionStorage.getItem("cart")) {
+        store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+    }
+}
+
+
+export function deleteCart(){
+    sessionStorage.clear();
+    store.shopping_cart = {
+        total_amount : 0,
+        restaurant: null,
+        foods: []
+    };
+}
+/** ********************** /SESSION CART *************************************         */
+
 
 function isIncluded(array, food) {
     let x = null;
-    console.log(array);
 
     for(let i=0; i<array.length; i++){
         if (array[i].id === food.id)
