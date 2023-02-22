@@ -32,7 +32,27 @@ export function addToCart(food) {
 
     }
     store.shopping_cart.total_amount = refreshAmount(store.shopping_cart.foods);
+
+    getSession();
+
 }
+/** ********************** SESSION CART *************************************         */
+function getSession(){
+    // transfromo l'oggetto in json
+    // lo inserisco nella sessione aggiungendolo alla chiave cart
+    sessionStorage.setItem("cart", JSON.stringify(store.shopping_cart));
+
+    // transformo il json nuovamente in oggetto aggiungendolo allo store cosi' da stampare il risultato della session e prendo il json
+    store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+}
+
+export function getLastSession(){
+    if(sessionStorage.getItem("cart")) {
+        store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+    }
+}
+/** ********************** /SESSION CART *************************************         */
+
 
 function isIncluded(array, food) {
     let x = null;
