@@ -1,9 +1,31 @@
-
 <script>
+import {store} from '../../data/store';
 export default {
     name: 'Card',
     props: {
-        food: Object
+        food: Object,
+        res_id: Number
+    },
+    data(){
+        return {
+            store
+        }
+    },
+    methods:
+    {
+        pushInShoppingCart(id, name, price, res_id){
+            let new_food = {
+                id: id,
+                name: name,
+                price: price,
+                quantity: 1
+            };
+
+            store.shopping_cart.restaurant = res_id;
+
+            store.shopping_cart.foods.push(new_food);
+            console.log(store.shopping_cart)
+        }
     }
 }
 </script>
@@ -25,7 +47,7 @@ export default {
                      </div>
                 </div>
             </div>
-                <button class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
+                <button @click="pushInShoppingCart(food.id, food.name, food.price)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
         </div>
     </div>
 </template>
