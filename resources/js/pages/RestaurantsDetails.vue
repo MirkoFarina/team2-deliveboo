@@ -28,16 +28,17 @@ export default {
 </script>
 
 <template>
-    <div v-if="restaurant" class="container">
-        <div class="box-image container-fluid my-5">
+    <div v-if="restaurant">
+        <div class="box-image my-4">
              <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
+        <div class="container">
+            <h1 class="text-center text-uppercase fs-3 pb-5">Menu</h1>
 
-        <h1 class="text-center text-uppercase fs-3 pb-5">Menu</h1>
-
-        <div v-if="restaurant.foods" class="row">
-            <div class="col" v-for="food in restaurant.foods" :key="food.id">
-                <CardMenu :food="food"  />
+            <div v-if="restaurant.foods" class="row">
+                <div class="col" v-for="food in restaurant.foods" :key="food.id">
+                    <CardMenu :food="food"  />
+                </div>
             </div>
         </div>
     </div>
@@ -48,6 +49,12 @@ export default {
 @use '../../scss/partials/vars' as *;
     .box-image {
         box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 </style>
 
