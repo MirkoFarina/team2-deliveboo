@@ -31,14 +31,14 @@ export default {
                 <div class="info">
                     <h5 class="card-title fs-4 mb-4 text-uppercase">{{ food.name }}</h5>
                     <p class="card-text fs-6 m-0 mt-2">Ingredienti: {{ food.ingredients }}</p>
-                    <p class="card-text fs-6">&euro; {{ food.price }}</p>
-                     <div>
+                    <p class="card-text fs-5 mt-3">&euro; {{ food.price }}</p>
+                     <div class="text-uppercase">
                         <p v-if="food.is_available === 1">Disponibile</p>
-                        <p v-else>Non Disponibile</p>
+                        <p class="text-danger" v-else>Al momento Non Disponibile</p>
                      </div>
                 </div>
             </div>
-            <div class="addtocard">
+            <div class="addtocard float-end">
                  <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
             </div>
         </div>
@@ -59,6 +59,9 @@ export default {
 }
 
 .card-body-lf {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .box {
         display: flex;
         justify-content: space-around;
@@ -82,7 +85,31 @@ export default {
 
     // **********MEDIA***********
 
-    @media screen and (max-width: 600px) {
+
+        @media screen and (max-width: 1200px) {
+        .card-lf {
+            margin: 0 auto;
+            margin-bottom: 50px;
+            .card-body-lf {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .box {
+                height: 70%;
+            }
+            .button {
+                height: 20%;
+            }
+        }
+    }
+}
+
+
+
+
+    @media screen and (max-width: 760px) {
     .btn-query {
         width: 100%;
         margin-top: 10px;
@@ -90,7 +117,7 @@ export default {
            .card-lf {
         width: 50%;
         min-width: 300px;
-        height: 540px;
+        height: 500px;
         padding: 10px;
         align-items: center;
         margin: 0 auto;
