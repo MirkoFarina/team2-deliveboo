@@ -12,18 +12,18 @@ export default {
         }
     },
     methods:{
-        
+
     },
     mounted(){
     },
-    
+
 }
 </script>
 
 <template>
     <div class="container my-5">
         <div v-if="store.filtered_rest.length" class="row">
-            <div class="col my-3" v-for="restaurant in store.filtered_rest" :key="restaurant.slug">
+            <div class="col my-3" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
             </div>
         </div>
@@ -37,7 +37,7 @@ export default {
                 <Card :restaurant="restaurant"/>
             </div>
         </div>
-        
+
         <Paginator v-if="!(store.filtered.length > 0 && store.filtered_rest.length == 0)" />
     </div>
 </template>

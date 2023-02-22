@@ -24,7 +24,7 @@ export const store = reactive({
         total_records : null,
         current_records : 0,
         current_page: 1,
-        passo: 8,
+        passo: 4,
     }
 
 })
