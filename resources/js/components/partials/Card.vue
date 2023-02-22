@@ -22,7 +22,7 @@ export default {
                      <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
                 </div>
             </div>
-            <div class="button">
+            <div class="button d-flex align-items-end">
                 <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-3 text-uppercase btn-query">Vai al ristorante</router-link>
             </div>
         </div>
@@ -50,8 +50,8 @@ export default {
                 width: 40%;
                   img {
                     object-fit: contain;
-                    height: 100%;
-                    width: 100%;
+                    height: 80%;
+                    width: 80%;
                  }
             }
             .info {
@@ -65,15 +65,34 @@ export default {
 
     // **********MEDIA***********
 
-    @media screen and (max-width: 600px) {
-    .btn-query {
-        width: 100%;
-        margin-top: 10px;
+
+    @media screen and (max-width: 1200px) {
+        .card-lf {
+            width: 100%;
+            .card-body-lf {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .box {
+                height: 70%;
+            }
+            .button {
+                height: 20%;
+            }
+        }
     }
+}
+
+    @media screen and (max-width: 600px) {
+        .btn-query {
+            width: 100%;
+        }
            .card-lf {
         width: 50%;
         min-width: 300px;
-        height: 540px;
+        height: 600px;
         padding: 10px;
         align-items: center;
         margin: 0 auto;
@@ -87,6 +106,10 @@ export default {
             display: block;
             .logo {
                 width: 100%;
+                    img {
+                    height: 100%;
+                    width: 100%;
+                 }
             }
             .info {
                 margin: 0;
