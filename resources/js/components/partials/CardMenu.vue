@@ -1,10 +1,10 @@
 <script>
 import {store} from '../../data/store';
+import {addToCart} from '../../data/functions';
 export default {
     name: 'Card',
     props: {
         food: Object,
-        res_id: Number
     },
     data(){
         return {
@@ -13,18 +13,9 @@ export default {
     },
     methods:
     {
-        pushInShoppingCart(id, name, price, res_id){
-            let new_food = {
-                id: id,
-                name: name,
-                price: price,
-                quantity: 1
-            };
-
-            store.shopping_cart.restaurant = res_id;
-
-            store.shopping_cart.foods.push(new_food);
-            console.log(store.shopping_cart)
+        pushIntoCart(food){
+            addToCart(food);
+            store.is_canvas = true;
         }
     }
 }
@@ -47,7 +38,7 @@ export default {
                      </div>
                 </div>
             </div>
-                <button @click="pushInShoppingCart(food.id, food.name, food.price)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
+                <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
         </div>
     </div>
 </template>

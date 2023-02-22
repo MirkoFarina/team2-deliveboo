@@ -5,15 +5,10 @@ export const store = reactive({
     categories      : [],
     is_canvas       : false,
     shopping_cart   : {
-        total_amount : 20,
-        restaurant: 10,
+        total_amount : 0,
+        restaurant: null,
         foods: [
-            {
-                id: 1,
-                name: 'pita',
-                price: 10,
-                quantity: 1
-            }
+
         ]
     },
     restaurants_paginate: [],

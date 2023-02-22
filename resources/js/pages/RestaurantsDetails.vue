@@ -37,7 +37,7 @@ export default {
 
         <div v-if="restaurant.foods" class="row">
             <div class="col" v-for="food in restaurant.foods" :key="food.id">
-                <CardMenu :food="food" :res_id="restaurant.id" />
+                <CardMenu :food="food"  />
             </div>
         </div>
     </div>

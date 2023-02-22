@@ -10,21 +10,21 @@ export function searchSlugRecord(array, sl) {
     return x;
 } */
 
-export function addToCart(food, res_id) {
+export function addToCart(food) {
 
     /* empty cart */
     if (store.shopping_cart.foods.length === 0) {
-        store.shopping_cart.foods.push(food);
-        store.shopping_cart.restaurant = res_id;
+        pushInShoppingCart(food, 1);
     }
 
     /* not empty */
     else {
         const index = isIncluded(store.shopping_cart.foods, food);
+        console.log('INDEX', index);
 
-        if (!index) {
-            if (store.shopping_cart.restaurant === res_id)
-                store.shopping_cart.foods.push(food);
+        if (index === null) {
+            if (store.shopping_cart.restaurant === food.restaurant_id)
+                pushInShoppingCart(food, 1);
         }
 
         else store.shopping_cart.foods[index].quantity++;
@@ -35,10 +35,12 @@ export function addToCart(food, res_id) {
 
 function isIncluded(array, food) {
     let x = null;
-    array.forEach(element => {
-        if (element.id === food.id)
-            x = array.findIndex(element);
-    });
+    console.log(array);
+
+    for(let i=0; i<array.length; i++){
+        if (array[i].id === food.id)
+            x = i;
+    }
 
     return x;
 }
@@ -50,6 +52,17 @@ function refreshAmount(array) {
     });
 
     return sum;
+}
+
+
+function pushInShoppingCart(food, q){
+    store.shopping_cart.restaurant = food.restaurant_id;
+    store.shopping_cart.foods.push({
+        id: food.id,
+        name: food.name,
+        price: food.price,
+        quantity: q,
+    });
 }
 
 export function filterResCat() {
@@ -67,7 +80,7 @@ export function filterResCat() {
         store.pagination.current_page = 1;
         store.pagination.current_records = 0;
 
-    } 
+    }
 
     console.log('OUUUUUUUUUUUUUUUU', store.filtered_rest);
 }
@@ -110,7 +123,7 @@ export function setPaginate(){
         store.pagination.total_records = store.restaurants.length;
         store.restaurants_paginate = store.restaurants.slice(store.pagination.current_records,store.pagination.current_records+store.pagination.passo);
     }
-   
+
 }
 
 
