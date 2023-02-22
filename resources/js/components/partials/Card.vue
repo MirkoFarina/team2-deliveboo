@@ -85,7 +85,7 @@ export default {
     }
 }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 768px) {
         .btn-query {
             width: 100%;
         }
