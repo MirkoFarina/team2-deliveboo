@@ -29,7 +29,7 @@ export default {
 
 <template>
     <div v-if="restaurant">
-        <div class="box-image my-4">
+        <div class="box-image my-5">
              <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
         <div class="container">
@@ -48,7 +48,6 @@ export default {
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;
     .box-image {
-        box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
         height: 200px;
         img {
             width: 100%;
