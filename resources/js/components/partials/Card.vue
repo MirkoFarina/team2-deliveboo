@@ -18,12 +18,13 @@ export default {
                     <h5 class="card-title fs-4 mb-4 text-uppercase">{{ restaurant.name_of_restaurant }}</h5>
                     <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 my-1">{{ category.name }}</span>
                     <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
-                    <p class="card-text fs-6">Numero: {{ restaurant.phone_number }}</p>
+                    <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
                      <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
                 </div>
             </div>
-            <!-- <p class="card-text">Piatti Disponibili: {{ restaurant.foods.length }}</p> -->
-                <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-3 text-uppercase">Vai al ristorante</router-link>
+            <div class="button">
+                <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-3 text-uppercase btn-query">Vai al ristorante</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -31,8 +32,9 @@ export default {
 
 <style lang="scss" scoped>
     .card-lf {
-        width: 600px;
-        height: 300px;
+        width: 100%;
+        min-width: 500px;
+        height: 350px;
         border: none;
         background-color: #f6f6f6;
         padding: 10px;
@@ -48,14 +50,49 @@ export default {
                 width: 30%;
                   img {
                     object-fit: contain;
-                    height: 80%;
-                    width: 80%;
+                    height: 100%;
+                    width: 100%;
                  }
             }
             .info {
-                width: 60%;
+                width: 50%;
+                padding: 10px 20px;
                 height: 200px;
             }
         }
     }
+
+
+    // **********MEDIA***********
+
+    @media screen and (max-width: 600px) {
+    .btn-query {
+        width: 100%;
+        margin-top: 10px;
+    }
+           .card-lf {
+        width: 50%;
+        min-width: 300px;
+        height: 540px;
+        padding: 10px;
+        align-items: center;
+        margin: 0 auto;
+    }
+           .card-body-lf {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        .box {
+            display: block;
+            .logo {
+                width: 100%;
+            }
+            .info {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    }
+}
 </style>
