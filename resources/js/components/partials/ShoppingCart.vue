@@ -19,28 +19,28 @@ export default {
     <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
         <i class="fa-solid fa-cart-shopping"></i>
     </button>
-    <div class="mf-offcanvas px-3 py-5" :class="{active : store.is_canvas}">
+    <div class="mf-offcanvas py-5" :class="{active : store.is_canvas}">
         <div class="text-end">
             <i @click="store.is_canvas = false" class="fa-solid fa-xmark p-3"></i>
         </div>
-        <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-            <h3>
+        <div class="h-100">
+            <h3 class="mb-3">
                 IL TUO CARRELLO
             </h3>
-            <div class="h-100 d-flex align-items-center  flex-column w-100" v-if="store.shopping_cart.foods.length">
+            <div class="h-100 " v-if="store.shopping_cart.foods.length">
                 <div class="container content-order">
-                    <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row my-3 my-row d-flex justify-content-center align-items-center ">
-                        <div class="col-5">
+                    <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row mb-3">
+                        <div class="col-12">
                             <div class="">
                                 {{ food.quantity }}x {{food.name}}
                             </div>
                         </div>
-                        <div class="col-3 d-flex">
+                        <div class="col-12 text-center my-2">
                             <div>
                                 +{{ food.price }} &euro;
                             </div>
                         </div>
-                        <div class="col-3 my-btns d-flex">
+                        <div class="col-12 my-btns d-flex justify-content-center">
                             <a @click="modQuantityCart(false, food)" class="btn btn-primary">-</a>
                             <a @click="modQuantityCart(true, food)" class="btn btn-primary">+</a>
                             <a @click="removeFood(food)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
@@ -51,7 +51,7 @@ export default {
                 <div class="total mb-3">
                     TOTALE: {{ store.shopping_cart.total_amount }} &euro;
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-center">
                     <a class="btn btn-success">Pagamento</a>
                     <a @click="deleteCart" class="btn btn-danger">Svuota</a>
 
@@ -78,7 +78,6 @@ export default {
         height: 60vh;
         width: 40vw;
         background-color: #25645B;
-        padding: 10px;
         transition: all 0.55s;
         border-bottom-right-radius: 10px;
         color: white;
@@ -89,14 +88,6 @@ export default {
         .content-order {
             height: calc(100% - 20vh);
             overflow-y: auto;
-        }
-
-        .my-row{
-            padding: 1rem 1rem;
-
-            &:hover{
-                background-color: #123123;
-            }
         }
 
         .my-btns>.btn{
@@ -127,5 +118,12 @@ export default {
         display: flex;
         align-items: center;
         margin-right: 30px;
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .mf-offcanvas {
+            width: 80vw;
+        }
     }
 </style>
