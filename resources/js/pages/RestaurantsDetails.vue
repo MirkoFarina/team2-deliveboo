@@ -29,8 +29,15 @@ export default {
 
 <template>
     <div v-if="restaurant">
-        <div class="box-image my-5">
-             <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
+        <div class="box-image mb-5">
+            <div class="overlay">
+
+                <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+                    <h2 class="text-light display-1">{{restaurant.name_of_restaurant}}</h2>
+                    <h3 class="text-light display-5">{{restaurant.address}}</h3>
+                </div>  
+            </div>
+            <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
         <div class="container">
             <h1 class="text-center text-uppercase fs-3 pb-5">Menu</h1>
@@ -48,11 +55,23 @@ export default {
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;
     .box-image {
-        height: 200px;
+        height: 500px;
+        position: relative;
+
+        
         img {
             width: 100%;
             height: 100%;
-            object-fit: scale-down;
+            object-fit: cover;
+        }
+
+        .overlay{
+            background-color: rgba(0,0,0,.75);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+            
         }
     }
 </style>
