@@ -21,21 +21,21 @@ export default {
     </button>
     <div class="mf-offcanvas px-3 py-5" :class="{active : store.is_canvas}">
         <div class="text-end">
-            <i @click="store.is_canvas = false" class="fa-solid fa-xmark"></i>
+            <i @click="store.is_canvas = false" class="fa-solid fa-xmark p-3"></i>
         </div>
         <div class="h-100 d-flex flex-column justify-content-center align-items-center">
             <h3>
                 IL TUO CARRELLO
             </h3>
-            <div class="h-100 d-flex align-items-center  flex-column w-75" v-if="store.shopping_cart.foods.length">
+            <div class="h-100 d-flex align-items-center  flex-column w-100" v-if="store.shopping_cart.foods.length">
                 <div class="container content-order">
                     <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row my-3 my-row d-flex justify-content-center align-items-center ">
                         <div class="col-5">
-                            <div>
+                            <div class="">
                                 {{ food.quantity }}x {{food.name}}
                             </div>
                         </div>
-                        <div class="col-4 d-flex">
+                        <div class="col-3 d-flex">
                             <div>
                                 +{{ food.price }} &euro;
                             </div>
@@ -43,7 +43,7 @@ export default {
                         <div class="col-3 my-btns d-flex">
                             <a @click="modQuantityCart(false, food)" class="btn btn-primary">-</a>
                             <a @click="modQuantityCart(true, food)" class="btn btn-primary">+</a>
-                            <a @click="removeFood(food)" class="btn btn-danger">Elimina</a>
+                            <a @click="removeFood(food)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </div>
 
                     </div>
