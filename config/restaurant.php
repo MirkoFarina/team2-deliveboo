@@ -237,7 +237,7 @@ return [
                 "name_of_restaurant"=>"Yao Sushi Restaurant",
                 "phone_number"=> "08119574707",
                 "website"=> "https://www.facebook.com/yaoposillipo/",
-                "cover_img"=>"https://www.gamberorosso.it/cdn-cgi/mirage/431852cd9e70cfe3413a8331da0846f55261f559ebe3c2350580c5c42d190aeb/1280/https://static.gamberorosso.it/2021/12/giappo-768x528.jpg",
+                "cover_image"=>"https://www.gamberorosso.it/cdn-cgi/mirage/431852cd9e70cfe3413a8331da0846f55261f559ebe3c2350580c5c42d190aeb/1280/https://static.gamberorosso.it/2021/12/giappo-768x528.jpg",
                 "foods" =>[
                     [
                     "name"=>"Tartelle al salmone",

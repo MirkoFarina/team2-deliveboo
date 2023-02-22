@@ -40,7 +40,7 @@ class GlobalHelpers
         }
 
         else if (is_null($class->cover_image)){
-            $class->cover_image = url("storage/uploads/placeholder.jpg");
+            $class->cover_image = url("https://upload.wikimedia.org/wikipedia/commons/0/0e/DefaultImage.png");
         }
 
         return $class;

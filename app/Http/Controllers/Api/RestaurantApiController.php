@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\GlobalHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 
@@ -21,7 +22,7 @@ class RestaurantApiController extends Controller
         /* da sistemare */
         foreach($restaurants->all() as $res){
             if($res->cover_image !== null)
-                $res->cover_image = url('storage/' . $res->cover_image);
+                $res = GlobalHelpers::adjustImage($res);
         }
 
         return response()->json(compact('restaurants'));
@@ -41,9 +42,11 @@ class RestaurantApiController extends Controller
 
         foreach($restaurant->all() as $res){
             if($res->cover_image !== null)
-                $res->cover_image = url('storage/' . $res->cover_image);
-        }
+                $res = GlobalHelpers::adjustImage($res);
 
+                foreach($res->foods as $food)
+                    $food = GlobalHelpers::adjustImage($food);
+        }
         return response()->json(compact('restaurant'));
     }
 

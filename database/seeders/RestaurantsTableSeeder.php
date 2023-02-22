@@ -10,6 +10,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
+use function PHPUnit\Framework\objectHasAttribute;
+
 class RestaurantsTableSeeder extends Seeder
 {
     /**
@@ -32,6 +34,11 @@ class RestaurantsTableSeeder extends Seeder
             $new_res->address = $res['address'];
             $new_res->phone_number = $res['phone_number'];
             $new_res->email = $res['email'];
+
+            if(array_key_exists('cover_image', $res)){
+                $new_res->cover_image = $res['cover_image'];
+            }
+
 
             $new_res->save();
 
