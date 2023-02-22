@@ -1,6 +1,6 @@
 <script>
 import {store} from '../../data/store';
-import { filterResCat, setPaginate } from '../../data/functions';
+import { filterResCat, setPaginate, resetPaginate } from '../../data/functions';
 export default {
     name: 'Category',
     props: {
@@ -12,6 +12,7 @@ export default {
             store,
             filterResCat,
             setPaginate,
+            resetPaginate
         }
     },
     methods: {
@@ -24,9 +25,8 @@ export default {
 
 
             filterResCat();
+            resetPaginate();
             setPaginate();
-            
-
         }
     }
 }

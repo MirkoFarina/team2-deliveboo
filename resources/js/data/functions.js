@@ -10,6 +10,7 @@ export function searchSlugRecord(array, sl) {
     return x;
 } */
 
+/* *************************** SHOPPING CART **********/
 export function addToCart(food) {
 
     /* empty cart */
@@ -65,6 +66,9 @@ function pushInShoppingCart(food, q){
     });
 }
 
+/* *************************** /SHOPPING CART **********/
+
+/* **************************** FILTER CATEGORY ************************* */
 export function filterResCat() {
     if(store.filtered_rest.length !== 0 ){
         store.filtered_rest = [];
@@ -81,8 +85,6 @@ export function filterResCat() {
         store.pagination.current_records = 0;
 
     }
-
-    console.log('OUUUUUUUUUUUUUUUU', store.filtered_rest);
 }
 
 let checkSubset = (parentArray, subsetArray) => {
@@ -91,6 +93,10 @@ let checkSubset = (parentArray, subsetArray) => {
     })
 }
 
+/* **************************** /FILTER CATEGORY ************************* */
+
+
+/** ****************************** PAGINATOR ******************************************* */
 export function nextPrev(dir) {
     if(dir){
         store.pagination.current_records += store.pagination.passo;
@@ -105,7 +111,6 @@ export function nextPrev(dir) {
 
 export function setPaginate(){
     if(store.filtered_rest.length > 0){
-        store.pagination.current_page = 1;
         store.pagination.total_records = store.filtered_rest.length;
         store.restaurants_paginate = store.filtered_rest.slice(store.pagination.current_records,store.pagination.current_records+store.pagination.passo);
     }
@@ -116,4 +121,12 @@ export function setPaginate(){
 
 }
 
+export function resetPaginate(){
+    if(store.filtered_rest.length > 0 ) {
+        store.pagination.current_page = 1;
+        store.pagination.current_records = 0;
+    }
+}
+
+/** ****************************** /PAGINATOR ******************************************* */
 
