@@ -39,13 +39,10 @@ export default {
             input{
                 margin-bottom: 60px;
                 padding: 10px;
-
                 height: 35px;
                 width: 400px;
                 border: none;
                 border-radius: 6px;
-
-
             }
         }
     }
