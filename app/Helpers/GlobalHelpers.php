@@ -40,7 +40,7 @@ class GlobalHelpers
         }
 
         else if (is_null($class->cover_image)){
-            $class->cover_image = url("storage/uploads/placeholder.jpg");
+            $class->cover_image = url("https://troianiortodonzia.it/wp-content/uploads/2016/10/orionthemes-placeholder-image.png");
         }
 
         return $class;
