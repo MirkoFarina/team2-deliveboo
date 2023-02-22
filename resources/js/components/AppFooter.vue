@@ -6,7 +6,7 @@ export default {
 
 <template>
     <footer>
-        <div class="container w-75 d-flex justify-content-between align-items-center h-100">
+        <div class="container d-flex justify-content-between align-items-center h-100 lf-container">
 
             <div class="left">
                 <ul>
@@ -61,4 +61,13 @@ export default {
             background-color: white;
         }
     }
+
+    @media screen and (max-width: 600px) {
+    .lf-container {
+        width: 80%;
+    }
+    .center {
+        display: none;
+    }
+}
 </style>
