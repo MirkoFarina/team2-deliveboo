@@ -33,4 +33,17 @@ class GlobalHelpers
         }
     }
 
+
+    public static function adjustImage($class){
+        if (!(substr($class->cover_image, 0, 4) == 'http') && !is_null($class->cover_image)){
+            $class->cover_image = url("storage/" . $class->cover_image);
+        }
+
+        else if (is_null($class->cover_image)){
+            $class->cover_image = url("storage/uploads/placeholder.jpg");
+        }
+
+        return $class;
+    }
+
 }

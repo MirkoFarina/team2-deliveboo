@@ -7,7 +7,6 @@ export class ApiService{
     static getApi(route, params){
         return axios.get(`${BASE_URL}${route}/`, {
             params:{
-                page: params.page,
             }
         }).then((res) => {
             if(res.data.restaurants){
@@ -28,7 +27,7 @@ export class ApiService{
             if(res.data.restaurant)
                 return res.data.restaurant;
 
-           
+
 
         })
     }

@@ -25,7 +25,6 @@ class RestaurantApiController extends Controller
         }
 
         return response()->json(compact('restaurants'));
-        dd($restaurants);
     }
 
 
@@ -39,6 +38,12 @@ class RestaurantApiController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->with(['categories', 'foods'])->get();
+
+        foreach($restaurant->all() as $res){
+            if($res->cover_image !== null)
+                $res->cover_image = url('storage/' . $res->cover_image);
+        }
+
         return response()->json(compact('restaurant'));
     }
 
