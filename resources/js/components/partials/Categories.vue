@@ -19,6 +19,24 @@ export default {
     data(){
         return{
             store,
+            swiperOptions: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                465: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                770: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                1056: {
+                    slidesPerView: 4,
+                    spaceBetween: 30
+                },
+            }
         }
     },
     methods:{
@@ -47,6 +65,7 @@ export default {
                 navigation
                 :slidesPerView="'4'"
                 :effect="'coverflow'"
+                :breakpoints="swiperOptions"
                 :coverflowEffect="{
                 rotate: 50,
                 stretch: 0,
@@ -55,9 +74,9 @@ export default {
                 slideShadows: true,
             }">
 
-            <SwiperSlide  v-for="category in store.categories" :key="'category' + category.id">
-                    <Category :category="category" />
-            </SwiperSlide>
+                <SwiperSlide  v-for="category in store.categories" :key="'category' + category.id">
+                        <Category :category="category" />
+                </SwiperSlide>
 
             </swiper>
 
