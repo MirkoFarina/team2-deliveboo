@@ -67,22 +67,22 @@ export function removeFood(food){
 function getSession(){
     // transfromo l'oggetto in json
     // lo inserisco nella sessione aggiungendolo alla chiave cart
-    sessionStorage.setItem("cart", JSON.stringify(store.shopping_cart));
+    localStorage.setItem("cart", JSON.stringify(store.shopping_cart));
 
     // transformo il json nuovamente in oggetto aggiungendolo allo store cosi' da stampare il risultato della session e prendo il json
-    store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+    store.shopping_cart = JSON.parse(localStorage.getItem("cart"));
     store.shopping_cart.total_amount = refreshAmount(store.shopping_cart.foods);
 }
 
 export function getLastSession(){
-    if(sessionStorage.getItem("cart")) {
-        store.shopping_cart = JSON.parse(sessionStorage.getItem("cart"));
+    if(localStorage.getItem("cart")) {
+        store.shopping_cart = JSON.parse(localStorage.getItem("cart"));
     }
 }
 
 
 export function deleteCart(){
-    sessionStorage.clear();
+    localStorage.clear();
     store.shopping_cart = {
         total_amount : 0,
         restaurant: null,
