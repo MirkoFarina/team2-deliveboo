@@ -24,7 +24,7 @@ export default {
             <i @click="store.is_canvas = false" class="fa-solid fa-circle-xmark p-3"></i>
         </div>
         <div class="h-100">
-            <h3 class="mb-2 fs-4">
+            <h3 class="mb-2 fs-4 bg-dark">
                 IL TUO CARRELLO
             </h3>
             <div class="h-100 " v-if="store.shopping_cart.foods.length">
@@ -75,7 +75,7 @@ export default {
         left: -100%;
         height: 60%;
         width: 300px;
-        background-color: #245c52b2;
+        background-color: #696969da;
         transition: all 0.55s;
         border-bottom-right-radius: 10px;
         border-top-right-radius: 10px;
@@ -90,7 +90,6 @@ export default {
         }
         .total {
             background-color: #5c5c5c;
-            width: 50%;
             margin: 0 auto;
         }
     }
