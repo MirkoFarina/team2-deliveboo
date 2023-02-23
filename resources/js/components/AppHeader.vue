@@ -26,7 +26,6 @@ export default {
                 <div class="dropdown-content">
                     <a href="/admin"> Login </a>
                     <a href="/register"> Register </a>
-
                 </div>
             </div>
         </div>
