@@ -16,6 +16,7 @@ export default {
 
 <template>
 <div>
+    <div class="item-counter">{{ store.shopping_cart.foods.length}}</div>
     <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
         <i class="fa-solid fa-cart-shopping"></i>
     </button>
@@ -103,12 +104,26 @@ export default {
         display: inline-block;
         cursor: pointer;
         font-size: 13px;
+        position: relative;
     }
     button:hover {
         background-color: #46e3cd;
     }
     button:active {
         transform: translateY(2px);
+    }
+    .item-counter {
+        height: 22px;
+        width: 22px;
+        background-color: #af0707e2;
+        position: absolute;
+        right: 88px;
+        top: 17px;
+        z-index: 999;
+        border-radius: 40%;
+        color: white;
+        line-height: 20px;
+        font-size: 0.9rem;
     }
     .btn {
         border: none;
