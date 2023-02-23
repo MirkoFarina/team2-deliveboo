@@ -93,10 +93,13 @@ header {
         font-size: 13px;
         border: none;
         cursor: pointer;
+
     }
     .dropdown {
         position: relative;
         display: inline-block;
+        z-index: 10;
+
     }
     .dropdown-content {
         display: none;
