@@ -3,7 +3,7 @@
     class="d-inline" action=" {{ route($route, $element) }} " method="POST">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger">
+    <button type="submit" class="btn btn-danger m-2">
         <i class="fa-solid fa-trash"></i>
     </button>
 </form>

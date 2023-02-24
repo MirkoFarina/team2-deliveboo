@@ -23,15 +23,15 @@
 <body>
     @include('admin.partials.header')
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 @auth()
-                    <div class="col-1 p-0">
+                    <div class="d-none d-lg-block col col-lg-3 p-0">
                         @include('admin.partials.aside')
                     </div>
                 @endauth
 
-                <div @auth class="col-11 p-0" @endauth>
+                <div @auth class="col col-lg-9 px-5" @endauth>
                     <main id="main-admin">
                         @yield('content')
                     </main>
