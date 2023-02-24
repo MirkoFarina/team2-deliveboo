@@ -20,6 +20,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <!-- includes the Braintree JS client SDK -->
+    <script src="https://js.braintreegateway.com/web/dropin/1.34.0/js/dropin.min.js"></script>
+
+    <!-- includes jQuery -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
     @vite(['resources/js/appVue.js', 'resources/scss/appVue.scss'])

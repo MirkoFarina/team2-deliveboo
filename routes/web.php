@@ -35,6 +35,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('users', UserController::class);
     });
 
+
 /* Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')

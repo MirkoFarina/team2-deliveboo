@@ -52,7 +52,7 @@ export default {
                     TOTALE: {{ store.shopping_cart.total_amount }} &euro;
                 </div>
                 <div class="d-flex justify-content-center my-2">
-                    <a class="btn btn-success mx-1">Pagamento</a>
+                    <router-link :to="{name: 'payment'}" class="btn btn-success mx-1">Pagamento</router-link>
                     <a @click="deleteCart" class="btn btn-danger mx-1">Svuota</a>
                 </div>
             </div>
