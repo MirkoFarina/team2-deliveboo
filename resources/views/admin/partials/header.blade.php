@@ -7,7 +7,7 @@
             </div>
         </a>
 
-        <div class="d-block d-sm-none dropdown">
+        <div class="d-block d-lg-none dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown
             </button>
