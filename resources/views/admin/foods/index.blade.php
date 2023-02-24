@@ -15,7 +15,7 @@
         @endif
         <div class="d-flex justify-content-around align-items-center mb-3 flex-wrap">
             <h1 class="fs-4">TABELLA CIBI</h1>
-            <a class="btn btn-success fs-6" href="{{route('admin.food.create')}}">Aggiungi un nuovo piatto</a>
+            <a class="btn btn-success fs-6" href="{{route('admin.food.create')}}">Aggiungi piatto</a>
         </div>
         @if (session('delete'))
             <div class="alert alert-success" role="alert">
@@ -24,11 +24,11 @@
         @endif
         <table class="table text-light">
             <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Prezzo</th>
-                <th scope="col">Disponibile</th>
-                <th scope="col">Azioni</th>
+            <tr class="text-uppercase">
+                <th class="col">Nome</th>
+                <th class="col">Prezzo</th>
+                <th class="col text-center">Disponibilità</th>
+                <th class="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -36,11 +36,11 @@
                     <tr>
                     <td>{{ $food->name}} </td>
                     <td> {{$food->price}} &euro;</td>
-                    <td>
+                    <td class="text-center">
                         @if ($food->is_available)
-                            Disponibile
+                            SI
                         @else
-                            Non Disponibile
+                            NO
                         @endif
                     </td>
                     <td>
