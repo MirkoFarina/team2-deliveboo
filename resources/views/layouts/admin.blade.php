@@ -20,18 +20,18 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-dark">
     @include('admin.partials.header')
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 @auth()
-                    <div class="d-none d-lg-block col col-lg-3 p-0">
+                    <div class="d-none d-lg-block col col-lg-2 p-0">
                         @include('admin.partials.aside')
                     </div>
                 @endauth
 
-                <div @auth class="col col-lg-9" @endauth>
+                <div @auth class="col col-lg-10" @endauth>
                     <main id="main-admin">
                         @yield('content')
                     </main>
