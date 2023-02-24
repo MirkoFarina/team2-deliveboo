@@ -96,8 +96,9 @@ export default {
     }
     button {
         background-color: #25645B;
-        padding: 10px;
-        border-radius: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
         border: none;
         text-align: center;
         text-decoration: none;
@@ -115,7 +116,7 @@ export default {
     .item-counter {
         height: 22px;
         width: 22px;
-        background-color: #af0707e2;
+        background-color: #525252e2;
         position: absolute;
         right: 88px;
         top: 17px;
