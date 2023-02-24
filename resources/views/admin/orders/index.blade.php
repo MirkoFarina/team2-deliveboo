@@ -3,9 +3,7 @@
 @section('content')
 
     <div class="container text-light py-5">
-        <h1>
-            TABELLA ORDINI
-        </h1>
+        <h1 class="fs-4">TABELLA ORDINI</h1>
         <table class="table text-light">
             <thead>
                 <tr>
