@@ -47,17 +47,11 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-around;
-      height: 45px;
-      min-width: 75%;
-      max-width: 90%;
-      height: 130px;
-      margin: 5px;
+      height: 110px;
       padding: 10px;
-      background-color: #597377;
       color: #e8e8e8;
       font-weight: bold;
       border-radius: 8px;
-      margin-bottom: 45px;
       box-shadow: 2px 3px 2px 1px rgba($color: #000000, $alpha: 0.1);
       cursor: pointer;
       &.active {
