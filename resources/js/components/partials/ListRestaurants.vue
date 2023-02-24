@@ -21,7 +21,8 @@ export default {
 </script>
 
 <template>
-    <div class="container my-5">
+    <div class="container">
+        <h2 class="text-uppercase fs-5 text-center pb-3">Lista Ristoranti</h2>
         <div v-if="store.filtered_rest.length" class="row">
             <div class="col my-3" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
