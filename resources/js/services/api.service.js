@@ -3,13 +3,13 @@ import { BASE_URL } from "../data/data";
 import { store } from "../data/store";
 import { setPaginate } from '../data/functions';
 
-export class ApiService{
-    static getApi(route, params){
+export class ApiService {
+    static getApi(route, params) {
         return axios.get(`${BASE_URL}${route}/`, {
-            params:{
+            params: {
             }
         }).then((res) => {
-            if(res.data.restaurants){
+            if (res.data.restaurants) {
                 store.restaurants = res.data.restaurants;
 
 
@@ -21,14 +21,21 @@ export class ApiService{
                 console.log('RISTO', store.restaurants) */
                 setPaginate();
             }
-            if(res.data.categories)
+            if (res.data.categories)
                 store.categories = res.data.categories;
 
-            if(res.data.restaurant)
+            if (res.data.restaurant)
                 return res.data.restaurant;
 
-
+            else return res.data;
 
         })
+    }
+
+    static postApi(route, ) {
+        return axios.get(`${BASE_URL}${route}/`,).then((res) => {
+            console.log(res.data);
+            return res.data;
+        });
     }
 }

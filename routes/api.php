@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\RestaurantApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,11 @@ Route::namespace('api')
     ->group(function(){
         Route::get('/', [CategoryApiController::class, 'index']);
         // Route::get('/{id}', [CategoryApiController::class, 'show']);
+    });
+
+Route::namespace('api')
+    ->prefix('payment')
+    ->group(function(){
+        Route::get('/generate', [PaymentController::class, 'generate']);
+        Route::post('/pay', [PaymentController::class, 'sendPayment']);
     });
