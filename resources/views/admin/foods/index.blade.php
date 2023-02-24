@@ -14,8 +14,8 @@
             </div>
         @endif
         <div class="d-flex justify-content-around align-items-center mb-3 flex-wrap">
-            <h1>TABELLA CIBI</h1>
-            <a class="btn btn-success" href="{{route('admin.food.create')}}">AGGIUNGI UN NUOVO PIATTO</a>
+            <h1 class="fs-4">TABELLA CIBI</h1>
+            <a class="btn btn-success fs-6" href="{{route('admin.food.create')}}">Aggiungi un nuovo piatto</a>
         </div>
         @if (session('delete'))
             <div class="alert alert-success" role="alert">
@@ -44,10 +44,10 @@
                         @endif
                     </td>
                     <td>
-                        <a class="btn btn-primary m-2" href=" {{ route('admin.food.show', $food) }} ">
+                        <a class="btn btn-outline-primary mx-2 px-4 my-1" href=" {{ route('admin.food.show', $food) }} ">
                             <i class="fa-regular fa-eye"></i>
                         </a>
-                        <a class="btn btn-warning m-2" href=" {{route('admin.food.edit', $food) }} ">
+                        <a class="btn btn-outline-warning mx-2 px-4 my-1" href=" {{route('admin.food.edit', $food) }} ">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                         @include('admin.partials.form-delete', [

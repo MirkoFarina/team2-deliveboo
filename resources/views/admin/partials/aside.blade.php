@@ -1,7 +1,7 @@
 <?php
     use App\Helpers\GlobalHelpers;
 ?>
-<div class="pt-5 bg-dark border-gray w-50 ps-4" id="nav-aside">
+<div class="pt-5 bg-dark border-gray ps-5" id="nav-aside">
     <ul class="m-0 list-unstyled">
         <li>
             <a href=" {{ route('admin.users.index') }} "

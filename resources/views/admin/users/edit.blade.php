@@ -89,7 +89,7 @@
 
 
         <div class="mb-3 text-center">
-            <button class="btn btn-success" type="submit">Modifica</button>
+            <button class="btn btn-outline-success px-5" type="submit">Modifica</button>
         </div>
 
     </form>

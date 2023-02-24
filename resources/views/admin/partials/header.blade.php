@@ -7,14 +7,14 @@
 <header id="admin-header">
     <nav class="navbar h-100 shadow px-3">
 
-        <a class="d-none d-sm-block  navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+        <a class="d-none d-sm-none d-md-none d-lg-block navbar-brand d-flex align-items-center" href="{{ route('home') }}">
             <div class="logo_laravel">
                 DeliveBoo
             </div>
         </a>
 
         <div class="d-block d-lg-none dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" data-bs-toggle="dropdown">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="dropdown-menu bg-dark m-0 list-unstyled">
@@ -58,8 +58,13 @@
                 </a>
             </li>
         </ul>
-            </div>
+    </div>
 
+    <a class="d-block d-lg-none navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+        <div class="logo_laravel">
+            <i class="fa-solid fa-earth-americas"></i>
+        </div>
+    </a>
             <div class="d-flex" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto d-flex flex-row">
