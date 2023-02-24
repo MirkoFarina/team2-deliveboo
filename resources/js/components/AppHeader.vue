@@ -64,8 +64,8 @@ header {
 
     button {
         background-color: #e9e9e9;
-        padding: 10px;
-        border-radius: 12px;
+        border-radius: 8px;
+        width: 40px;
         border: none;
         text-align: center;
         text-decoration: none;

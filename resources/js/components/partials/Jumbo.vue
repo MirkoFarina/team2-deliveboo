@@ -31,21 +31,6 @@ export default {
         background-image: url("../../assets/img/jumbotron.jpg");
 
     }
-
-
-    @media  screen and (max-width:850px) {
-       .jumbo-container{
-        height: 300px;
-       }
-    }
-    @media  screen and (max-width:390px) {
-       .jumbo-container{
-        height: 200px;
-       }
-    }
-
-
-
     	.search-div{
             input{
                 margin-bottom: 60px;
@@ -56,5 +41,23 @@ export default {
                 border-radius: 6px;
             }
         }
+
+
+        // ***********MEDIA QUERIES************
+
+
+
+    @media  screen and (max-width:850px) {
+       .jumbo-container{
+        height: 450px;
+       }
+    }
+    @media  screen and (max-width:390px) {
+       .jumbo-container{
+        height: 290px;
+       }
+    }
+
+
 
 </style>
