@@ -22,7 +22,7 @@ class Food extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class, 'quantity');
+        return $this->belongsToMany(Order::class);
     }
 
     public function restaurant()

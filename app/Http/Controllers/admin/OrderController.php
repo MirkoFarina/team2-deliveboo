@@ -21,13 +21,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        /* CONTROLLARE AUTENTIFICAZIONE UTENTE */
+        /* AGGIUNGERE AUTENTIFICAZIONE UTENTE */
 
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
         $orders = Order::filterOrders($foods)->get();
         return view('admin.orders.index', compact('orders'));
-
-
     }
 
     /**
@@ -59,12 +57,20 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        $foods = $order->foods;
+        /* AGGIUSTARE AUTENTIFICAZIONE UTENTE ? */
 
+        $temp_foods = $order->foods;
+        if($temp_foods[0]->restaurant_id !== Restaurant::where('user_id', Auth::user()->id)->first()->id)
+            return redirect()->route('admin.order.index')->with('denied', 'ACCESSO NEGATO');
+        else{
+            $foods = collect();
+            foreach($temp_foods as $food)
+                $foods->push($food->getOriginal());
 
+            //dd($temp_foods, $foods);
+            return view('admin.orders.show', compact('order', 'foods'));
 
-        return view('admin.orders.show', compact('order', 'foods'));
-
+        }
     }
 
     /**

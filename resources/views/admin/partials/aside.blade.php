@@ -29,7 +29,7 @@
         @endif
         @if (GlobalHelpers::checkRestaurant())
             <li>
-                <a href=" {{ route('admin.order.index') }} " class=" {{ (Route::CurrentRouteName() === 'admin.order.index')  ? 'active' : '' }} ">
+                <a href=" {{ route('admin.order.index') }} " class=" {{ (Route::CurrentRouteName() === 'admin.order.index') | (Route::CurrentRouteName() === 'admin.order.show')  ? 'active' : '' }} ">
                     <i class="fa-solid fa-money-bill-transfer"></i>
                     ORDINI
                 </a>
