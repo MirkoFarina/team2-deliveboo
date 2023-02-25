@@ -14,10 +14,10 @@ export default {
 
 
 <template>
-  <h1 class="text-center text-uppercase py-2 fs-4">Il nostro team</h1>
-  <div class="container w-75">
+  <h1 class="text-center text-uppercase pt-5 fs-4">The team</h1>
+  <div class="container d-flex align-items-center w-100 justify-content-center">
     <div class="row">
-            <div class="col-4 card mx-5 my-5" v-for="(profile, index) in team" :key="index" style="width: 15rem;">
+            <div class="col-4 card mx-1 my-5" v-for="(profile, index) in team" :key="index" style="width: 15rem;">
                 <img :src="profile.img" class="card-img-top p-2" :alt="profile.name">
                 <div class="card-body p-4">
                     <h5 class="card-title">{{ profile.name }}</h5>
