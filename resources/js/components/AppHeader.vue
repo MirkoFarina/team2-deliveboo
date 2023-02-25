@@ -1,10 +1,16 @@
 <script>
+import { store } from '../data/store';
 import ShoppingCart from './partials/ShoppingCart.vue';
 export default {
     name: "AppHeader",
     components:
     {
         ShoppingCart
+    },
+    data(){
+        return {
+            store
+        }
     }
 };
 </script>
@@ -18,7 +24,9 @@ export default {
         </div>
 
         <div class="btn">
-            <ShoppingCart />
+            <span v-if="store.show_cart">
+                <ShoppingCart />
+            </span>
             <div class="dropdown">
                 <button class="dropbtn">
                     <i class="fa-solid fa-bars"></i>

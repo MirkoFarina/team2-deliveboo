@@ -63,9 +63,10 @@ export default {
         }
     },
     async mounted(){
+        store.show_cart = false;
+        store.is_modal  = false;
         let res = await this.ApiService.getApi('payment/generate', {});
         this.token = res.token;
-        console.log('tokennnn ' + this.token);
         this.getPayment();
     }
 };

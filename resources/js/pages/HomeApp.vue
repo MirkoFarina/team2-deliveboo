@@ -21,6 +21,8 @@ export default {
     },
     mounted(){
         this.callRes();
+        this.store.show_cart = true;
+        this.store.is_canvas = false;
     }
 
 }
