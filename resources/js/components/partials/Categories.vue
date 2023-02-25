@@ -58,8 +58,8 @@ export default {
 
 <template>
 
-    <div class="container-fluid pb-2">
-        <h2 class="text-center text-uppercase fs-5 my-4">Seleziona una o più categorie qui sotto <span>&#128071;</span></h2>
+    <div class="container-fluid pb-5">
+        <h2 class="text-center text-uppercase font-bold fs-4 mb-4">Seleziona una o più categorie qui sotto <span>&#128071;</span></h2>
             <swiper
                 :modules="modules"
                 navigation
@@ -81,7 +81,6 @@ export default {
 
             </swiper>
 
-            <h2 class="text-center fs-6 my-4">Clicca sulla freccia a destra o sinistra nella nostra slide <span>&#128070;</span></h2>
 
      </div>
 </template>

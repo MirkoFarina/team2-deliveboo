@@ -51,10 +51,11 @@ export default {
 <style lang="scss" scoped>
 
 .app_description{
-  margin-top: 40px;
+  margin-top: 10px;
   h2 {
-      color: #252525;
+      color: #161616;
       font-size: 2.8rem;
+      font-weight: bold;
     }
   .box {
     border-radius: 8px;
@@ -62,8 +63,8 @@ export default {
 
     p {
       font-size: 1.1rem;
-      color: #494949;
-      line-height: 33px;
+      color: #585858;
+      line-height: 28px;
     }
   }
   .img_area{
@@ -77,8 +78,14 @@ export default {
 @media screen and (max-width: 470px){
     .img_area{
         img{
-            width: 320px;
+            width: 200px;
+            margin: 0 auto;
+        }
+    }
 
+    .app_description {
+        h2 {
+            font-size: 2.2rem;
         }
     }
 }
