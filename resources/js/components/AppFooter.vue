@@ -26,7 +26,7 @@ export default {
             </div>
             <div class="right">
                 <ul>
-                    <li><router-link :to="{name: 'login'}">Aggiungi il tuo ristorante</router-link></li>
+                    <li>Aggiungi il tuo ristorante</li>
                     <li><a href="#">Contratti Collettivi</a></li>
                     <li><a href="#">Opportunità di Carriera</a></li>
                     <li><a href="#">Soci</a></li>
