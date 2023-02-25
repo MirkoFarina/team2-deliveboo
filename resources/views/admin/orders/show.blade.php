@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container d-flex align-items-center justify-content-center py-5 flex-column">
+
         @if (session('create'))
             <div class="alert alert-success" role="alert">
                 {{ session('create') }}
@@ -13,41 +14,73 @@
         @endif
 
 
-        <h1 class="mb-2 text-light">
-            DETTAGLI Ordine
+        <h1 class="mb-4 text-light">
+            DETTAGLI ORDINE
         </h1>
 
-        <div class="card w-75">
+        <div class="card w-75 mb-4">
             <div class="card-body">
-                <h5 class="card-title">{{ $order->name }}{{$order->surname}} </h5>
+                <h5 class="card-title">Cliente : {{ $order->getFullName() }} </h5>
                 <p class="card-text">
-                    {{ $order->email }}
+                    <span>
+                        E-mail : {{ $order->email }} <br>
+                    </span>
+                    <span>
+                        Totale ordine : {{ $order->total_amount }} &euro;
+                    </span>
                 </p>
 
-                <span>
-                    {{ $order->total_amount }} &euro;
+                <span v-if="$order->checked" class="fw-bold" style="color: green;">
+                    COMPLETATO
                 </span>
             </div>
         </div>
 
         <div class="container">
-            <div class="row">
-                @forelse ($foods as $food)
-                    <div class="col-4">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{$food->cover_image}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"> {{$food->name}} x  </h5>
-                                <p class="card-text"> {{$food->ingredients}} </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <h4>Non ci sono piatti</h4>
-                @endforelse
+            <table class="table text-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Piatto</th>
+                        <th scope="col">Prezzo/Unità</th>
+                        <th scope="col">Subtotale</th>
+                        <th scope="col">Quantità</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($foods as $food)
+                    <tr>
+                        <td>
+                            {{ $food['name'] }}
+                        </td>
+                        <td>
+                            {{ $food['price'] }} &euro;
+                        </td>
+                        <td>
+                            {{
+                            number_format(($food['price'] * $food['pivot_quantity']), 2, '.', '');
+                            }} &euro;
+                        </td>
+                        <td>
+                            {{ $food['pivot_quantity'] }}
+                        </td>
+                    </tr>
+                    @empty
+                    @endforelse
+                    <tr>
+                        <td>
+                            <b> TOTALE : <b>
+                        </td>
+                        <td></td>
+                        <td>
+                            {{$order->total_amount}} &euro;
+                        </td>
 
-            </div>
+                    </tr>
+
+                </tbody>
+            </table>
+
         </div>
     </div>
+
 @endsection

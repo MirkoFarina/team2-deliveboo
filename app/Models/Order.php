@@ -18,8 +18,12 @@ class Order extends Model
         'checked'
     ];
 
+    public function getFullName(){
+        return $this->name . ' ' . $this->surname;
+    }
+
     public function foods(){
-        return $this->belongsToMany(Food::class);
+        return $this->belongsToMany(Food::class)->withPivot('quantity');
     }
 
     public function scopeFilterOrders(Builder $query, Collection $foods){
