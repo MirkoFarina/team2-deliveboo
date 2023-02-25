@@ -65,10 +65,10 @@ export default {
             IMPOSTAZIONI DI PAGAMENTO
         </h1>
         <div class="row mb-5 mf-row row-cols-3">
-            <div class="col">
+            <div :class="{'active' : checkCart}" class="col" @click="checkCart = true, checkData= false, checkPayment= false">
                 CARRELLO
             </div>
-            <div class="col">
+            <div class="col" @click="checkData = true, checkCart = false, checkPayment = false">
                 DATI
             </div>
             <div class="col">
@@ -76,8 +76,14 @@ export default {
             </div>
         </div>
         <!-- CHECK CART -->
-        <SliderCart :cart="store.shopping_cart" />
-
+        <div v-if="checkCart">
+            <SliderCart :cart="store.shopping_cart" />
+            <div class="text-center mt-5">
+                <button @click="checkCart = false, checkData = true">
+                    VAI AL PROSSIMO STEP
+                </button>
+            </div>
+        </div>
         <!-- //CHECK CART -->
 
         <!-- FORM PAYMENT -->
@@ -138,6 +144,11 @@ export default {
         color: #43efce;
         padding: 20px;
         text-align: center;
+        cursor: pointer;
+        &.active {
+            color: white;
+            border-bottom: 4px solid #43efce;
+        }
     }
 }
 
