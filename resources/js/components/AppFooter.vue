@@ -6,7 +6,7 @@ export default {
 
 <template>
     <footer>
-        <div class="container d-flex justify-content-between align-items-center h-100 lf-container">
+        <div class="container d-flex justify-content-between align-items-center h-50 border-bottom lf-container mb-5">
 
             <div class="left">
                 <ul>
@@ -33,6 +33,14 @@ export default {
                 </ul>
             </div>
         </div>
+            <div class="down container d-flex justify-content-between w-100 align-items-center">
+                <div class="logo">
+                    <router-link :to="{ name: 'home' }"
+                        ><img src="../assets/img/logoboo.png" alt="logo"
+                    /></router-link>
+                </div>
+                <a href="/register" class="btn btn-secondary">Registrati</a>
+            </div>
     </footer>
 </template>
 
@@ -42,7 +50,13 @@ export default {
 
     footer {
         background-color: #26635B;
-        height: 120px;
+        height: 400px;
+        margin-top: 100px;
+        .logo {
+            img {
+                width: 50px;
+            }
+        }
         ul {
             margin: 0;
             padding: 0;
@@ -51,7 +65,10 @@ export default {
                 a {
                     color: white;
                     text-decoration: none;
-                    font-size: 0.8rem;
+                    font-size: 0.9rem;
+                    &:hover {
+                        color: #c1c1c1;
+                    }
                 }
             }
         }
