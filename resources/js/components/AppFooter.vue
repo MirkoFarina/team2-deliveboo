@@ -26,7 +26,7 @@ export default {
             </div>
             <div class="right">
                 <ul>
-                    <li>Aggiungi il tuo ristorante</li>
+                    <li><a href="#">Aggiungi il tuo ristorante</a></li>
                     <li><a href="#">Contratti Collettivi</a></li>
                     <li><a href="#">Opportunità di Carriera</a></li>
                     <li><a href="#">Soci</a></li>
