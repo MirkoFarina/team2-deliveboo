@@ -22,11 +22,15 @@ export default {
 
 <template>
     <AppHeader />
-    <router-view> </router-view>
+    <main>
+        <router-view> </router-view>
+    </main>
     <AppFooter />
 </template>
 
 <style lang="scss">
-
 @use '../scss/appVue.scss';
+main {
+    min-height: 100vh;
+}
 </style>
