@@ -16,7 +16,7 @@ export default {
 
 <template>
 <div>
-    <div class="item-counter">{{ store.shopping_cart.foods.length}}</div>
+    <div v-show="store.shopping_cart.foods.length !== 0" class="item-counter">{{ store.shopping_cart.foods.length}}</div>
     <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
         <i class="fa-solid fa-cart-shopping"></i>
     </button>

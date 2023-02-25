@@ -4,6 +4,7 @@ import HomeApp from '../pages/HomeApp.vue';
 import ChiSiamo from "../pages/ChiSiamo.vue";
 import Contatti from "../pages/Contatti.vue";
 import Payment from "../pages/Payment.vue";
+import CompletedPayment from "../pages/CompletedPayment.vue";
 import RestaurantsDetails from '../pages/RestaurantsDetails.vue';
 import Error404 from "../pages/Error404.vue"
 
@@ -32,6 +33,11 @@ const routes = [
         path: "/payment",
         name: "payment",
         component: Payment,
+    },
+    {
+        path: "/completed_payment",
+        name: "completed_payment",
+        component: CompletedPayment,
     },
     {
         path: "/:pathMatch(.*)*",

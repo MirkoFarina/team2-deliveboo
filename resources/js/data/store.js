@@ -6,21 +6,16 @@ export const store = reactive({
     is_canvas       : false,
     is_modal        : false,
     show_cart       : true,
+
     shopping_cart   : {
         total_amount : 0,
         restaurant: null,
-        foods: [
-
-        ]
+        foods: []
     },
+
     restaurants_paginate: [],
     filtered : [],
     filtered_rest : [],
-    /* pagination: {
-        total_page : null,
-        current_page : null,
-        last_route : null,
-    } */
 
     pagination: {
         total_records : null,

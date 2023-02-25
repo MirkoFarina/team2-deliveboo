@@ -22,7 +22,6 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Data</th>
                 </tr>
             </thead>
@@ -34,10 +33,7 @@
                         {{ $order->name}}   {{ $order->surname }} </a>
                     </td>
                     <td>
-                        {{ $order->total_amount }}
-                    </td>
-                    <td>
-                        {{ $order->checked }}
+                        {{ $order->total_amount }} &euro;
                     </td>
                     <td>
                         {{ $order->created_at }}

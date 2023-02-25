@@ -93,9 +93,16 @@ export default {
         <div v-if="checkCart">
             <SliderCart :cart="store.shopping_cart" />
             <div class="text-center mt-5">
-                <button @click="checkCart = false, checkData = true">
+                <button v-if="store.shopping_cart.foods.length !== 0" @click="checkCart = false, checkData = true">
                     VAI AL PROSSIMO STEP
                 </button>
+                <div v-else class="text-danger">
+                    <h4 class="mb-4">
+                        Impossibile procedere al pagameno, devi aggiungere almeno un prodotto al carrello per effettuare l'ordine.
+                    </h4>
+
+                    <a href="/" class="text-light text-decoration-none">Torna alla home</a>
+                </div>
             </div>
         </div>
         <!-- //CHECK CART -->
@@ -108,21 +115,22 @@ export default {
             method="post"
             @submit.prevent="submit"
         >
-            <div :class="{'d-none' : !checkData}" >
+            <div :class="{'d-none' : !checkData}" class="container w-50" >
+                <h3 class="py-3 text-center">Inserisci i dati per completare l'ordine</h3>
                 <div class="mb-3">
-                    <label for="name" class="form-label"> NOME*:</label>
+                    <label for="name" class="form-label"> Nome *</label>
                     <input  v-model="name" required type="text" class="form-control" id="name" name="name" placeholder="UGO">
                 </div>
                 <div class="mb-3">
-                    <label for="surname" class="form-label">COGNOME*:</label>
+                    <label for="surname" class="form-label">Cognome *</label>
                     <input v-model="surname" required type="text" class="form-control" id="surname" name="surname" placeholder="DE UGHI">
                 </div>
                 <div class="mb-3">
-                    <label for="address" class="form-label">INDIRIZZO*:</label>
+                    <label for="address" class="form-label">Indirizzo *</label>
                     <input v-model="address" required type="text" class="form-control" id="address" name="address" placeholder="Via dei fioccchi, 12">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email*: </label>
+                    <label for="email" class="form-label">Email * </label>
                     <input v-model="email" required type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
                 </div>
                 <input type="hidden" name="token" id="token" value="fake-valid-nonce">
@@ -159,12 +167,13 @@ export default {
 
 <style lang="scss" scoped>
 .mf-row {
-    background-color: #24645b;
     .col {
-        color: #43efce;
+        background-color: #828887;
+        color: white;
         padding: 20px;
         text-align: center;
         &.active {
+            background-color: #24645b;
             color: white;
             border-bottom: 4px solid #43efce;
         }

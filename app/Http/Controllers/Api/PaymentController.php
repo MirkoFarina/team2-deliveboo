@@ -52,13 +52,19 @@ class PaymentController extends Controller
             }
 
 
-            return response()->json($data, 200);
+            /* return response()->json($data, 200); */
         } else {
             $data = [
                 'success' => false,
                 'message' => "Transazione fallita"
             ];
-            return response()->json($data, 401);
+            /* return response()->json($data, 401); */
         }
+
+
+
+
+
+        return redirect('/completed_payment');
     }
 }

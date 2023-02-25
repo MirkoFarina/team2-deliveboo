@@ -77,7 +77,7 @@ export default {
                 </SwiperSlide>
             </swiper>
             <div class="text-center mt-5 text-success">
-                <h3>
+                <h3 v-if="cart.foods.length !== 0">
                     TOTALE : {{ cart.total_amount }} &euro;
                 </h3>
             </div>
