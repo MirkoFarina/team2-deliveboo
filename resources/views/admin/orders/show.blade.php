@@ -29,5 +29,25 @@
                 </span>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                @forelse ($foods as $food)
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{$food->cover_image}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{$food->name}} x  </h5>
+                                <p class="card-text"> {{$food->ingredients}} </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <h4>Non ci sono piatti</h4>
+                @endforelse
+
+            </div>
+        </div>
     </div>
 @endsection

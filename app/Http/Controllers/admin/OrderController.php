@@ -24,8 +24,7 @@ class OrderController extends Controller
         /* CONTROLLARE AUTENTIFICAZIONE UTENTE */
 
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-        $orders = Order::filter($foods)->get();
-
+        $orders = Order::filterOrders($foods)->get();
         return view('admin.orders.index', compact('orders'));
 
 
@@ -60,9 +59,11 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $foods = $order->foods;
 
-        return view('admin.orders.show', compact('order'));
+
+
+        return view('admin.orders.show', compact('order', 'foods'));
 
     }
 
