@@ -24,11 +24,14 @@ class Order extends Model
 
     public function scopeFilter(Builder $query, Collection $foods){
 
-        return $query->where("food_order.food_id", "=", $foods)
+        $temp = array();
+        foreach($foods as $food)
+            array_push($temp, $food->id);
+
+        return $query->where("food_order.food_id", "=", implode(',', $temp))
                 ->leftJoin("food_order", function ($join) {
                     $join->on("orders.id", "=", "food_order.order_id");
                 });
     }
-
 
 }

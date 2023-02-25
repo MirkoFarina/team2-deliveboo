@@ -23,77 +23,10 @@ class OrderController extends Controller
     {
         /* CONTROLLARE AUTENTIFICAZIONE UTENTE */
 
-
-        /*
-        $col = collect();
-        foreach ($foods as $food)
-        $col->push(($food->orders)->all());
-        return view('admin.orders.index', compact('col')); */
-
-
-
-        /* $orders = collect();
-        foreach($foods as $food){
-        $orders->push(Order::whereHas('foods', function(Builder $query) use ($food){
-        $query->where('food_id', $food->id);
-        })->distinct()->first());
-        }
-        dd($orders); */
-
-
-        /*    Order::rightJoin('foods', 'foods.id', '=', 'food_id')
-        ->select('users.name', 'city.city_name')
-        ->get();
-        $orders = Order::all()
-        ->leftJoin($foods, "countries.id", "=", "users.country_id")
-        ->get(); */
-
-      /*   Order::leftJoin('food_order', function ($join) use ($storeID) {
-            $join->on('orders.id', '=', 'food_order.customer_id');
-        })
-            ->whereNotNull('pivot.store_id') //Not Null Filter
-            ->get();
-
-        Customers::leftJoin('pivot', function ($join) use ($storeID) {
-            $join->on('customers.id', '=', 'pivot.customer_id')
-                ->where('pivot.store_id', '=', $storeID);
-        })
-            ->whereNotNull('pivot.store_id') //Not Null Filter
-            ->get(); */
-
-        /*
-            SELECT *
-                FROM `orders`
-                LEFT JOIN `food_order`
-                ON `orders`.`id` = `food_order`.`order_id`
-                WHERE `food_order`.`food_id` = [15,16,17,18];
-        */
-/*
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
+        $orders = Order::filter($foods)->get();
 
-        $orders = DB::table("orders")
-        ->leftJoin("food_order", function($join){
-            $join->on("orders.id", "=", "food_order.order_id")
-        })
-        ->get();     */
-
-        /* $orders = DB::table("orders")
-        ->leftJoin("food_order", function($join){
-            $join->on("orders.id", "=", "food_order.order_id");
-        })
-            ->distinct()->get(); */
-            //$orders = Order::filter($foods)->get();
-            //dd(Food::find(15)->orders);
-
-            $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-
-
-            $orders = collect();
-            foreach($foods as $food){
-                $orders->push($food->orders);
-            }
-
-            dd($orders);
+        return view('admin.orders.index', compact('orders'));
 
 
     }
@@ -125,9 +58,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
         //
+
+        return view('admin.orders.show', compact('order'));
+
     }
 
     /**
