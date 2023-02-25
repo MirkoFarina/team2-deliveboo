@@ -55,8 +55,7 @@ export default {
         },
         checkDataForm(){
             if(this.name === '' && this.surname === '' && this.email === '' && this.address === ''){
-                this.message = 'COMPILA TUTTI I CAMPI PER POTER PASSARE AL PROSSIMO STEP'
-                console.log('ok');
+                this.message = 'COMPILA TUTTI I CAMPI PER POTER PASSARE AL PROSSIMO STEP';
             }else {
                 this.checkData = false;
                 this.checkPayment = true;
