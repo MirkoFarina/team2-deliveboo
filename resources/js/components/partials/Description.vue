@@ -12,7 +12,6 @@ export default {
  {
     updateScrollPosition(){
         this.scrollPosition = window.scrollY;
-        console.log(this.scrollPosition);
     },
     showAnimation(){
         if(this.scrollPosition >= 100) this.isShow = true;
