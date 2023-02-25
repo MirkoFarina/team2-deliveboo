@@ -14,12 +14,12 @@ export default {
         this.scrollPosition = window.scrollY;
     },
     showAnimation(){
-        if(this.scrollPosition >= 100) this.isShow = true;
+        if(this.scrollPosition >= 0) this.isShow = true;
     }
  },
  mounted(){
     window.addEventListener("scroll", this.updateScrollPosition);
-    window.addEventListener("scroll", this.showAnimation);
+    this.showAnimation();
  }
 }
 </script>
