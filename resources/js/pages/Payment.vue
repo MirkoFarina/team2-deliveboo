@@ -1,15 +1,21 @@
 <script>
+import SliderCart from '../components/partials/SliderCart.vue';
 import {store} from '../data/store'
 import {ApiService} from '../services/api.service';
 export default {
     name: "Payment",
     token: "",
-
+    components: {
+        SliderCart
+    },
     data() {
         return {
             ApiService,
             store,
-            cart: null,
+            cart        : null,
+            checkCart   : true,
+            checkData   : false,
+            checkPayment: false
         };
     },
     methods: {
@@ -48,8 +54,6 @@ export default {
         this.token = res.token;
         console.log('tokennnn ' + this.token);
         this.getPayment();
-
-
     }
 };
 </script>
@@ -57,14 +61,35 @@ export default {
 <template>
 
     <div class="container my-5">
+        <h1 class="text-center font-bold mb-5">
+            IMPOSTAZIONI DI PAGAMENTO
+        </h1>
+        <div class="row mb-5 mf-row row-cols-3">
+            <div class="col">
+                CARRELLO
+            </div>
+            <div class="col">
+                DATI
+            </div>
+            <div class="col">
+                PAGAMENTO
+            </div>
+        </div>
+        <!-- CHECK CART -->
+        <SliderCart :cart="store.shopping_cart" />
+
+        <!-- //CHECK CART -->
+
+        <!-- FORM PAYMENT -->
         <form
+
             id="payment-form"
             action="/api/payment/pay"
             method="post"
             @submit.prevent="submit"
             class="row py-5"
         >
-            <div class="col-6">
+            <div v-if="checkData" class="col-6">
                 <div class="mb-3">
                     <label for="name" class="form-label"> NOME*:</label>
                     <input required type="text" class="form-control" id="name" name="name" placeholder="UGO">
@@ -86,7 +111,7 @@ export default {
 
 
             </div>
-            <div id="dropin-wrapper" class="d-flex justify-center align-items-center flex-column col-6">
+            <div v-if="checkPayment" id="dropin-wrapper" class="d-flex justify-center align-items-center flex-column col-6">
                 <div id="checkout-message"></div>
                 <div id="dropin-container"></div>
 
@@ -99,6 +124,7 @@ export default {
                 <input type="hidden" id="nonce" name="payment_method_nonce"  />
             </div>
         </form>
+        <!--// FORM PAYMENT -->
 
 
     </div>
@@ -106,9 +132,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.cc-img {
-        margin: 0 auto;
+.mf-row {
+    background-color: #24645b;
+    .col {
+        color: #43efce;
+        padding: 20px;
+        text-align: center;
     }
+}
+
 button {
     border: none;
     background-color: #26635B;

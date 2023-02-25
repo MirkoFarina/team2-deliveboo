@@ -2,7 +2,6 @@
 import Category from './Category.vue'
 import { store } from '../../data/store';
 import { ApiService } from "../../services/api.service";
-
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {Navigation, Pagination} from 'swiper';
 import 'swiper/css/bundle';
