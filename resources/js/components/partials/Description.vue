@@ -15,11 +15,12 @@ export default {
         console.log(this.scrollPosition);
     },
     showAnimation(){
-        if(this.scrollPosition >= 102) return this.isShow = true;
+        if(this.scrollPosition >= 100) this.isShow = true;
     }
  },
  mounted(){
     window.addEventListener("scroll", this.updateScrollPosition);
+    window.addEventListener("scroll", this.showAnimation);
  }
 }
 </script>
@@ -37,7 +38,7 @@ export default {
               piace e ricevere comodamente a casa. Scopri i ristoranti disponibili nella tua zona, seleziona ciò che desideri e attendi la
               consegna. Lascia che DeliveBoo si occupi di tutto per te!</p>
             </div>
-            <div :class="{'animate__animated animate__bounceInRight' : showAnimation}" class="img_area text-lg-end text-md-center col-lg-6 col-md-12  ">
+            <div :class="{'animate__animated animate__bounceInRight' : isShow}" class="img_area text-lg-end text-md-center col-lg-6 col-md-12  ">
               <img src="../../assets/img/delivery.png" alt="">
             </div>
         </div>
