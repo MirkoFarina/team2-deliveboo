@@ -22,7 +22,7 @@ class Order extends Model
         return $this->belongsToMany(Food::class);
     }
 
-    public function scopeFilter(Builder $query, Collection $foods){
+    public function scopeFilterOrders(Builder $query, Collection $foods){
 
         $temp = array();
         foreach($foods as $food)
