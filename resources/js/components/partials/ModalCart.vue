@@ -14,7 +14,7 @@ export default {
 
 
 <template>
-    <div v-if="store.is_modal" class="overlay d-flex justify-center align-items-center">
+    <div :class="{'active' : store.is_modal}" class="overlay d-flex justify-center align-items-center">
         <div  class="mf-modal text-center" >
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -27,7 +27,7 @@ export default {
                     </p>
                 </div>
                 <div class="text-center">
-                    <button @click="store.is_modal = false" type="button" class="btn btn-primary mx-3" data-bs-dismiss="modal">Close</button>
+                    <button @click="store.is_modal = false, store.is_canvas = false" type="button" class="btn btn-primary mx-3" data-bs-dismiss="modal">Close</button>
                     <button @click="deleteCart" type="button" class="btn btn-danger">SVUOTA</button>
                 </div>
                 </div>
@@ -45,9 +45,13 @@ export default {
         height: 100vh;
         z-index: 9999;
         position: fixed;
-        top: 50%;
+        top: -100%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transition: all .7s;
+        &.active {
+            top: 50%;
+        }
     }
     .mf-modal {
         margin: 0 auto;

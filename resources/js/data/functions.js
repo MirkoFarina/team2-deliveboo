@@ -21,7 +21,6 @@ export function addToCart(food) {
     /* not empty */
     else {
         const index = isIncluded(store.shopping_cart.foods, food);
-        console.log('INDEX', index);
 
         if (index === null) {
             if (store.shopping_cart.restaurant === food.restaurant_id){
@@ -91,7 +90,8 @@ export function deleteCart(){
         restaurant: null,
         foods: []
     };
-    store.is_modal= false;
+    store.is_modal = false;
+    store.is_canvas = false;
 }
 /** ********************** /SESSION CART *************************************         */
 
