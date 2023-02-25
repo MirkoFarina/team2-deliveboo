@@ -21,11 +21,13 @@ export function addToCart(food) {
     /* not empty */
     else {
         const index = isIncluded(store.shopping_cart.foods, food);
-        console.log('INDEX', index);
 
         if (index === null) {
-            if (store.shopping_cart.restaurant === food.restaurant_id)
+            if (store.shopping_cart.restaurant === food.restaurant_id){
                 pushInShoppingCart(food, 1);
+            }else {
+                store.is_modal = true;
+            }
         }
 
         else store.shopping_cart.foods[index].quantity++;
@@ -88,6 +90,8 @@ export function deleteCart(){
         restaurant: null,
         foods: []
     };
+    store.is_modal = false;
+    store.is_canvas = false;
 }
 /** ********************** /SESSION CART *************************************         */
 
