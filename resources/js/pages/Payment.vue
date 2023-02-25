@@ -1,4 +1,5 @@
 <script>
+import {store} from '../data/store'
 import {ApiService} from '../services/api.service';
 export default {
     name: "Payment",
@@ -7,6 +8,8 @@ export default {
     data() {
         return {
             ApiService,
+            store,
+            cart: null,
         };
     },
     methods: {
@@ -37,6 +40,7 @@ export default {
             .catch((error) => {
                 console.log(error);
             });
+
         },
     },
     async mounted(){
@@ -44,6 +48,8 @@ export default {
         this.token = res.token;
         console.log('tokennnn ' + this.token);
         this.getPayment();
+
+
     }
 };
 </script>
@@ -76,6 +82,8 @@ export default {
                     <input required type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
                 </div>
                 <input type="hidden" name="token" id="token" value="fake-valid-nonce">
+                <input type="hidden" name="cart" id="token" :value="JSON.stringify(store.shopping_cart)">
+
 
             </div>
             <div id="dropin-wrapper" class="d-flex justify-center align-items-center flex-column col-6">
@@ -83,7 +91,7 @@ export default {
                 <div id="dropin-container"></div>
 
                  <div class="text-center">
-                    <button id="submit-button" type="submit">
+                    <button id="submit-button" type="submit" >
                         PAGA
                     </button>
                  </div>

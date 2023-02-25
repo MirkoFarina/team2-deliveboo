@@ -10,7 +10,7 @@ use Braintree\Gateway;
 
 class PaymentController extends Controller
 {
-    public function generate(Request $request, Gateway $gateway)
+    public function generate(Gateway $gateway)
     {
         // GENERO IL TOKEN DA TORNARE COME RESPONSE
         $token = $gateway->clientToken()->generate();
@@ -24,15 +24,17 @@ class PaymentController extends Controller
 
     public function sendPayment(Request $request, Gateway $gateway)
     {
+        $cart = json_decode($request->cart);
         $result = $gateway->transaction()->sale([
-            'amount' => $request->shopping_cart->total_amount,
+            'amount' => $cart->total_amount,
             'paymentMethodNonce' => $request->token,
         ]);
 
         if ($result->success) {
             $data = [
                 'success' => true,
-                'message' => "Transazione eseguita"
+                'message' => "Transazione eseguita",
+                'request' => $request->all(),
             ];
 
             /* passare in rassegna il carrello ed instaurare le relazione nel DB */
@@ -41,13 +43,12 @@ class PaymentController extends Controller
             $new_order->name            = $request->name;
             $new_order->surname         = $request->surname;
             $new_order->email           = $request->email;
-            $new_order->total_amount    = $request->shopping_cart->total_amount;
+            $new_order->total_amount    = $cart->total_amount;
             $new_order->checked         = 1;
             $new_order->save();
 
-            foreach($request->shopping_cart->foods as $food_card){
-                $food = Food::find($food_card->id);
-                $food->orders()->attach([$new_order->id =>["quantity" => $food_card->quantity]]);
+            foreach($cart->foods as $food_card){
+                $new_order->foods()->attach([$food_card->id =>["quantity" => $food_card->quantity]]);
             }
 
 
