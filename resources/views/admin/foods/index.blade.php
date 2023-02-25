@@ -26,7 +26,7 @@
             <thead>
             <tr class="text-uppercase">
                 <th class="col">Nome</th>
-                <th class="col">Prezzo</th>
+                {{-- <th class="col">Prezzo</th> --}}
                 <th class="col text-center">Disponibilità</th>
                 <th class="col"></th>
             </tr>
@@ -35,7 +35,7 @@
                 @foreach ($foods as $food )
                     <tr>
                     <td>{{ $food->name}} </td>
-                    <td> {{$food->price}} &euro;</td>
+                    {{-- <td> {{$food->price}} &euro;</td> --}}
                     <td class="text-center">
                         @if ($food->is_available)
                             SI

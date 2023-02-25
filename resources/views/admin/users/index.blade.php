@@ -13,10 +13,10 @@
             </div>
         @endif
 
-        <div class="container ">
+        <div class="container">
             <h1 class="text-center mb-4"> Riepilogo profilo </h1>
 
-            <div class="card text-dark mb-4">
+            <div class="card text-dark mb-4 m-auto p-2">
                 <div class="card-header text-center">
                     <h3>{{ $user->name }} {{ $user->surname }}</h3>
                 </div>
@@ -47,7 +47,7 @@
 
             </div>
             <div class="btns">
-                <a href=" {{route('admin.users.edit', $user)}} " class="btn btn-warning text-light">Modifica</a>
+                <a href=" {{route('admin.users.edit', $user)}} " class="btn btn-outline-warning text-light">Modifica</a>
                 @include('admin.partials.form-delete', [
                             'title'   => $user->name,
                             'route'   => 'admin.users.destroy',
@@ -59,7 +59,7 @@
             @if (!is_null($res))
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
-                    <div class="card text-dark" style="width: 24rem;" >
+                    <div class="card text-dark p-2" >
                         <img src=" {{ asset('storage/' . $res->cover_image) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}">
                         <div class="card-body">
                             <h5 class="card-title">

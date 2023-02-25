@@ -40,7 +40,7 @@
                     <li class="list-group-item">Email: {{ $restaurant->email }}</li>
                 </ul>
                 <div class="card-body text-center">
-                    <a class="btn btn-outline-warning px-5" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
+                    <a class="btn btn-outline-warning px-4" href=" {{ route('admin.restaurants.edit', $restaurant) }} ">
                         <i class="fa-solid fa-pencil"></i>
                     </a>
                     @include('admin.partials.form-delete', [
