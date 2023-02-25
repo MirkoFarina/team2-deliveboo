@@ -40,7 +40,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F6F6F6;
+    background-color: #FFFFFF;
 
     img {
         width: 80px;
