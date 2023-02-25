@@ -1,13 +1,8 @@
 <script>
 import {store} from '../../data/store';
-import ModalCart from './ModalCart.vue';
 import {modQuantityCart, deleteCart, removeFood} from '../../data/functions';
 export default {
     name: 'ShoppingCart',
-    components:
-    {
-        ModalCart
-    },
     data(){
         return {
             store,
@@ -20,7 +15,6 @@ export default {
 </script>
 
 <template>
-    <ModalCart />
 <div>
     <div class="item-counter">{{ store.shopping_cart.foods.length}}</div>
     <button @click="store.is_canvas = !store.is_canvas" class="mx-3 text-light dropbtn">
