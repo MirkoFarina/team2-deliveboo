@@ -5,6 +5,7 @@ export const store = reactive({
     categories      : [],
     is_canvas       : false,
     is_modal        : false,
+    show_cart       : true,
     shopping_cart   : {
         total_amount : 0,
         restaurant: null,
