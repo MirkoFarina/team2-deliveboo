@@ -9,27 +9,26 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col">Disponibile</th>
-                    <th scope="col">Azioni</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($col as $order)
+                @forelse ($orders as $order)
                 <tr>
-                    @foreach ($order as $os)
-                        <td>
-                            {{ $os->name }} {{ $os->surname}}
-                        </td>
-                        <td>
-                            {{ $os->total_amount }}
-                        </td>
-                        <td>
-                            {{ $os->checked }}
-                        </td>
-                    @endforeach
+                    <td>
+                        <a href=" {{ route('admin.order.show', $order) }}">{{ $order->name }} {{ $order->surname}}</a>
+                    </td>
+                    <td>
+                        {{ $order->total_amount }}
+                    </td>
+                    <td>
+                        {{ $order->checked }}
+                    </td>
+                    <td>
+                        {{ $order->created_at }}
+                    </td>
                 </tr>
-
-
                 @empty
                 @endforelse
             </tbody>
