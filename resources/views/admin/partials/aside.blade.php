@@ -11,9 +11,9 @@
         {{-- SE L'UTENTE NON HA UN RISTORANTE REGISTRATO NON PUO' ACCEDERE A QUESTA FUNZIONE --}}
         @if (GlobalHelpers::checkRestaurant())
             <li>
-                <a href=" {{ route('admin.dashboard') }} "
-                    class=" {{ Route::CurrentRouteName() === 'admin.dashboard' ? 'active' : '' }} ">
-                    <i class="fa-solid fa-chart-simple"></i> DASHBOARD
+                <a href=" {{ route('admin.statistics') }} "
+                    class=" {{ Route::CurrentRouteName() === 'admin.statistics' ? 'active' : '' }} ">
+                    <i class="fa-solid fa-chart-simple"></i> STATISTICHE
                 </a>
             </li>
         @endif
