@@ -15,7 +15,7 @@ class DashboardController extends Controller
     {
 
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-        $orders = Order::filterOrders($foods)->orderBy('created_at', 'desc')->get();
+        $orders = Order::filterOrders($foods)->orderBy('created_at', 'asc')->get();
 
 
         $orders_month = [];
