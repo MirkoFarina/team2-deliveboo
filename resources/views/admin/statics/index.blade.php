@@ -2,9 +2,19 @@
 
 @section('content')
 <div class="container">
-    <div>
-        <canvas id="myChart"></canvas>
-      </div>
+    @if ($orders_month)
+        <div class="row my-5">
+            <div class="col-12">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+        @else
+        <h1 class="text-center text-white my-5">
+            CI DISPIACE NON HAI ANCORA ORDINI REGISTRATI :(
+        </h1>
+        @endif
 </div>
 
 <script>
