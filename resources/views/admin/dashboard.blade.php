@@ -9,19 +9,23 @@
 
 <script>
     const ctx = document.getElementById('myChart');
+    // TRANSFORMO I DATA PHP IN JS
     let data = {{ Illuminate\Support\Js::from($orders_month) }};
-    console.log(data);
+    // ASSEGNO I VALORI
     let month = Object.keys(data);
     let orders = Object.values(data);
-    console.log(orders, month);
-    new Chart(ctx, {
+    Chart.defaults.font.size = 18;
+    Chart.defaults.color = '#2f8845';
+    let chart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: month,
         datasets: [{
-          label: 'ORDINI PER MESE/ANNO',
-          data: orders,
-          borderWidth: 2
+            label: 'ORDINI PER MESE/ANNO',
+            data: orders,
+            borderWidth: 2,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2
         }]
       },
       options: {
