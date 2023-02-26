@@ -29,7 +29,7 @@
                 @forelse ($orders as $order)
                 <tr>
                     <td>
-                        <a href=" {{ route('admin.order.show', $order) }}">
+                        <a class="text-success text-decoration-none" href=" {{ route('admin.order.show', $order) }}">
                         {{ $order->name}}   {{ $order->surname }} </a>
                     </td>
                     <td>

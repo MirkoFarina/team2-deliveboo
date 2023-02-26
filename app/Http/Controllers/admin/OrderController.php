@@ -24,7 +24,7 @@ class OrderController extends Controller
         /* AGGIUNGERE AUTENTIFICAZIONE UTENTE */
 
         $foods = Food::where('restaurant_id', Restaurant::where('user_id', Auth::id())->first()->id)->get();
-        $orders = Order::filterOrders($foods)->get();
+        $orders = Order::filterOrders($foods)->orderBy('created_at', 'desc')->get();
         return view('admin.orders.index', compact('orders'));
     }
 
