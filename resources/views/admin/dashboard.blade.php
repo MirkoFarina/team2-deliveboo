@@ -9,15 +9,19 @@
 
 <script>
     const ctx = document.getElementById('myChart');
-
+    let data = {{ Illuminate\Support\Js::from($orders_month) }};
+    console.log(data);
+    let month = Object.keys(data);
+    let orders = Object.values(data);
+    console.log(orders, month);
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: month,
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
+          label: 'ORDINI PER MESE/ANNO',
+          data: orders,
+          borderWidth: 2
         }]
       },
       options: {
