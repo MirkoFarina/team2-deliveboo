@@ -76,6 +76,9 @@ export default {
 }
 
 @media screen and (max-width: 470px){
+    .sc-container {
+        width: 75%;
+    }
     .img_area{
         img{
             width: 200px;
@@ -84,6 +87,8 @@ export default {
     }
 
     .app_description {
+        margin-bottom: 60px;
+
         h2 {
             font-size: 2.2rem;
         }

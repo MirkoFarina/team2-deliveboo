@@ -67,17 +67,17 @@ export default {
         justify-content: space-around;
 
         .logo {
-            width: 30%;
+            width: 40%;
 
             img {
                 object-fit: contain;
-                height: 80%;
-                width: 80%;
+                height: 100%;
+                width: 100%;
             }
         }
 
         .info {
-            width: 60%;
+            width: 50%;
             height: 200px;
         }
     }
@@ -117,7 +117,7 @@ export default {
            .card-lf {
         width: 50%;
         min-width: 300px;
-        height: 500px;
+        height: 530px;
         padding: 10px;
         align-items: center;
         margin: 0 auto;

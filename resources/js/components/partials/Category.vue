@@ -68,4 +68,15 @@ export default {
       }
 
     }
+
+
+    // **********MEDIA***********
+
+    @media screen and (max-width: 470px){
+        .box {
+            width: 250px;
+            margin: 0 auto;
+            height: 100px;
+        }
+}
 </style>
