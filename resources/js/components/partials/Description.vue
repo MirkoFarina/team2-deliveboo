@@ -26,7 +26,7 @@ export default {
 
 <template>
   <section class="app_description w-100">
-      <div class="container w-75 sc-container">
+      <div class="container sc-container">
         <div class="d-flex justify-content-around p-3 flex-wrap-reverse" >
             <div class="box col-lg-6 col-md-12">
               <h2 class="my-5">Tutto ciò di cui hai bisogno, te lo portiamo noi!</h2>
@@ -34,7 +34,7 @@ export default {
               Con DeliveBoo, puoi dare sfogo alla tua fantasia culinaria: tutto ciò che desideri ti viene consegnato ovunque tu sia,
               in pochi minuti! Vuoi ordinare cibo etnico proveniente da tutto il mondo, i migliori piatti dai ristoranti della città,
               bevande per un'uscita con gli amici e molto altro ancora? Nessun problema! Con DeliveBoo puoi ordinare tutto ciò che ti
-              piace e ricevere comodamente a casa. Scopri i ristoranti disponibili nella tua zona, seleziona ciò che desideri e attendi la
+              piace e ricevere comodamente a casa. Seleziona ciò che desideri e attendi la
               consegna. Lascia che DeliveBoo si occupi di tutto per te!</p>
             </div>
             <div :class="{'animate__animated animate__bounceInRight' : isShow}" class="img_area text-lg-end text-md-center col-lg-6 col-md-12  ">
@@ -52,10 +52,9 @@ export default {
 
 .app_description{
   margin-top: 10px;
-  margin-bottom: 80px;
   h2 {
       color: #161616;
-      font-size: 3.2rem;
+      font-size: 3.3rem;
       font-weight: bold;
     }
   .box {
@@ -63,9 +62,9 @@ export default {
 
 
     p {
-      font-size: 1.1rem;
-      color: #585858;
-      line-height: 28px;
+      font-size: 1.2rem;
+      color: #3c3c3c;
+      line-height: 27px;
     }
   }
   .img_area{
