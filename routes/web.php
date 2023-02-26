@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'getStat'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class)->except(['show']);
         Route::resource('food', FoodController::class);
         Route::resource('order', OrderController::class)->except(['edit','update','store','destroy','create']);
