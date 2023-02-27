@@ -16,7 +16,7 @@
         <div class="container">
             <h1 class="text-center mb-4"> Riepilogo profilo </h1>
 
-            <div class="card text-dark mb-4 m-auto p-2">
+            <div class="card text-dark mb-4 m-auto">
                 <div class="card-header text-center">
                     <h3>{{ $user->name }} {{ $user->surname }}</h3>
                 </div>
@@ -59,7 +59,7 @@
             @if (!is_null($res))
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
-                    <div class="card text-dark p-2" >
+                    <div class="card text-dark" >
                         <img src=" {{ asset('storage/'. $res->cover_image ) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}" style="max-height: 400px; object-fit:cover;">
                         <div class="card-body">
                             <h5 class="card-title display-6">
