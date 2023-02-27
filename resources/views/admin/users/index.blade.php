@@ -24,19 +24,19 @@
                     <h5 class="card-title fw-bolder">Informazioni personali</h5>
                     <p class="card-text text-start">
                     <h6>
-                        <span class="font-monospace">Nome:</span> {{ $user->name }}
+                        <span class="fw-bolder">Nome:</span> {{ $user->name }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">Cognome:</span> {{ $user->surname }}
+                        <span class="fw-bolder">Cognome:</span> {{ $user->surname }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">Indirizzo:</span> {{ $user->address }}
+                        <span class="fw-bolder">Indirizzo:</span> {{ $user->address }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">Cellulare:</span> {{ $user->phone_number }}
+                        <span class="fw-bolder">Cellulare:</span> {{ $user->phone_number }}
                     </h6>
                     <h6>
-                        <span class="font-monospace">E-mail:</span> {{ $user->email }}
+                        <span class="fw-bolder">E-mail:</span> {{ $user->email }}
                     </h6>
                     </p>
 
@@ -60,18 +60,18 @@
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
                     <div class="card text-dark p-2" >
-                        <img src=" {{ asset('storage/' . $res->cover_image) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}">
+                        <img src=" {{ asset('storage/'. $res->cover_image ) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}" style="max-height: 400px; object-fit:cover;">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="card-title display-6">
                                 {{$res->name_of_restaurant}}
                             </h5>
                             <p class="card-text">
                                 <h6>
-                                    <span class="font-monospace">Partita IVA: </span>
+                                    <span class="fw-bold">Partita IVA: </span>
                                     {{$res->p_iva}}
                                 </h6>
                                 <h6>
-                                    <span class="font-monospace">Indirizzo: </span>
+                                    <span class="fw-bold">Indirizzo: </span>
                                     {{$res->address}}
                                 </h6>
 
@@ -88,6 +88,7 @@
                 <a class="btn btn-primary" href=" {{route('admin.restaurants.create')}} ">Registra il tuo ristorante</a>
 
             @endif
+
 
 
 
