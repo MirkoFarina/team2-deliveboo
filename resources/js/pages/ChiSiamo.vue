@@ -16,7 +16,7 @@ export default {
 <template>
   <h1 class="text-center text-uppercase pt-5 fs-4">The team</h1>
   <div class="container d-flex align-items-center w-100 justify-content-center">
-    <div class="row">
+    <div class="row box" >
             <div class="col-4 card mx-1 my-5 profile" v-for="(profile, index) in team" :key="index" style="width: 15rem;">
                 <img :src="profile.img" class="card-img-top p-2" :alt="profile.name">
                 <div class="card-body p-4">
@@ -50,6 +50,17 @@ img{
          transform: scale(0.9);
     }
 }
+@media  screen and (max-width:390px) {
+    .box{
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+
+
+
 
 
 
