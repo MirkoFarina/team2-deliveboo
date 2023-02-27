@@ -87,7 +87,7 @@ export default {
      </div>
      <div class="container mobile-view-container">
         <div class="row">
-            <div class="col-6 my-2" v-for="category in store.categories" :key="'category' + category.id">
+            <div class="col-12 my-2" v-for="category in store.categories" :key="'category' + category.id">
                 <SwiperSlide>
                     <Category :category="category" />
                 </SwiperSlide>
