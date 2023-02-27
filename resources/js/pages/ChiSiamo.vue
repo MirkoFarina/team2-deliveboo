@@ -40,10 +40,11 @@ img{
     width:100%;
     height:100%;
     object-fit:cover;
+
 }
 .profile{
     background-color:#43ddbe;
-    transition:transform .2s;
+    transition:transform .3s;
     cursor: pointer;
     &:hover{
          transform: scale(0.9);
