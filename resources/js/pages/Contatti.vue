@@ -33,7 +33,7 @@ export default {
           <strong>{{ profile.name }}</strong>
           <strong>{{ profile.usrname }}</strong>
           <span
-            ><i class="fa fa-map-marker"></i>{{ profile.luogo }}
+            ><i class="fa-solid fa-location-dot"></i>{{ profile.luogo }}
             </span
           >
         </div>
@@ -50,20 +50,25 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin-top: 20px;
-  background-color: #ebebeb;
+  margin-top: 40px;
   text-align: center;
 }
+
 .card-header {
   display: flex;
+  padding: 10px 20px;
+  margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;
   background-color: #d50006;
   color: white;
 }
 .profile-blog{
-    border-bottom: 2px solid  #d50006 ;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background-color: #ebebeb;
+    margin-bottom: 30px;
+    border: 1px solid #a6a6a6;
 }
 
 img {
@@ -114,6 +119,7 @@ strong{
     color: #72c02c;
     margin-right: 5px;
 }
+
 
 
 </style>
