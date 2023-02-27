@@ -9,7 +9,7 @@ export default {
 
 <template>
       <div class="card">
-         <div class="card__image-container">
+         <div class="card__image-container h-50">
            <img class="card__image" :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
 
@@ -19,16 +19,16 @@ export default {
             <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
           </svg>
 
-         <div class="card__content">
+         <div class="card__content h-50">
            <h1 class="card__title">{{ restaurant.name_of_restaurant }}</h1>
            <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 ">{{ category.name }}</span>
             <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
             <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
             <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
-             <div class="button">
-                <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-secondary btn-lf text-uppercase btn-query">Vai al ristorante</router-link>
-            </div>
         </div>
+              <div class="button">
+                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-secondary btn-lf text-uppercase btn-query">Vai al ristorante</router-link>
+              </div>
       </div>
 
 
@@ -38,17 +38,24 @@ export default {
 
 
 <style lang="scss" scoped>
-img {
-  max-width: 100%;
-  height: 100%;
+.card__image-container {
+    img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
+}
+
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #333;
   width: 300px;
-  height: 75vh;
+  height: 95vh;
   border-radius: 6px;
   padding: 2rem;
   color: #aaa;
@@ -86,7 +93,7 @@ img {
   &__svg {
     position: absolute;
     left: 0;
-    top: 115px;
+    top: 120px;
   }
 }
 

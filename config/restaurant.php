@@ -7,7 +7,7 @@ return [
         "name_of_restaurant"=>"Sorbillo",
         "phone_number"=> "081446646",
         "website"=> "https://www.sorbillo.it/",
-        "cover_image"=> "https://www.scattidigusto.it/wp-content/uploads/2017/11/nuova-pizzeria-Gino-Sorbillo-New-York-logo.jpg",
+        "cover_image"=> "https://i.ytimg.com/vi/liw8QGnaPbE/maxresdefault.jpg",
         "foods" =>[
             [
             "name"=>"Margherita",
