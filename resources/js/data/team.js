@@ -6,7 +6,7 @@ export default [
         img: "chisiamo/giorgio.jpg",
         number:"3505255178",
         email:"giorgiop62@gmail.com",
-        luogo:"Napoli,"
+        luogo:"Napoli"
     },
     {
         name: "Luca",
@@ -15,7 +15,7 @@ export default [
         img: "chisiamo/luca.jpg",
         number:"3336993375",
         email:"lucafabbozzo@gmail.com",
-        luogo:"Perù,"
+        luogo:"Como"
 
     },
     {
@@ -25,7 +25,7 @@ export default [
         img: "chisiamo/ciro.jpeg",
         number:"3342664421",
         email:"ciro@gmail.com",
-        luogo:"Napoli,"
+        luogo:"Napoli"
 
     },
     {
@@ -35,7 +35,7 @@ export default [
         img: "chisiamo/mirko.jpg",
         number:"3351453516",
         email:"mirko@gmail.com",
-        luogo:"Milano,"
+        luogo:"Milano"
 
     },
     {
@@ -45,7 +45,7 @@ export default [
         img: "chisiamo/denis.jpeg",
         number:"3287453964",
         email:"denis@outlook.com",
-        luogo:"Trieste,"
+        luogo:"Trieste"
     },
 
 ]
