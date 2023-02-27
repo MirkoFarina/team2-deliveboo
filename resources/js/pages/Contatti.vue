@@ -22,11 +22,13 @@ export default {
     </div>
     <div class="box-card" v-for="(profile, index) in team" :key="index">
       <div class="profile-blog blog-border">
+        <div class="img_box">
         <img
           class="rounded-x"
-          src="https://bootdey.com/img/Content/avatar/avatar6.png"
+          :src="profile.img"
           alt=""
         />
+        </div>
         <div class="name-location">
           <strong>{{ profile.name }}</strong>
           <strong>{{ profile.usrname }}</strong>
@@ -40,7 +42,6 @@ export default {
           <li><i class="fa-solid fa-envelope"></i>{{ profile.email }}</li>
           <li><i class="fa-solid fa-phone"></i>{{ profile.number }}</li>
         </ul>
-        <hr />
       </div>
     </div>
   </div>
@@ -50,23 +51,35 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin-top: 20px;
-  background: #ff5757;
+  background-color: #ebebeb;
   text-align: center;
 }
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: aliceblue;
+  background-color: #d50006;
+  color: white;
+}
+.profile-blog{
+    border-bottom: 2px solid  #d50006 ;
+    padding-bottom: 10px;
 }
 
 img {
   width: 100px;
+
+}
+.img_box{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 10px;
 }
 .rounded-x{
     border-radius: 50%;
-    height: 10%;
-    width: 10%;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 span  {
