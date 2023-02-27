@@ -8,114 +8,113 @@ export default {
  </script>
 
 <template>
-    <div class="card card-lf">
-        <div class="card-body card-body-lf">
-            <div class="box">
-                <div class="logo">
-                    <img :src="restaurant.cover_image" class="card-img-top" :alt="restaurant.name_of_restaurant">
-                </div>
-                <div class="info">
-                    <h5 class="card-title fs-4 mb-4 text-uppercase">{{ restaurant.name_of_restaurant }}</h5>
-                    <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 my-1">{{ category.name }}</span>
-                    <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
-                    <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
-                     <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
-                </div>
-            </div>
-            <div class="button d-flex align-items-end">
-                <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-outline-secondary mt-3 text-uppercase btn-query">Vai al ristorante</router-link>
+      <div class="card">
+         <div class="card__image-container">
+           <img class="card__image" :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
+        </div>
+
+          <svg class="card__svg" viewBox="0 0 800 500">
+
+            <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+            <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
+          </svg>
+
+         <div class="card__content">
+           <h1 class="card__title">{{ restaurant.name_of_restaurant }}</h1>
+           <span v-for="category in restaurant.categories" :key="category.slug" class="badge text-bg-dark mx-1 ">{{ category.name }}</span>
+            <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
+            <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
+            <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
+             <div class="button">
+                <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-secondary btn-lf text-uppercase btn-query">Vai al ristorante</router-link>
             </div>
         </div>
-    </div>
+      </div>
+
+
 </template>
 
 
+
+
 <style lang="scss" scoped>
-    .card-lf {
-        width: 600px;
-        min-width: 500px;
-        height: 350px;
-        border: none;
-        background-color: #f6f6f6;
-        padding: 10px;
-        box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
-        padding: 10px 15px;
-    }
-
-    .card-body-lf {
-        .box {
-            display: flex;
-            justify-content: space-around;
-            .logo {
-                width: 40%;
-                  img {
-                    object-fit: contain;
-                    height: 80%;
-                    width: 80%;
-                 }
-            }
-            .info {
-                width: 50%;
-                padding: 10px 20px;
-                height: 250px;
-            }
-        }
-    }
-
-
-    // **********MEDIA***********
-
-
-    @media screen and (max-width: 1200px) {
-        .card-lf {
-            width: 100%;
-            .card-body-lf {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .box {
-                height: 70%;
-            }
-            .button {
-                height: 20%;
-            }
-        }
-    }
+img {
+  max-width: 100%;
+  height: 100%;
 }
 
-    @media screen and (max-width: 768px) {
-        .btn-query {
-            width: 100%;
-        }
-           .card-lf {
-        width: 50%;
-        min-width: 300px;
-        height: 600px;
-        padding: 10px;
-        align-items: center;
+
+.card {
+  position: relative;
+  background: #333;
+  width: 300px;
+  height: 75vh;
+  border-radius: 6px;
+  padding: 2rem;
+  color: #aaa;
+  box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
+    0 0 1rem rgba(0,0,0,0.2);
+  overflow: hidden;
+
+  &__image-container {
+    margin: -2rem -2rem 1rem -2rem;
+  }
+
+  &__line {
+  opacity: 0;
+  animation: LineFadeIn .8s .8s forwards ease-in;
+  }
+
+  &__image {
+    opacity: 0;
+    animation: ImageFadeIn .8s 1.4s forwards;
+  }
+
+  &__title {
+    color: white;
+    margin-top: 0;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+
+  &__content {
+    margin-top: -1rem;
+    opacity: 0;
+    animation: ContentFadeIn .8s 1.6s forwards;
+  }
+
+  &__svg {
+    position: absolute;
+    left: 0;
+    top: 115px;
+  }
+}
+
+@keyframes LineFadeIn {
+  0% { opacity: 0; d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 "); stroke: #fff; }
+  50% { opacity: 1; d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"); stroke: #888BFF; }
+  100% { opacity: 1; d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400"); stroke: #545581; }
+}
+
+@keyframes ContentFadeIn {
+  0% { transform: translateY(-1rem); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes ImageFadeIn {
+  0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
+  50% { opacity: 1; filter: blur(2px); }
+  100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
+}
+
+
+   // **********MEDIA***********
+
+
+    @media screen and (max-width: 378px) {
+       .card {
         margin: 0 auto;
+       }
     }
-           .card-body-lf {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        .box {
-            display: block;
-            .logo {
-                width: 100%;
-                    img {
-                    height: 100%;
-                    width: 100%;
-                 }
-            }
-            .info {
-                margin: 0;
-                width: 100%;
-            }
-        }
-    }
-}
+
 </style>
