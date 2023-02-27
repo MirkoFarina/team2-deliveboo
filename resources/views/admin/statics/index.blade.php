@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div id="mf-container" class="container">
         @if ($orders_month)
             <div class="my-5">
                 <div class="chart-container" style="position: relative; height:40vh; width:70vw">

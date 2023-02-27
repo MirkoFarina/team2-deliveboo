@@ -32,14 +32,16 @@
     background-color: $bg-main;
 }
 
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    border: none;
-    position: relative;
-    margin-bottom: 30px;
-    overflow: hidden;
-    height: 10rem !important;
+#mf-container {
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        margin-bottom: 30px;
+        overflow: hidden;
+        height: 10rem !important;
+    }
 }
 .l-bg-cherry {
     background: linear-gradient(to right, #493240, #f09) !important;
