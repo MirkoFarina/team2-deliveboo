@@ -15,7 +15,7 @@ export default {
 
           <svg class="card__svg" viewBox="0 0 800 500">
 
-            <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+            <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#F6F6F6"/>
             <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
           </svg>
 
@@ -38,6 +38,13 @@ export default {
 
 
 <style lang="scss" scoped>
+.btn-lf {
+    background-color: #26635B;
+
+    &:hover {
+        background-color: #657573;
+    }
+}
 .card__image-container {
     img {
     width: 100%;
@@ -53,12 +60,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #333;
+  background: #F6F6F6;
   width: 300px;
-  height: 95vh;
+  height: 680px;
   border-radius: 6px;
   padding: 2rem;
-  color: #aaa;
+  color: #696969;
   box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
     0 0 1rem rgba(0,0,0,0.2);
   overflow: hidden;
@@ -78,7 +85,7 @@ export default {
   }
 
   &__title {
-    color: white;
+    color: #171717;
     margin-top: 0;
     font-weight: 800;
     letter-spacing: 0.01em;
@@ -99,7 +106,7 @@ export default {
 
 @keyframes LineFadeIn {
   0% { opacity: 0; d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 "); stroke: #fff; }
-  50% { opacity: 1; d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"); stroke: #888BFF; }
+  50% { opacity: 1; d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"); stroke: #DB5251; }
   100% { opacity: 1; d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400"); stroke: #545581; }
 }
 
