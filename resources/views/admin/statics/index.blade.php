@@ -3,21 +3,92 @@
 @section('content')
     <div class="container">
         @if ($orders_month)
-            <div class="my-5" style="position: relative; height:50vh; width:90vw">
-                <canvas id="myChart"></canvas>
+            <div class="my-5">
+                <div class="chart-container" style="position: relative; height:40vh; width:70vw">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
-            <div>
-                <h5 class="text-light">Incasso mensile : <span class="text-success">{{$monthRevenue}} &euro;</span></h5>
-                <h5 class="text-light">Incasso totale : <span class="text-success">{{$totalRevenue}} &euro;</span></h5>
-                <h5 class="text-light">Ordini ricevuti nel mese corrente : <span class="text-warning">{{$nCurrentOrders}} </span></h5>
-                <h5 class="text-light">Totale ordini ricevuti  : <span class="text-warning">{{$nTotalOrders}} </span></h5>
-                <h5 class="text-light">Piatto più ordinato  : <span class="text-warning">{{$mostPopularFood['name']}} ({{$mostPopularFood['pivot_quantity']}}) </span></h5>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+                integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-            </div>
-        @else
-            <h1 class="text-center text-white my-5">
-                CI DISPIACE NON HAI ANCORA ORDINI REGISTRATI :(
-            </h1>
+            <div class="col-md-10 ">
+                <div class="row ">
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-cherry">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">TOTALE ORDINI RICEVUTI</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0">
+                                            {{ $nTotalOrders }}
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-green-dark">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fa-solid fa-pizza-slice"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">PIATTO PI&Uacute; ORDINATO</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0 fs-6">
+                                            {{ $mostPopularFood['name'] }}
+
+                                        </h2>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span class="fs-2"> {{ $mostPopularFood['pivot_quantity'] }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-orange-dark">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">INCASSO TOTALE</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0">
+                                            {{ $totalRevenue }} &euro;
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card l-bg-blue-dark">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">INCASSO MENSILE</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0">
+                                            {{ $monthRevenue }} &euro;
+                                        </h2>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <h1 class="text-center text-white my-5">
+                    CI DISPIACE NON HAI ANCORA ORDINI REGISTRATI :(
+                </h1>
         @endif
     </div>
 
