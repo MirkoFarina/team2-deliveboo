@@ -6,6 +6,14 @@
             <div class="my-5" style="position: relative; height:50vh; width:90vw">
                 <canvas id="myChart"></canvas>
             </div>
+            <div>
+                <h5 class="text-light">Incasso mensile : <span class="text-success">{{$monthRevenue}} &euro;</span></h5>
+                <h5 class="text-light">Incasso totale : <span class="text-success">{{$totalRevenue}} &euro;</span></h5>
+                <h5 class="text-light">Ordini ricevuti nel mese corrente : <span class="text-warning">{{$nCurrentOrders}} </span></h5>
+                <h5 class="text-light">Totale ordini ricevuti  : <span class="text-warning">{{$nTotalOrders}} </span></h5>
+                <h5 class="text-light">Piatto più ordinato  : <span class="text-warning">{{$mostPopularFood['name']}} ({{$mostPopularFood['pivot_quantity']}}) </span></h5>
+
+            </div>
         @else
             <h1 class="text-center text-white my-5">
                 CI DISPIACE NON HAI ANCORA ORDINI REGISTRATI :(

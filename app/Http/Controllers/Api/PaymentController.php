@@ -61,10 +61,6 @@ class PaymentController extends Controller
             /* return response()->json($data, 401); */
         }
 
-
-
-
-
         return redirect('/completed_payment');
     }
 }
