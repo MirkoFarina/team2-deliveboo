@@ -14,12 +14,12 @@ export default {
         this.scrollPosition = window.scrollY;
     },
     showAnimation(){
-        if(this.scrollPosition >= 0) this.isShow = true;
+        if(this.scrollPosition >= 40) this.isShow = true;
     }
  },
  mounted(){
     window.addEventListener("scroll", this.updateScrollPosition);
-    this.showAnimation();
+    window.addEventListener("scroll", this.showAnimation);
  }
 }
 </script>
@@ -37,7 +37,7 @@ export default {
               piace e ricevere comodamente a casa. Seleziona ciò che desideri e attendi la
               consegna. Lascia che DeliveBoo si occupi di tutto per te!</p>
             </div>
-            <div :class="{'animate__animated animate__bounceInRight' : isShow}" class="img_area text-lg-end text-md-center col-lg-6 col-md-12  ">
+            <div :class="{'animate__animated animate__bounceInRight opacity-100' : isShow}" class="img_area opacity-0 text-lg-end text-md-center col-lg-6 col-md-12  ">
               <img src="../../assets/img/delivery.png" alt="">
             </div>
         </div>
