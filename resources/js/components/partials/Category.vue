@@ -80,29 +80,11 @@ export default {
     }
 }
 @media screen and (max-width: 770px){
-    .box:nth-child(1) {
-    background-color: #26635B;
-}
-.col.swiper-slide:nth-child(2) .box{
-    background-color: #A5703C;
-}
- .swiper-slide:nth-child(3) .box{
-    background-color: #a8960e;
-}
-.swiper-slide:nth-child(4) .box{
-    background-color: #2f8844;
-}
-.swiper-slide:nth-child(5) .box{
-    background-color: #FA7E17;
-}
-.swiper-slide:nth-child(6) .box{
-    background-color: #5da016;
-}
-.swiper-slide:nth-child(7) .box{
-    background-color: #686868;
-}
-.swiper-slide:nth-child(8) .box{
-    background-color: #563017;
-}
+    .box{
+        img{
+            width: 45%;
+            object-fit: contain;
+        }
+    }
 }
 </style>
