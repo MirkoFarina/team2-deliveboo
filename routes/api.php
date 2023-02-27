@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\RestaurantApiController;
 use Illuminate\Http\Request;

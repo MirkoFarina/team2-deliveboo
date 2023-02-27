@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewContact;
+use App\Mail\OrderSuccess;
 use App\Models\Food;
+use App\Models\Lead;
 use App\Models\Order;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -51,7 +56,23 @@ class PaymentController extends Controller
                 $new_order->foods()->attach([$food_card->id =>["quantity" => $food_card->quantity]]);
             }
 
+            $new_lead = new Lead();
+            $new_lead->email = $request->email;
+            $new_lead->cart = $cart;
+            $new_lead->address = $request->address;
 
+            $email_res = Restaurant::find($cart->restaurant)->email;
+            Mail::to($email_res)->send(new NewContact($new_lead));
+
+
+            $name_res = Restaurant::find($cart->restaurant)->name_of_restaurant;
+            $new_client = new Lead();
+            $new_client->email = $email_res;
+            $new_client->cart = $cart;
+            $new_client->name_res = $name_res;
+
+
+            Mail::to($request->email)->send(new OrderSuccess($new_client));
             /* return response()->json($data, 200); */
         } else {
             $data = [
