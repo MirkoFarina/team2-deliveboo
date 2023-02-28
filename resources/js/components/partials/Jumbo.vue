@@ -27,7 +27,7 @@ export default {
     .jumbo-container{
         height: 650px;
         margin-bottom: 50px;
-        background-position: bottom;
+        background-position: top;
         background-size: cover;
         background-image: url("../../assets/img/jumbotron1.jpg");
         background-attachment: fixed;
@@ -49,16 +49,10 @@ export default {
 
 
     @media  screen and (max-width:850px) {
-       .jumbo-container{
-        height: 450px;
-       }
+
     }
     @media  screen and (max-width:390px) {
        .jumbo-container{
-        height: 300px;
-        background-position: center;
-        background-size:contain;
-        background-repeat: no-repeat;
         margin-bottom: 0;
        }
     }
