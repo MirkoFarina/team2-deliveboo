@@ -56,7 +56,7 @@ export default {
                     <a @click="deleteCart" class="btn btn-danger mx-1">Svuota</a>
                 </div>
             </div>
-            <div class="mt-5" v-else>
+            <div class="mt-5 mx-3" v-else>
                 <h5 class="fs-6 text-warning">
                     IL TUO CARRELLO &Eacute; VUOTO...<br>
                     PROVA A FARE QUALCHE ACQUISTO
@@ -72,7 +72,7 @@ export default {
         position: fixed;
         z-index: 99;
         display: block;
-        bottom: 0;
+        bottom: 20%;
         left: -100%;
         height: 60%;
         width: 300px;
@@ -136,11 +136,11 @@ export default {
 
 
     @media  screen and (max-width:390px) {
-          button {
-        width: 35px;
-        height: 30px;
-        line-height: 10px;
-    }
+        button {
+            width: 35px;
+            height: 30px;
+            line-height: 10px;
+        }
     }
 
    
