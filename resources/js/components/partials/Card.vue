@@ -26,8 +26,8 @@ export default {
             <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
             <a class="text-decoration-none text-uppercase text-primary-emphasis" style="color: #26635B;" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
         </div>
-              <div class="button">
-                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-lf  btn-query">Vai al ristorante</router-link>
+              <div>
+                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="button">Vai al ristorante</router-link>
               </div>
       </div>
 
@@ -38,14 +38,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.btn-lf {
-    background-color: #26635B;
-    color: white;
-
-    &:hover {
-        background-color: #657573;
-    }
-}
 .card__image-container {
     img {
     width: 100%;
