@@ -70,10 +70,10 @@ export default {
                                 <div class="food-card_order-count">
                                     <!-- COUNT DA ELIMINARE E AGGIUNGERE BOTTONE "ADD TO CART" -->
                                     <div class="input-group mb-3">
-                                        <button  @click="pushIntoCart(food)" v-if="food.is_available" class=" m-2 ">
+                                        <button  @click="pushIntoCart(food)" v-if="food.is_available" class="">
                                             <i class="fa-solid fa-cart-plus"></i> Aggiungi
                                         </button>
-                                        <button disabled v-else="!food.is_available" class=" m-2 ">
+                                        <button class="btn btn-secondary" v-else="food.is_available === false" disabled>
                                             <i class="fa-solid fa-cart-plus"></i> Aggiungi
                                         </button>
                                     </div>
