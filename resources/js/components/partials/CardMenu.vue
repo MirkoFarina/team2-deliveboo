@@ -54,9 +54,9 @@ export default {
                         <div class="food-card_bottom-section">
                             <div class="space-between">
                                 <div>
-                                    <p v-if="food.is_available === 1">Disponibile</p>
+                                    <p v-if="food.is_available === 1" class="text-success">Disponibile</p>
                                     <p class="text-danger" v-else>Al momento Non Disponibile</p>
-                                    <span class="fa fa-fire"></span> 220 - 280 Kcal
+                                    <span class="fa-solid fa-burger"></span> {{food.ingredients}}
                                 </div>
                                 <div class="pull-right">
                                     <span class="badge badge-success"></span>
@@ -65,7 +65,7 @@ export default {
                             <hr>
                             <div class="space-between">
                                 <div class="food-card_price">
-                                    <span>&euro; {{ food.price }}</span>
+                                    <span class="text-success">&euro; {{ food.price }}</span>
                                 </div>
                                 <div class="food-card_order-count">
                                     <!-- COUNT DA ELIMINARE E AGGIUNGERE BOTTONE "ADD TO CART" -->
