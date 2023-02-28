@@ -26,11 +26,12 @@ export default {
 }
     .jumbo-container{
         height: 650px;
+        margin-top: 100px;
         margin-bottom: 50px;
         background-position: bottom;
         background-size: cover;
         background-image: url("../../assets/img/jumbotron1.jpg");
-        background-attachment: fixed;
+        // background-attachment: fixed;
     }
     	.search-div{
             input{
@@ -55,7 +56,7 @@ export default {
     }
     @media  screen and (max-width:390px) {
        .jumbo-container{
-        height: 300px;
+        height: 195px;
         background-position: center;
         background-size:contain;
         background-repeat: no-repeat;
