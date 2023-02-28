@@ -111,7 +111,7 @@
             {{-- ? cover_image --}}
             <div class="mb-3">
                 <label for="cover_image" class="form-label">Image*</label>
-                <input required type="file" name="cover_image" onchange="showImage(event)"
+                <input type="file" name="cover_image" onchange="showImage(event)"
                     class="form-control bg-dark text-light @error('cover_image')
                     is-invalid  @enderror"
                     id="cover_image" placeholder="inserire l'url dell'immagine"

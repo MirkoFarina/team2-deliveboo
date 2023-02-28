@@ -43,7 +43,7 @@ class CategoryTableSeeder extends Seeder
                 "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/poke'
             ],
             [
-                "name"        => 'KEBABTALEBANO',
+                "name"        => 'KEBAB',
                 "cover_image" => 'https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,h_480,q_auto,w_640/v1/experiments/projecticing/it/cuisine-icons/messicano'
             ],
             [

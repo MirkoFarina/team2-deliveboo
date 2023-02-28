@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Helpers\GlobalHelpers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestaurantRequest;
+use App\Http\Requests\RestaurantRequestUpdate;
 use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
@@ -102,7 +103,7 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(RestaurantRequest $request, Restaurant $restaurant)
+    public function update(RestaurantRequestUpdate $request, Restaurant $restaurant)
     {
         if ($this->authUserRest($restaurant)) {
             $data = $request->all();
