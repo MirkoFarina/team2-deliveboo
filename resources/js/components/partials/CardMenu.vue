@@ -46,7 +46,6 @@ export default {
                 <div class="food-card">
                     <div class="food-card_img">
                         <img :src="food.cover_image" alt="">
-                        <a href="#!"><i class="far fa-heart"></i></a>
                     </div>
                     <div class="food-card_content">
                         <div class="food-card_title-section">
@@ -72,6 +71,9 @@ export default {
                                     <!-- COUNT DA ELIMINARE E AGGIUNGERE BOTTONE "ADD TO CART" -->
                                     <div class="input-group mb-3">
                                         <button  @click="pushIntoCart(food)" v-if="food.is_available" class=" m-2 ">
+                                            <i class="fa-solid fa-cart-plus"></i> Aggiungi
+                                        </button>
+                                        <button disabled v-else="!food.is_available" class=" m-2 ">
                                             <i class="fa-solid fa-cart-plus"></i> Aggiungi
                                         </button>
                                     </div>
