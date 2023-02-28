@@ -132,13 +132,16 @@ export default {
         align-items: center;
     }
 
+  // ***********MEDIA QUERIES************
 
-    // @media screen and (max-width: 600px) {
-    //     .mf-offcanvas {
-    //         width: 80vw;
-    //     }
-    // }
+
+    @media  screen and (max-width:390px) {
+          button {
+        width: 35px;
+        height: 30px;
+        line-height: 10px;
+    }
+    }
 
    
-
 </style>

@@ -139,4 +139,28 @@ header {
 
 
 }
+
+
+
+
+     // ***********MEDIA QUERIES************
+
+    @media  screen and (max-width:390px) {
+        header {
+    height: 65px;
+    width: 100%;
+    img {
+        width: 40px;
+    }
+
+    .btn {
+        margin-right: 30px;
+    }
+    button {
+        width: 35px;
+        height: 30px;
+        line-height: 5px;
+    }
+     }
+    }
 </style>

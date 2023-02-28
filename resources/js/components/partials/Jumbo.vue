@@ -26,7 +26,6 @@ export default {
 }
     .jumbo-container{
         height: 650px;
-        margin-top: 100px;
         margin-bottom: 50px;
         background-position: top;
         background-size: cover;
@@ -50,16 +49,14 @@ export default {
 
 
     @media  screen and (max-width:850px) {
-
+        .jumbo-container{
+        height: 400px;
+       }
     }
     @media  screen and (max-width:390px) {
        .jumbo-container{
-
-        height: 195px;
-        background-position: center;
-        background-size:contain;
-        background-repeat: no-repeat;
-        margin-bottom: 0;
+        margin-top: 65px;
+        height: 285px;
        }
     }
 
