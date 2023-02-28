@@ -86,7 +86,7 @@ export default {
             left: 0;
         }
         .content-order {
-            height: calc(100% - 25vh);
+            height: calc(100% - 55%);
             overflow-y: auto;
         }
         .total {
