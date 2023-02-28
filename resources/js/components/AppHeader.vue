@@ -154,13 +154,21 @@ header {
     }
 
     .btn {
-        margin-right: 30px;
+        margin-right: 10px;
     }
     button {
         width: 35px;
         height: 30px;
         line-height: 5px;
     }
-     }
+    .dropdown-content {
+          a {
+        padding: 0;
+        font-size: 0.7rem;
+
+    }
+    }
+
+    }
     }
 </style>
