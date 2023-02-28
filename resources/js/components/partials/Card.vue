@@ -9,11 +9,11 @@ export default {
 
 <template>
       <div class="card">
-         <div class="card__image-container h-50">
+         <div class="card__image-container h-75">
            <img class="card__image" :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
 
-          <svg class="card__svg" viewBox="0 0 800 500">
+          <svg class="card__svg" viewBox="100 80 450 500">
 
             <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#F6F6F6"/>
             <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="10" fill="transparent"/>
@@ -24,10 +24,10 @@ export default {
            <span v-for="category in restaurant.categories" :key="category.slug" class="badge  mx-1 " style="background-color: #26635B;">{{ category.name }}</span>
             <p class="card-text fs-6 m-0 mt-2">Indirizzo: {{ restaurant.address }}</p>
             <p class="card-text fs-6">Telefono: {{ restaurant.phone_number }}</p>
-            <a class="text-decoration-none text-uppercase text-primary-emphasis" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
+            <a class="text-decoration-none text-uppercase text-primary-emphasis" style="color: #26635B;" :href="restaurant.website"><p class="card-text fs-6">Website</p></a>
         </div>
               <div class="button">
-                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-lf text-uppercase btn-query">Vai al ristorante</router-link>
+                    <router-link :to="{ name: 'detail', params: { slug: restaurant.slug } }" class="btn btn-lf  btn-query">Vai al ristorante</router-link>
               </div>
       </div>
 
@@ -61,7 +61,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     background: #F6F6F6;
-    width: 300px;
+    width: 400px;
     height: 680px;
     border-radius: 6px;
     padding: 2rem;
@@ -81,7 +81,7 @@ export default {
 
   &__line {
   opacity: 0;
-  animation: LineFadeIn .5s .5s forwards ease-in;
+  animation: LineFadeIn .6s .6s forwards ease-in;
   }
 
   &__image {
@@ -94,6 +94,7 @@ export default {
     margin-top: 0;
     font-weight: 800;
     letter-spacing: 0.01em;
+    font-size: 2rem;
   }
 
   &__content {
