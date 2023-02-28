@@ -17,7 +17,7 @@
 
         @if ($restaurant)
             <h1 class="mb-3">Il tuo ristorante</h1>
-            <div class="card">
+            <div class="card w-50">
                 @if (isset($restaurant->cover_image))
 
                     @if ((substr($restaurant->cover_image, 0, 4) == 'http'))
@@ -69,4 +69,5 @@
 
     </div>
 
-@endsection
+
+    @endsection
