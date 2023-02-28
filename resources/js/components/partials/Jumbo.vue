@@ -29,7 +29,7 @@ export default {
         margin-bottom: 50px;
         background-position: bottom;
         background-size: cover;
-        background-image: url("../../assets/img/jumbotron.jpg");
+        background-image: url("../../assets/img/jumbotron1.jpg");
         background-attachment: fixed;
     }
     	.search-div{
