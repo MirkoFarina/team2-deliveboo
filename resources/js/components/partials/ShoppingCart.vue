@@ -144,7 +144,7 @@ export default {
       .item-counter {
         height: 16px;
         width: 16px;
-        right: 82px;
+        right: 69px;
         top: 8px;
         line-height: 17px;
         font-size: 0.7rem;
