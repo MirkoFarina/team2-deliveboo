@@ -32,14 +32,14 @@ export default {
                     <h5 class="card-title fs-4 mb-4 text-uppercase">{{ food.name }}</h5>
                     <p class="card-text fs-6 m-0 mt-2">Ingredienti: {{ food.ingredients }}</p>
                     <p class="card-text fs-5 mt-3">&euro; {{ food.price }}</p>
-                     <div class="text-uppercase">
+                     <div class="text-uppercase available">
                         <p v-if="food.is_available === 1">Disponibile</p>
                         <p class="text-danger" v-else>Al momento Non Disponibile</p>
                      </div>
                 </div>
             </div>
-            <div class="addtocard float-end">
-                 <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn btn-outline-secondary m-2 float-end">Aggiungi al carrello</button>
+            <div class="addtocard text-center">
+                 <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn  m-2 ">Aggiungi al carrello</button>
             </div>
         </div>
     </div>
@@ -56,6 +56,23 @@ export default {
     padding: 10px;
     box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.1);
     padding: 10px 15px;
+    transition: all .2s;
+    &:hover {
+        transform: scale(1.1);
+    }
+    .available {
+        p {
+            color: green;
+        }
+    }
+    button {
+        background-color: #26635b;
+        color: white;
+        transition: all .2s;
+        &:hover {
+            background-color: #b6e758;
+        }
+    }
 }
 
 .card-body-lf {
@@ -78,7 +95,6 @@ export default {
 
         .info {
             width: 50%;
-            height: 200px;
         }
     }
 }
