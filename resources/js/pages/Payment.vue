@@ -74,7 +74,7 @@ export default {
 
 <template>
 
-    <div class="container my-5">
+    <div class="container py-5">
         <h1 class="text-center font-bold mb-5">
             IMPOSTAZIONI DI PAGAMENTO
         </h1>
