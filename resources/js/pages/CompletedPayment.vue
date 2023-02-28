@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-    <div class="container d-flex flex-column justify-content-center align-items-center gap-3">
+    <div class="mf-container container d-flex flex-column justify-content-center align-items-center gap-3">
 
         <!-- TODO
             1. Implementare il fallito pagamento e i controlli sul response da sendPayment (PaymentController)
@@ -55,6 +55,9 @@ export default {
 </template>
 
 <style scoped >
+.mf-container {
+    padding-top: 100px;
+}
 
     button, a {
         border: none;

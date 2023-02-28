@@ -74,7 +74,7 @@ export default {
 
 <template>
 
-    <div class="container py-5">
+    <div class="container mf-container">
         <h1 class="text-center font-bold mb-5">
             IMPOSTAZIONI DI PAGAMENTO
         </h1>
@@ -166,6 +166,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.mf-container {
+    padding-top: 100px;
+}
 .mf-row {
     .col {
         background-color: #828887;

@@ -36,7 +36,7 @@ export default {
                     <h2 class="text-light display-1">{{restaurant.name_of_restaurant}}</h2>
                     <h3 class="text-light display-5">{{restaurant.address}}</h3>
                     <h3 class="text-light display-6"> <i class="fa-solid fa-phone mx-3"></i> {{restaurant.phone_number}}</h3>
-                </div>  
+                </div>
             </div>
             <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
@@ -44,7 +44,7 @@ export default {
             <h1 class="text-center text-uppercase fs-3 pb-5">Menu</h1>
 
             <div v-if="restaurant.foods" class="row">
-                <div class="col my-3" v-for="food in restaurant.foods" :key="food.id">
+                <div class="col-6 my-3" v-for="food in restaurant.foods" :key="food.id">
                     <CardMenu :food="food"  />
                 </div>
             </div>
@@ -55,11 +55,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;
-    .box-image {
+.box-image {
         height: 500px;
         position: relative;
 
-        
         img {
             width: 100%;
             height: 100%;
@@ -72,7 +71,7 @@ export default {
             height: 100%;
             position: absolute;
 
-            
+
         }
     }
 </style>

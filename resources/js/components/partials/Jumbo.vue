@@ -28,9 +28,10 @@ export default {
         height: 650px;
         margin-bottom: 50px;
         background-position: top;
-        background-size: cover;
+        background-position-y: -100px;
         background-image: url("../../assets/img/jumbotron1.jpg");
-        // background-attachment: fixed;
+        background-attachment: fixed;
+        background-size: cover;
     }
     	.search-div{
             input{
@@ -50,13 +51,14 @@ export default {
 
     @media  screen and (max-width:850px) {
         .jumbo-container{
-        height: 400px;
+        background-position-x: -20px;
        }
     }
     @media  screen and (max-width:390px) {
        .jumbo-container{
-        margin-top: 65px;
-        height: 285px;
+        background-position-y: 0;
+        background-position-x: -300px;
+        height: 550px;
        }
     }
 
