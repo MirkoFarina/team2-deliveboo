@@ -149,11 +149,11 @@ export default {
                 <div id="checkout-message"></div>
                 <div id="dropin-container"></div>
 
-                 <div class="text-center">
+                <div class="text-center">
                     <button id="submit-button" type="submit" >
                         PAGA
                     </button>
-                 </div>
+                </div>
 
                 <input type="hidden" id="nonce" name="payment_method_nonce"  />
             </div>

@@ -1,9 +1,11 @@
 //BOOTSTRAP
 @use 'node_modules/bootstrap/scss/bootstrap';
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
+
+
 
   .container-lf {
     max-width: 1200px;
@@ -34,3 +36,6 @@ body {
     background-color: #48433C;
   }
   //// ///// ///// ///// ///
+
+
+

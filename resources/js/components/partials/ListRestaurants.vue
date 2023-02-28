@@ -22,9 +22,9 @@ export default {
 
 <template>
     <div class="container">
-        <h2 class="text-uppercase fs-5 text-center pb-3">I nostri ristoranti</h2>
+        <h2 class="text-uppercase fs-5 text-center pb-3 fw-bold">I nostri ristoranti</h2>
         <div v-if="store.filtered_rest.length" class="row">
-            <div class="col my-3" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
+            <div class="col my-3 d-flex justify-content-center" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
             </div>
         </div>
@@ -33,8 +33,8 @@ export default {
             <h3>Non ci sono risultati</h3>
         </div>
 
-        <div v-else class="row">
-            <div class="col my-3" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
+        <div v-else class="row ">
+            <div class="col my-3 d-flex justify-content-center" v-for="restaurant in store.restaurants_paginate" :key="restaurant.slug">
                 <Card :restaurant="restaurant"/>
             </div>
         </div>
