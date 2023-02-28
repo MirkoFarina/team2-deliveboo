@@ -25,11 +25,11 @@ export default {
             <i @click="store.is_canvas = false" class="fa-solid fa-circle-xmark p-3"></i>
         </div>
         <div class="h-100">
-            <h3 class="mb-2 fs-4 bg-dark">
-                IL TUO CARRELLO
+            <h3 class="mb-2 fs-6 bg-dark py-2">
+                IL TUO CARRELLO <i class="fa-solid fa-cart-shopping"></i>
             </h3>
-            <div class="h-100 " v-if="store.shopping_cart.foods.length">
-                <div class="container content-order">
+            <div class="h-100" v-if="store.shopping_cart.foods.length">
+                <div class="container content-order mb-4">
                     <div v-for="(food, index) in store.shopping_cart.foods" :key="index + 'piatto'" class="row mb-3">
                         <div class="col-5 col-12">
                             <div>
@@ -48,8 +48,8 @@ export default {
                         </div>
                     </div>
                 </div>
-                <div class="total">
-                    TOTALE: {{ store.shopping_cart.total_amount }} &euro;
+                <div class="mb-3">
+                    <span class="total py-2 px-4 rounded-5"> TOTALE: {{ store.shopping_cart.total_amount }} &euro; </span> 
                 </div>
                 <div class="d-flex justify-content-center my-2">
                     <router-link :to="{name: 'payment'}" class="btn btn-success mx-1">Pagamento</router-link>
@@ -76,7 +76,7 @@ export default {
         left: -100%;
         height: 60%;
         width: 300px;
-        background-color: #696969da;
+        background-color: rgba($color: #25645B, $alpha: .75);
         transition: all 0.55s;
         border-bottom-right-radius: 10px;
         border-top-right-radius: 10px;
@@ -138,4 +138,7 @@ export default {
     //         width: 80vw;
     //     }
     // }
+
+   
+
 </style>
