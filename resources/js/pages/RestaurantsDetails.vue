@@ -2,21 +2,24 @@
 import { store } from '../data/store';
 import { ApiService } from "../services/api.service";
 import CardMenu from '../components/partials/CardMenu.vue';
+import Loader from '../components/partials/Loader.vue';
 
 export default {
     name: 'RestaurantsDetais',
-    components: {CardMenu},
+    components: {CardMenu, Loader},
     data() {
         return {
             restaurant: {},
             slug: this.$route.params.slug,
             store,
+            isReady: false,
         }
     },
     methods: {
         async callRes(){
             this.restaurant = (await ApiService.getApi('restaurants/' + this.$route.params.slug ,''))[0];
             console.log('res',this.restaurant );
+            this.isReady = true;
         }
     },
     mounted() {
@@ -42,10 +45,14 @@ export default {
         </div>
         <div class="container">
             <h1 class="text-center text-white text-uppercase fs-3 pb-5">Menu</h1>
-
-            <div v-if="restaurant.foods" class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 my-3" v-for="food in restaurant.foods" :key="food.id">
-                    <CardMenu :food="food"  />
+            <div v-if="!isReady" class="d-flex justify-content-center">
+                <Loader  />
+            </div>
+            <div v-else>
+                <div v-if="restaurant.foods" class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 my-3" v-for="food in restaurant.foods" :key="food.id">
+                        <CardMenu :food="food"  />
+                    </div>
                 </div>
             </div>
         </div>
