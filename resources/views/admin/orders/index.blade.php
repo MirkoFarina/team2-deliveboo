@@ -15,6 +15,8 @@
             </div>
         @endif
 
+        @if (sizeof($orders) !== 0)
+            
         <h1 class="fs-4">TABELLA ORDINI</h1>
 
         <table class="table text-light">
@@ -44,6 +46,9 @@
             </tbody>
 
         </table>
+        @else
+            <h2>Purtroppo non risultano ordini momentaneamente :(</h2>
+        @endif
     </div>
 
 @endsection
