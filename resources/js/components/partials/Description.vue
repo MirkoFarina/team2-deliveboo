@@ -68,7 +68,7 @@ export default {
     }
   }
   .img_area{
-    animation-duration: 3.2s;
+    animation-duration: 1.5s;
     img{
       transform: scaleX(-1);
     }
