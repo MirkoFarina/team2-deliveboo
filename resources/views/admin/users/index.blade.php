@@ -60,7 +60,13 @@
                 <div class="py-5">
                     <h2>Il tuo ristorante</h2>
                     <div class="card text-dark" >
-                        <img src=" {{ asset('storage/'. $res->cover_image ) ?? null }} " class="card-img-top" alt="{{$res->name_of_restaurant . ' immagine'}}" style="max-height: 400px; object-fit:cover;">
+                        @if ((substr($res->cover_image, 0, 4) == 'http'))
+                        <img src="{{ $res->cover_image ?? null }}" class="card-img-top"
+                        alt="{{ $res->name_of_restaurant }}">
+                        @else
+                            <img src="{{ asset('storage/' . $res->cover_image) ?? null }}" class="card-img-top"
+                                alt="{{ $res->name_of_restaurant }}">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title display-6">
                                 {{$res->name_of_restaurant}}

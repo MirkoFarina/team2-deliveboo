@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 11; $i++) {
             User::create([
                 'name'          => $faker->name(),
                 'surname'       => $faker->lastName(),

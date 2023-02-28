@@ -1,9 +1,11 @@
 //BOOTSTRAP
 @use 'node_modules/bootstrap/scss/bootstrap';
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Quicksand', sans-serif;
   }
+
+
 
   .container-lf {
     max-width: 1200px;

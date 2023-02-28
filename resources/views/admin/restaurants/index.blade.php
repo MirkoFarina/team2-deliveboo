@@ -19,8 +19,14 @@
             <h1 class="mb-3">Il tuo ristorante</h1>
             <div class="card">
                 @if (isset($restaurant->cover_image))
-                    <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
+
+                    @if ((substr($restaurant->cover_image, 0, 4) == 'http'))
+                        <img src="{{ $restaurant->cover_image ?? null }}" class="card-img-top"
                         alt="{{ $restaurant->name_of_restaurant }}">
+                    @else
+                        <img src="{{ asset('storage/' . $restaurant->cover_image) ?? null }}" class="card-img-top"
+                            alt="{{ $restaurant->name_of_restaurant }}">
+                    @endif
                 @endif
                 <div class="card-body text-dark">
                     <h5 class="card-title text-uppercase">{{ $restaurant->name_of_restaurant }}</h5>

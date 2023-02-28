@@ -12,7 +12,7 @@ export default {
         }
     },
     methods:{
-        
+
     },
     mounted(){
     },
@@ -31,17 +31,17 @@ export default {
     "
     v-if="store.pagination.total_records >= 1"
     >
-        <button
-        class="btn btn-outline-primary"
+        <a
+        class="arrow"
         @click="nextPrev(false)"
         v-show="store.pagination.current_page > 1"
-        ><i class="fa-solid fa-angle-left"></i></button>
+        ><i class="fa-solid fa-angle-left"></i></a>
         <h4 class="p-3">
             {{store.pagination.current_page}} / {{ Math.ceil(store.pagination.total_records/store.pagination.passo) }}
         </h4>
-        <button
-            class="btn btn-outline-primary" @click="nextPrev(true)" v-show="store.pagination.current_page < (Math.ceil(store.pagination.total_records/store.pagination.passo))"
-        ><i class="fa-solid fa-angle-right"></i></button>
+        <a
+            class="arrow" @click="nextPrev(true)" v-show="store.pagination.current_page < (Math.ceil(store.pagination.total_records/store.pagination.passo))"
+        ><i class="fa-solid fa-angle-right"></i></a>
     </div>
 
 </template>
@@ -50,4 +50,11 @@ export default {
 <style lang="scss" scoped>
 @use '../../../scss/partials/vars' as *;
 @use '../../../scss/partials/guest/categories';
+
+.arrow{
+    font-size: 2rem;
+    padding: .3rem;
+    cursor: pointer;
+    color: #26635B;
+}
 </style>
