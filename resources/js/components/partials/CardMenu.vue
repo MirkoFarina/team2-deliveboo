@@ -39,7 +39,7 @@ export default {
                 </div>
             </div>
             <div class="addtocard text-center">
-                 <button @click="pushIntoCart(food)" v-if="food.is_available" class="btn  m-2 ">Aggiungi al carrello</button>
+                 <button @click="pushIntoCart(food)" v-if="food.is_available" class=" m-2 ">Aggiungi al carrello</button>
             </div>
         </div>
     </div>
@@ -63,14 +63,6 @@ export default {
     .available {
         p {
             color: green;
-        }
-    }
-    button {
-        background-color: #26635b;
-        color: white;
-        transition: all .2s;
-        &:hover {
-            background-color: #b6e758;
         }
     }
 }

@@ -35,4 +35,17 @@ export default {
 main {
     min-height: 100vh;
 }
+button, .button {
+    background-color: #26635b;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: white;
+    transition: all .2s;
+    text-decoration: none;
+    &:hover {
+        background-color: #b6e758;
+        color: white;
+    }
+}
 </style>
