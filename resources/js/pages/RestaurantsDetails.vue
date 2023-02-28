@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-    <div v-if="restaurant">
+    <div class="overlay-2" v-if="restaurant">
         <div class="box-image mb-5">
             <div class="overlay">
 
@@ -41,7 +41,7 @@ export default {
             <img :src="restaurant.cover_image" :alt="restaurant.name_of_restaurant">
         </div>
         <div class="container">
-            <h1 class="text-center text-uppercase fs-3 pb-5">Menu</h1>
+            <h1 class="text-center text-white text-uppercase fs-3 pb-5">Menu</h1>
 
             <div v-if="restaurant.foods" class="row">
                 <div class="col-6 my-3" v-for="food in restaurant.foods" :key="food.id">
@@ -63,17 +63,19 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: fixed;
+            z-index: -10;
         }
 
         .overlay{
-            background-color: rgba(0,0,0,.75);
             width: 100%;
             height: 100%;
             position: absolute;
-
-
         }
     }
+    .overlay-2 {
+        background-color: rgba(0,0,0,.75);
+}
 </style>
 
 
