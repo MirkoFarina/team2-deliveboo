@@ -48,8 +48,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFFFF;
-
+    position: fixed;
+    z-index: 1999;
+    background-color: rgba(0, 0, 0, 0.2);
     img {
         width: 80px;
         margin: 10px;

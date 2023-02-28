@@ -27,7 +27,7 @@ export default {
     .jumbo-container{
         height: 550px;
         margin-bottom: 50px;
-        background-position: center;
+        background-position: top;
         background-size: cover;
         background-image: url("../../assets/img/jumbotron.jpg");
         background-attachment: fixed;
