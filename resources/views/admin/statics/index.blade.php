@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="mf-container" class="container">
-        @if ($orders_month)
+        @if (isset($orders_month))
             <div class="my-5">
                 <div class="chart-container" style="position: relative; height:40vh; width:70vw">
                     <canvas id="myChart"></canvas>
@@ -93,6 +93,8 @@
     </div>
 
     <script>
+        @if (isset($orders_month))
+            
         const ctx = document.getElementById('myChart');
         // TRANSFORMO I DATA PHP IN JS
         let data = {{ Illuminate\Support\Js::from($orders_month) }};
@@ -144,5 +146,6 @@
         window.addEventListener('afterprint', () => {
             ctx.resize();
         });
+        @endif
     </script>
 @endsection

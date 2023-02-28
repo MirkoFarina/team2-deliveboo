@@ -35,7 +35,7 @@ class StatisticController extends Controller
             $mostPopularFood = $this->getPopularFood($orders);
             return view('admin.statics.index', compact('orders_month', 'totalRevenue', 'monthRevenue', 'nCurrentOrders', 'nTotalOrders', 'mostPopularFood'));
         } else
-            return view('admin.statics.index', compact('orders_month'));
+            return view('admin.statics.index');
     }
 
     function getMonthRevenue($orders)
