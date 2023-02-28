@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="card card-lf">
+    <!-- <div class="card card-lf">
         <div class="card-body card-body-lf">
             <div class="box">
                 <div class="logo">
@@ -42,11 +42,49 @@ export default {
                  <button @click="pushIntoCart(food)" v-if="food.is_available" class=" m-2 ">Aggiungi al carrello</button>
             </div>
         </div>
-    </div>
+    </div> -->
+                <div class="food-card">
+                    <div class="food-card_img">
+                        <img src="https://i.imgur.com/eFWRUuR.jpg" alt="">
+                        <a href="#!"><i class="far fa-heart"></i></a>
+                    </div>
+                    <div class="food-card_content">
+                        <div class="food-card_title-section">
+                            <a href="#!" class="food-card_title">{{ food.name }}</a>
+                        </div>
+                        <div class="food-card_bottom-section">
+                            <div class="space-between">
+                                <div>
+                                    <p v-if="food.is_available === 1">Disponibile</p>
+                                    <p class="text-danger" v-else>Al momento Non Disponibile</p>
+                                    <span class="fa fa-fire"></span> 220 - 280 Kcal
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge badge-success"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="space-between">
+                                <div class="food-card_price">
+                                    <span>{{ food.price }}</span>
+                                </div>
+                                <div class="food-card_order-count">
+                                    <!-- COUNT DA ELIMINARE E AGGIUNGERE BOTTONE "ADD TO CART" -->
+                                    <div class="input-group mb-3">
+                                        <button  @click="pushIntoCart(food)" v-if="food.is_available" class=" m-2 ">
+                                            <i class="fa-solid fa-cart-plus"></i> Aggiungi
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </template>
 
 
 <style lang="scss" scoped>
+@use '../../../scss/partials/guest/foodCards.scss';
 .card-lf {
     width: 600px;
     height: 350px;
