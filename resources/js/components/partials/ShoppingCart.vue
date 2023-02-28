@@ -72,9 +72,9 @@ export default {
         position: fixed;
         z-index: 99;
         display: block;
-        bottom: 20%;
+        bottom: 15%;
         left: -100%;
-        height: 60%;
+        height: 450px;
         width: 300px;
         background-color: rgba($color: #25645B, $alpha: .75);
         transition: all 0.55s;
