@@ -74,7 +74,7 @@ export default {
         }
     }
     .overlay-2 {
-        background-color: rgba(0,0,0,.75);
+        background-color: rgba(0,0,0,.9);
 }
 </style>
 
