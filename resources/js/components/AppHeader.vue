@@ -49,8 +49,9 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
     z-index: 1999;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     img {
         width: 80px;
         margin: 10px;
