@@ -54,10 +54,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../../scss/partials/vars' as *;    .box-image {
+@use '../../scss/partials/vars' as *;
+.box-image {
         height: 500px;
         position: relative;
-
 
         img {
             width: 100%;
