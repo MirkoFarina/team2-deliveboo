@@ -55,6 +55,8 @@ export default {
                         <div class="food-card_bottom-section">
                             <div class="space-between">
                                 <div>
+                                    <p v-if="food.is_available === 1">Disponibile</p>
+                                    <p class="text-danger" v-else>Al momento Non Disponibile</p>
                                     <span class="fa fa-fire"></span> 220 - 280 Kcal
                                 </div>
                                 <div class="pull-right">
