@@ -32,19 +32,21 @@ export default {
 
 <style lang="scss">
 @use '../scss/appVue.scss';
+@use '../scss/partials/vars' as *;
 main {
     min-height: 100vh;
 }
 button, .button {
-    background-color: #26635b;
+    background-color: $secondary-color;
     border: none;
     padding: 8px 10px;
     border-radius: 5px;
     color: white;
     transition: all .2s;
     text-decoration: none;
+    display: inline-block;
     &:hover {
-        background-color: #b6e758;
+        background-color: $primary-color;
         color: white;
     }
 }
