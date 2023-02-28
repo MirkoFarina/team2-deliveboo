@@ -49,7 +49,7 @@ export default {
                     </div>
                 </div>
                 <div class="mb-3">
-                    <span class="total py-2 px-4 rounded-5"> TOTALE: {{ store.shopping_cart.total_amount }} &euro; </span> 
+                    <span class="total py-2 px-4 rounded-5"> TOTALE: {{ store.shopping_cart.total_amount }} &euro; </span>
                 </div>
                 <div class="d-flex justify-content-center my-2">
                     <router-link :to="{name: 'payment'}" class="btn btn-success mx-1">Pagamento</router-link>
@@ -141,7 +141,15 @@ export default {
         height: 30px;
         line-height: 10px;
     }
+      .item-counter {
+        height: 16px;
+        width: 16px;
+        right: 82px;
+        top: 8px;
+        line-height: 17px;
+        font-size: 0.7rem;
+    }
     }
 
-   
+
 </style>
