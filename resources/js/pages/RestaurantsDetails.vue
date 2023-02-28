@@ -44,7 +44,7 @@ export default {
             <h1 class="text-center text-white text-uppercase fs-3 pb-5">Menu</h1>
 
             <div v-if="restaurant.foods" class="row">
-                <div class="col-6 my-3" v-for="food in restaurant.foods" :key="food.id">
+                <div class="col-lg-6 col-md-12 col-sm-12 my-3" v-for="food in restaurant.foods" :key="food.id">
                     <CardMenu :food="food"  />
                 </div>
             </div>
