@@ -2,11 +2,13 @@
 import SliderCart from '../components/partials/SliderCart.vue';
 import {store} from '../data/store'
 import {ApiService} from '../services/api.service';
+import Loader from '../components/partials/Loader.vue';
 export default {
     name: "Payment",
     token: "",
     components: {
-        SliderCart
+        SliderCart,
+        Loader
     },
     data() {
         return {
@@ -20,7 +22,8 @@ export default {
             surname     : '',
             address     : '',
             email       : '',
-            message     : ''
+            message     : '',
+            isLoading   : false
         };
     },
     methods: {
@@ -41,6 +44,7 @@ export default {
                 .then((payload) => {
                     document.getElementById('nonce').value = payload.nonce;
                     form.submit();
+                    this.isLoading = true;
                 })
                 .catch((error) => {
                     console.log(error);;
@@ -74,7 +78,7 @@ export default {
 
 <template>
 
-    <div class="container mf-container">
+    <div v-if="!isLoading" class="container mf-container">
         <h1 class="text-center font-bold mb-5">
             IMPOSTAZIONI DI PAGAMENTO
         </h1>
@@ -127,7 +131,7 @@ export default {
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Indirizzo *</label>
-                    <input v-model="address" required type="text" class="form-control" id="address" name="address" placeholder="Via dei fioccchi, 12">
+                    <input v-model="address" required type="text" class="form-control" id="address" name="address" placeholder="Via dei fiocchi, 12">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email * </label>
@@ -161,6 +165,9 @@ export default {
         <!--// FORM PAYMENT -->
 
 
+    </div>
+    <div v-else class="text-center mf-container">
+        <Loader />
     </div>
 
 </template>
