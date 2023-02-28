@@ -51,7 +51,6 @@ export default {
     footer {
         background-color: #26635B;
         height: 400px;
-        margin-top: 100px;
         .logo {
             img {
                 width: 50px;
