@@ -45,7 +45,7 @@ export default {
     </div> -->
                 <div class="food-card">
                     <div class="food-card_img">
-                        <img src="https://i.imgur.com/eFWRUuR.jpg" alt="">
+                        <img :src="food.cover_image" alt="">
                         <a href="#!"><i class="far fa-heart"></i></a>
                     </div>
                     <div class="food-card_content">
@@ -66,7 +66,7 @@ export default {
                             <hr>
                             <div class="space-between">
                                 <div class="food-card_price">
-                                    <span>{{ food.price }}</span>
+                                    <span>&euro; {{ food.price }}</span>
                                 </div>
                                 <div class="food-card_order-count">
                                     <!-- COUNT DA ELIMINARE E AGGIUNGERE BOTTONE "ADD TO CART" -->
