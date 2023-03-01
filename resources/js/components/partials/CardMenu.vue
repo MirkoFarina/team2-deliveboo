@@ -43,7 +43,7 @@ export default {
             </div>
         </div>
     </div> -->
-                <div class="food-card">
+                <div class="food-card ">
                     <div class="food-card_img">
                         <img :src="food.cover_image" alt="">
                     </div>
@@ -53,7 +53,7 @@ export default {
                         </div>
                         <div class="food-card_bottom-section">
                             <div class="space-between">
-                                <div>
+                                <div style="height: 5rem;">
                                     <p v-if="food.is_available === 1" class="text-success">Disponibile</p>
                                     <p class="text-danger" v-else>Al momento Non Disponibile</p>
                                     <span class="fa-solid fa-burger"></span> {{food.ingredients}}
