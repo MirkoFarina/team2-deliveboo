@@ -391,7 +391,7 @@ return [
         "name_of_restaurant" => "Tandem",
         "phone_number" => "08119180196",
         "website" => "https://tandemnapoli.it/",
-        "cover_image" => "https://tandemnapoli.it/wp-content/uploads/2020/03/tandem-il-ragu-come-piace-a-me-logo.png",
+        "cover_image" => "https://tandemnapoli.it/wp-content/uploads/2020/04/46491533_2145404202343400_5655994126605221888_n.jpg",
         "categories" =>[1,4, 3],
         "foods" => [
             [
