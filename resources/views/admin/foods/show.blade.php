@@ -26,7 +26,9 @@
             ])
         </div>
         <div class="card w-75">
-            <img src="{{ asset('storage/' . $food->cover_image) }}" class="card-img-top" alt="{{ $food->original_name }}">
+            @if (isset($food->cover_image))
+                <img src="{{  $food->cover_image }}" class="card-img-top" style="object-fit: cover; max-height:300px;" alt="{{ $food->original_name }}">
+            @endif
             <div class="card-body">
                 <h5 class="card-title">{{ $food->name }}</h5>
                 <p class="card-text">
@@ -45,4 +47,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection
