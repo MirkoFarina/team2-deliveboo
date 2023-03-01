@@ -1,6 +1,3 @@
-<img src="/Users/lucafabbozzo/boolean/75_FINALE/team2-deliveboo/resources/js/assets/img/logoboo.png" />
-
-
 
 ## SU DELIVEBOO
 
