@@ -15,7 +15,7 @@
 
         <div class="container">
             <h1 class="mb-4"> Riepilogo profilo </h1>
-            
+
             <div class="card py-3 mb-3 text-dark " style="max-width: 800px;">
                 <div class="row g-0">
                     <div class="col-md-4 d-flex justify-content-center align-items-center">
@@ -53,7 +53,7 @@
                     <div class="card mb-3 text-dark " style="max-width: 800px;">
                         <div class="row g-0">
                             <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                
+
                                 @if ((substr($res->cover_image, 0, 4) == 'http'))
                                 <img src="{{ $res->cover_image ?? null }}" class="card-img-top"
                                 alt="{{ $res->name_of_restaurant }}">
@@ -75,20 +75,21 @@
                                     <p class="card-text"><small class="text-muted">Registrato il {{ $res->created_at }}</small></p>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                         </div>
                         <a href=" {{route('admin.restaurants.index')}} " class="btn btn-primary">Gestisci</a>
 
 
-                    
+
                 </div>
 
             @else
-
-                <h2>Registra il tuo ristorante con un click!</h2>
-                <a class="btn btn-primary" href=" {{route('admin.restaurants.create')}} ">Registra il tuo ristorante</a>
+                <div class="py-4">
+                    <h2>Registra il tuo ristorante con un click!</h2>
+                    <a class="btn btn-primary mt-3" href=" {{route('admin.restaurants.create')}} ">Registra il tuo ristorante</a>
+                </div>
 
             @endif
 
