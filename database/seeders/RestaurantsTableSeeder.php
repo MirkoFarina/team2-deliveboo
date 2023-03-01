@@ -50,7 +50,8 @@ class RestaurantsTableSeeder extends Seeder
                 $new_food->price = $food['price'];
                 $new_food->ingredients = $food['ingredient'];
                 $new_food->is_available = $food['is_available'];
-
+                if(isset($food['cover_image']))
+                    $new_food->cover_image = $food['cover_image'];
                 $new_food->save();
             }
             $count++;
