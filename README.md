@@ -19,10 +19,14 @@ In questa applicazione puoi trovare, gestione dell'utente, gestione del ristorat
 - Scss
 - Bootstrap 5
 - Axios
-- Breintree
+- Braintree
 - MailTrap 
 
-
+## Ecco un video demo dell'esperienza lato External User: 
 
 https://user-images.githubusercontent.com/108122346/222216301-3e0af3a5-8160-4c2d-b84a-65995e0ab3a0.mp4
+
+## Qui un video demo dell'esperienza lato User Registered: 
+
+https://user-images.githubusercontent.com/108122346/222222498-ae7345d8-4a77-4b07-ad22-1e6b90b0950a.mp4
 
