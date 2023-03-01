@@ -27,7 +27,16 @@
         </div>
         <div class="card w-75">
             @if (isset($food->cover_image))
-                <img src="{{  $food->cover_image }}" class="card-img-top" style="object-fit: cover; max-height:300px;" alt="{{ $food->original_name }}">
+
+
+                @if ((substr($food->cover_image, 0, 4) == 'http'))
+                    <img src="{{ $food->cover_image ?? null }}" class="card-img-top"
+                alt="{{ $food->original_name }}">
+                @else
+                    <img src="{{ asset('storage/' . $food->cover_image) ?? null }}" class="card-img-top"
+                    alt="{{ $food->original_name }}">
+                @endif
+
             @endif
             <div class="card-body">
                 <h5 class="card-title">{{ $food->name }}</h5>
