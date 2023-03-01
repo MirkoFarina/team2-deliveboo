@@ -509,7 +509,7 @@ return [
                 "price" => 7,
                 "is_available" => true,
                 "ingredient" => "Pesce, Insalata",
-                "cover_image" => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.twopeasandtheirpod.com%2Fsushi-salad%2F&psig=AOvVaw2Ao3L6bvLQrvY6OQdJqpy7&ust=1677757789242000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNDT3_rUuv0CFQAAAAAdAAAAABAD"
+                "cover_image" => "https://www.kitchensanctuary.com/wp-content/uploads/2019/07/Salmon-Sushi-Salad-wide-FS.jpg"
             ],
             [
                 "name" => "Toryofy Ebi",
