@@ -57,12 +57,8 @@ class RestaurantsTableSeeder extends Seeder
             }
             $count++;
 
-            dump($res['categories']);
-            /* $restaurants = Restaurant::find($new_res); */
             foreach($res['categories'] as $cat)
                 $new_res->categories()->attach($cat);
-
-
         }
     }
 }
