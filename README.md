@@ -1,4 +1,4 @@
-<img src="logoboo_readme.png" alt="logo" style="with: 130px; margin: 20px;"/>
+<img src="/logoboo_readme.png" alt="logo" style="with: 130px; margin: 20px;"/>
 
 ## SU DELIVEBOO
 
