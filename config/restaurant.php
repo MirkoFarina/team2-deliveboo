@@ -158,7 +158,7 @@ return [
                 "price" => 6,
                 "is_available" => true,
                 "ingredient" => "Macinato di Scottona, Pane, Pepe, Prezzemolo, Ristretto di Pomodoro",
-                "cover_image" => "https://www.ideegreen.it/wp-content/uploads/2014/05/come-fare-i-ravioli.jpg"
+                "cover_image" => "https://www.soniaperonaci.it/wp-content/uploads/2020/12/Polpette-di-carne-al-sugo-quadrata-anteprima.jpg"
             ],
         ],
     ],
