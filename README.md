@@ -22,3 +22,7 @@ In questa applicazione puoi trovare, gestione dell'utente, gestione del ristorat
 - Breintree
 - MailTrap 
 
+
+
+https://user-images.githubusercontent.com/108122346/222216301-3e0af3a5-8160-4c2d-b84a-65995e0ab3a0.mp4
+
